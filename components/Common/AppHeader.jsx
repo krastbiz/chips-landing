@@ -79,6 +79,7 @@ const AppHeader = () => {
 
 const ContainerStyled = styled(Container)`
     padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
 `
@@ -88,6 +89,7 @@ const Header = styled.header``
 const HeaderInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
 `
 
