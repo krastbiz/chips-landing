@@ -3,19 +3,27 @@ import styled from "styled-components"
 import { Container } from "../ui/layouts/Container"
 import { PrimaryButton } from "../ui/buttons/PrimaryButton"
 import Link from "next/link"
+import { PageLayout } from "../ui/layouts/PageLayout"
 
 const Home = () => {
+
+    const mainSection = (
+        <>
+            <H1>ЭЛЕКТРОННЫЕ КОМПОНЕНТЫ</H1>
+            <MainCTAWrapper>
+                <Link href="/contacts" passHref legacyBehavior><PrimaryButton as={'a'}>Контакты</PrimaryButton></Link>
+                <Link href="/delivery" passHref legacyBehavior><PrimaryButton as={'a'} filled marginLeft={'26px'}>Каталог</PrimaryButton></Link>
+            </MainCTAWrapper>
+        </>
+    )
+
     return (
         <MainLayout>
-            <Container>
-                <MainSection>
-                    <H1>ЭЛЕКТРОННЫЕ КОМПОНЕНТЫ</H1>
-                    <MainCTAWrapper>
-                        <Link href="/contacts" passHref legacyBehavior><PrimaryButton as={'a'}>Контакты</PrimaryButton></Link>
-                        <Link href="/delivery" passHref legacyBehavior><PrimaryButton as={'a'} filled marginLeft={'26px'}>Каталог</PrimaryButton></Link>
-                    </MainCTAWrapper>
-                </MainSection>
-            </Container>
+            <PageLayout mainSection={mainSection}>
+                <h2>ИНОВАЦИОННЫЕ РАЗРАБОТКИ</h2>
+                <p>ЧипТрейд– Российский дистрибьютор ведущих мировых производителей компонентов и оборудования</p>
+                <p>ЧипТрейд предлагает инновационные разработки, используемые для ответственных применений. Поставляемые компанией компоненты и оборудование отвечают самым высоким требованиям наших заказчиков – промышленных предприятий к высокой надежности, качеству и инновационности технических решений.</p>
+            </PageLayout>
         </MainLayout>
     )
 }
