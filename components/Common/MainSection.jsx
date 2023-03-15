@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { breakpoint } from "../../lib/theme";
 
 export const MainSection = styled.section`
+    overflow: hidden;
     margin-bottom: 64px;
     position: relative;
     padding: 200px 64px;
@@ -19,4 +21,14 @@ export const MainSection = styled.section`
         bottom: 0;
         right: -25px;
     }
+
+    ${breakpoint.laptop`
+        padding: 130px 64px;
+    `}
+
+    ${breakpoint.tablet`
+        ::before {
+            display: none;
+        }
+    `}
 `

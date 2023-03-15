@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Delimeter } from "../../ui/Delimeter"
+import { breakpoint } from '../../../lib/theme'
 
 export const FeatureCard = ({ title, iconUrl, description }) => {
     return (
@@ -39,7 +40,30 @@ const FeatureNumber = styled.div`
         bottom: 0;
 
         background: url(${({ iconUrl }) => iconUrl}) no-repeat;
+        background-size: cover;
     }
+
+    ${breakpoint.desktop`
+        ::before {
+            width: 70px;
+            height: 70px;
+            bottom: 15px;
+            right: 35px;
+        }
+    `}
+
+    ${breakpoint.laptop`
+        height: 120px;
+        font-size: 70px;
+        margin-bottom: 10px;
+
+        ::before {
+            width: 50px;
+            height: 50px;
+            bottom: 5px;
+            right: 20px;
+        }
+    `}
 `
 const FeatureDescription = styled.p`
     margin-top: 24px;
@@ -49,4 +73,9 @@ const FeatureDescription = styled.p`
     font-size: 18px;
     line-height: 30px;
     color: #14140C;
+
+    ${breakpoint.laptop`
+        margin-bottom: 10px;
+        font-size: 14px;
+    `}
 `

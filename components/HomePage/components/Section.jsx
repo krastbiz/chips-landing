@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { breakpoint } from "../../../lib/theme"
 import { H2, Text } from "../../ui/Typography"
 
 export const Section = (props) => {
@@ -36,6 +37,12 @@ const Images = styled.div`
     ${ImageWrapper} + ${ImageWrapper} {
         margin-left: 40px;
     }
+
+    ${breakpoint.tablet`
+        ${ImageWrapper} + ${ImageWrapper} {
+            margin-left: 10px;
+        }
+    `}
 `
 
 const TextStyled = styled(Text)`

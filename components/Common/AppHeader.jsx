@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styled from "styled-components"
+import { breakpoint } from "../../lib/theme"
 import { Delimeter } from "../ui/Delimeter"
 import { Container } from "../ui/layouts/Container"
 
@@ -34,41 +35,43 @@ const AppHeader = () => {
         <Header>
             <ContainerStyled>
 
-                <a href="/">
-                    <Logo src="/static/logo.svg" alt="Логотип"/>
-                </a>
+                <LogoWrapper>
+                    <a href="/">
+                        <Logo src="/static/logo.svg" alt="Логотип"/>
+                    </a>
+                </LogoWrapper>
 
                 <HeaderInfoWrapper>
                     <HeaderInfoTop>
-                        <HeaderInfoItem>
+                        <PhoneItem>
                             <a href="tel:+7(812)3375359">
                                 <img src="/static/phone-icon.svg" alt="phone icon"></img>
                                 +7 (812) 337 53 59
                             </a>
-                        </HeaderInfoItem>
-                        <HeaderInfoItem>
+                        </PhoneItem>
+                        <EmailItem>
                             <a href="mailto:info@chipstrade.ru">
                                 <img src="/static/email-icon.svg" alt="phone icon"></img>
                                 info@chipstrade.ru
                             </a>
-                        </HeaderInfoItem>
-                        <HeaderInfoItem>
+                        </EmailItem>
+                        <AddressItem>
                             <div>
                                 <img src="/static/point-icon.svg" alt="phone icon"></img>
                                 Санкт-Петербург, Невский пр-кт, дом № 151, литера А
                             </div>
-                        </HeaderInfoItem>
+                        </AddressItem>
                     </HeaderInfoTop>
 
                     <Delimeter />
 
-                    <HeaderInfoBotton>
+                    <HeaderInfoBottom>
                         <Nav>
                             {
                                 NAV_LINKS.map(({ text, url }) => renderNavLink({ text, url }))
                             }
                         </Nav>
-                    </HeaderInfoBotton>
+                    </HeaderInfoBottom>
 
                 </HeaderInfoWrapper>
 
@@ -83,28 +86,60 @@ const ContainerStyled = styled(Container)`
     padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
+
+    ${breakpoint.tablet`
+        padding-top: 10px;
+        padding-bottom: 10px;
+    `}
 `
 
 const Header = styled.header``
+
+const HeaderInfoBottom = styled.div`
+    padding: 32px 0;
+
+    ${breakpoint.laptop`
+        padding: 14px 0;
+    `}
+`
 
 const HeaderInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+
+    ${breakpoint.tablet`
+        justify-content: center;
+
+        ${Delimeter} {
+            display: none;
+        }
+
+        ${HeaderInfoBottom} {
+            display: none;
+        }
+    `}
 `
 
 const HeaderInfoTop = styled.div`
     margin-bottom: 32px;
     display: flex;
     align-items: center;
+
+    ${breakpoint.laptop`
+        margin-bottom: 14px;
+    `}
+
+    ${breakpoint.tablet`
+        margin-bottom: 0;
+    `}
 `
 
-const HeaderInfoBotton = styled.div`
-    padding: 32px 0;
-`
+
 
 const HeaderInfoItem = styled.div`
+    margin-left: 32px;
     font-family: ${({ theme }) => theme.fonts.roboto};
     font-weight: 500;
     color: ${({ theme }) => theme.colors.grayed};
@@ -118,7 +153,23 @@ const HeaderInfoItem = styled.div`
         }
     }
 
-    margin-left: 32px;
+    ${breakpoint.laptop`
+        margin-left: 24px;
+        font-size: 12px;
+    `}
+
+`
+
+const PhoneItem = styled(HeaderInfoItem)``
+const EmailItem = styled(HeaderInfoItem)`
+    ${breakpoint.mobile`
+        display: none;
+    `}
+`
+const AddressItem = styled(HeaderInfoItem)`
+    ${breakpoint.tablet`
+        display: none;
+    `}
 `
 
 const Nav = styled.nav`
@@ -143,6 +194,19 @@ const Nav = styled.nav`
     }
 `
 
-const Logo = styled.img``
+const Logo = styled.img`
+    width: 100%;
+`
+
+const LogoWrapper = styled.div`
+
+    ${breakpoint.laptop`
+        width: 70px;
+    `}
+
+    ${breakpoint.tablet`
+        width: 50px;
+    `}
+`
 
 export default AppHeader

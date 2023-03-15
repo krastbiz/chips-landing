@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styled from "styled-components"
+import { breakpoint } from "../../../lib/theme"
 import { Delimeter } from "../Delimeter"
 import { H3 } from "../Typography"
 import { Container } from "./Container"
@@ -39,6 +40,10 @@ const PageContentWrapper = styled.div`
 `
 const PageContent = styled.div`
     width: 70%;
+
+    ${breakpoint.tablet`
+        width: 100%;
+    `}
 `
 
 const LinkGroup = styled.div`
@@ -59,6 +64,18 @@ const LinkGroup = styled.div`
     a + a {
         margin-top: 28px;
     }
+
+    ${breakpoint.desktop`
+        a {
+            padding-left: 30px;
+        }
+    `}
+
+    ${breakpoint.laptop`
+        a {
+            padding-left: 10px;
+        }
+    `}
 `
 
 const Aside = styled.aside`
@@ -68,6 +85,10 @@ const Aside = styled.aside`
     ${LinkGroup} + ${LinkGroup} {
         margin-top: 40px;
     }
+
+    ${breakpoint.tablet`
+        display: none;
+    `}
 `
 
 const LinkGroupTitle = styled.div`
@@ -77,4 +98,8 @@ const LinkGroupTitle = styled.div`
 const H3Styled = styled(H3)`
     padding-left: 30px;
     margin-bottom: 12px;
+
+    ${breakpoint.laptop`
+        padding-left: 10px;
+    `}
 `

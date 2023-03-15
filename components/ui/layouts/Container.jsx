@@ -1,29 +1,28 @@
-import { Container as ContainerAlias } from "styled-bootstrap-grid";
 import styled from "styled-components"
-import { breakpoint } from "../../../lib/theme";
+import { breakpoint, screenWidth } from "../../../lib/theme";
 
 const Container = styled.div`
-    max-width: 1224px;
+    max-width: ${screenWidth.desktop};
     margin: 0 auto;
 
     ${breakpoint.desktop`
-        max-width: 960px;
+        max-width: ${screenWidth.laptop};
     `}
 
     ${breakpoint.laptop`
-        max-width: 768px;
+        max-width: ${screenWidth.tablet};
     `}
 
     ${breakpoint.tablet`
+        padding-right: 10px;
+        padding-left: 10px;
         max-width: 100%;
     `}
 
     ${breakpoint.mobile`
+        padding-right: 10px;
+        padding-left: 10px;
         width: 100%;
     `} 
 `
-// const Container = styled(ContainerAlias)`
-//     padding-left: 0;
-//     padding-right: 0;
-// `
 export { Container }

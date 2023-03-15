@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styled from "styled-components"
+import { breakpoint } from "../../lib/theme"
 import { Container } from "../ui/layouts/Container"
 
 const ABOUT_COMPANY_LINKS = [
@@ -28,9 +29,11 @@ const AppFooter = () => {
     return (
         <footer>
             <ContainerStyled>
-                <a href="/">
-                    <img src="/static/logo-footer.svg" alt="Логотип подвала" />
-                </a>
+                <LogoWrapper>
+                    <a href="/">
+                        <img src="/static/logo-footer.svg" alt="Логотип подвала" />
+                    </a>
+                </LogoWrapper>
 
                 <FooterInfoWrapper>
                     <FooterInfoItem>
@@ -70,6 +73,7 @@ const AppFooter = () => {
 }
 
 const ContainerStyled = styled(Container)`
+    overflow: hidden;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -90,6 +94,19 @@ const ContainerStyled = styled(Container)`
         top: 0px;
         left: -19px;
     }
+
+    ${breakpoint.laptop`
+        padding: 100px 60px;
+    `}
+
+    ${breakpoint.tablet`
+        padding: 60px 60px;    
+        flex-direction: column;
+
+        ::before {
+            display: none;
+        }
+    `}
 `
 
 const FooterInfoWrapper = styled.div`
@@ -97,6 +114,10 @@ const FooterInfoWrapper = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+
+    ${breakpoint.tablet`
+        margin-bottom: 20px;
+    `}
 `
 
 const FooterInfoItem = styled.div`
@@ -126,6 +147,14 @@ const FooterLinksWrapper = styled.div`
     a + a {
         margin-top: 24px;
     }
+
+    ${breakpoint.tablet`
+        margin-bottom: 20px;
+
+        a + a {
+            margin-top: 10px;
+        }
+    `}
 `
 const FooterLinksHeader = styled.h3`
     margin-bottom: 23px;
@@ -134,6 +163,26 @@ const FooterLinksHeader = styled.h3`
     font-size: 14px;
     line-height: 17px;
     text-transform: uppercase;
+
+    ${breakpoint.tablet`
+        margin-bottom: 10px;
+    `}
+`
+
+const LogoWrapper = styled.div`
+    img {
+        width: 100%;
+    }
+
+    ${breakpoint.laptop`
+        margin-right: 20px;
+        width: 70px;
+    `}
+
+    ${breakpoint.tablet`
+        margin-bottom: 20px;
+    `}
+
 `
 
 export default AppFooter

@@ -8,6 +8,7 @@ import { H1, H2, Text } from "../ui/Typography"
 import { FeatureCard, FeatureCardWrapper } from "./components/FeatureCard"
 import { MainSection } from "../Common/MainSection"
 import { Section } from "./components/Section"
+import { breakpoint } from "../../lib/theme"
 
 const Home = () => {
 
@@ -128,11 +129,21 @@ const FeatureCardsWrapper = styled.div`
     ${FeatureCardWrapper} + ${FeatureCardWrapper} {
         margin-left: 30px;
     }
+
+    ${breakpoint.tablet`
+        flex-wrap: wrap;
+        justify-content: center;
+
+        ${FeatureCardWrapper} {
+            width: 40%;
+        }
+    `}
 `
 
 const FeaturesSections = styled.section`
     margin-bottom: 100px;
     ${Container} {
+        overflow: hidden;
         position: relative;
         padding: 88px 20px;
         background: ${({ theme }) => theme.colors.secondary};
@@ -151,12 +162,30 @@ const FeaturesSections = styled.section`
         }
     }
 
+    ${breakpoint.laptop`
+        ${Container} {
+            padding: 70px 20px;
+        }
+    `}
+
+    ${breakpoint.tablet`
+        ${Container} {
+            ::before {
+                display: none;
+            }
+        }
+    `}
+
 `
 
 const FeaturesSectionsTitle = styled(H2)`
     margin-top: 20px;
     margin-bottom: 60px;
     text-align: center;
+
+    ${breakpoint.laptop`
+        margin-bottom: 30px;
+    `}
 `
 
 const MainCTAWrapper = styled.div`
@@ -169,6 +198,10 @@ const MainCTAWrapper = styled.div`
 
 const AdvantagesSection = styled.section`
     margin-bottom: 250px;
+
+    ${breakpoint.tablet`
+        margin-bottom: 100px;
+    `}
 `
 const AdvantagesTitle = styled(H2)`
     margin-bottom: 50px;
@@ -198,6 +231,11 @@ const AdvantagesItem = styled.li`
         left: -34px;
     }
 
+    ${breakpoint.tablet`
+        width: 100%;
+        margin-bottom: 10px;
+    `}
+
 `
 const AdvantagesList = styled.ul`
     width: 70%;
@@ -208,6 +246,16 @@ const AdvantagesList = styled.ul`
     ${AdvantagesItem}:nth-child(odd) {
         padding-right: 40px;
     }
+
+    ${breakpoint.laptop`
+        width: 80%;
+    `}
+
+    ${breakpoint.tablet`
+        ${AdvantagesItem}:nth-child(odd) {
+            padding-right: 0;
+        }
+    `}
 `
 
 export default Home
