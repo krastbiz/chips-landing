@@ -5,12 +5,12 @@ export const Delimeter = styled.div`
     height: 1px;
     background-color: #C4C4C4;
     width: 100%;
-    ${({ hideDot }) => !hideDot ? `
+    ${({ hideDot, right }) => !hideDot ? `
     ::before {
         content: '';
         display: block;
         position: absolute;
-        ${({ right }) => right ? 'right:0;' : 'left: 0;'}
+        ${right ? 'right:0;' : 'left: 0;'}
         top: 50%;
         width: 7px;
         height: 7px;

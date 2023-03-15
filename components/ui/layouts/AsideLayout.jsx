@@ -5,7 +5,7 @@ import { H3 } from "../Typography"
 import { Container } from "./Container"
 
 export const AsideLayout = (props) => {
-    const { mainSection, children } = props
+    const { children } = props
     return (
         <Container>
             <PageContentWrapper>

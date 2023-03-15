@@ -51,7 +51,7 @@ const Home = () => {
                     {mainSection}
                 </MainSection>
             </Container>
-            <AsideLayout mainSection={mainSection}>
+            <AsideLayout>
                 <Section
                     images={[
                         { url: '/static/images/chip-1.jpeg', alt: 'Изображение чипа' },

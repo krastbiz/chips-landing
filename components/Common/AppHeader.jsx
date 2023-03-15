@@ -14,7 +14,7 @@ const NAV_LINKS = [
     },
     {
         text: 'Контроль качества',
-        url: '#quality',
+        url: '/#quality',
     },
     {
         text: 'Контакты',
