@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { Container } from "styled-bootstrap-grid"
 import styled from "styled-components"
 import { Delimeter } from "../ui/Delimeter"
+import { Container } from "../ui/layouts/Container"
 
 const NAV_LINKS = [
     {
@@ -25,9 +25,9 @@ const NAV_LINKS = [
 const AppHeader = () => {
 
     const renderNavLink = ({ text, url }) => {
-        if (url.startsWith('#')) return <a href={url}>{text}</a>
+        if (url.startsWith('#')) return <a key={url} href={url}>{text}</a>
 
-        return <Link href={url}>{text}</Link>
+        return <Link key={url} href={url}>{text}</Link>
     }
 
     return (

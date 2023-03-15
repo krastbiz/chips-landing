@@ -88,7 +88,7 @@ const Home = () => {
                     <FeaturesSectionsTitle>МЫ СТРОИМ НАШУ РАБОТУ, БАЗИРУЯСЬ НА:</FeaturesSectionsTitle>
                     <FeatureCardsWrapper>
                         {featureCards.map((card, index) => (
-                            <FeatureCard title={`0${index + 1}`} description={card.description} iconUrl={card.iconUrl}/>
+                            <FeatureCard key={card.iconUrl + index} title={`0${index + 1}`} description={card.description} iconUrl={card.iconUrl}/>
                         ))}
                     </FeatureCardsWrapper>
                 </Container>

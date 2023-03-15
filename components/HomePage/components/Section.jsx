@@ -10,7 +10,7 @@ export const Section = (props) => {
 
             <Images>
                 {images.map(image => (
-                    <ImageWrapper><img src={image.url} alt={image.alt} /></ImageWrapper>
+                    <ImageWrapper key={image.url}><img src={image.url} alt={image.alt} /></ImageWrapper>
                 ))}
             </Images>
         </PageSection>

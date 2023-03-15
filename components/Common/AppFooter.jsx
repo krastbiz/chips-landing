@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { Container } from "styled-bootstrap-grid"
 import styled from "styled-components"
+import { Container } from "../ui/layouts/Container"
 
 const ABOUT_COMPANY_LINKS = [
     {
@@ -55,12 +55,12 @@ const AppFooter = () => {
 
                 <FooterLinksWrapper>
                     <FooterLinksHeader>О Компании</FooterLinksHeader>
-                    {ABOUT_COMPANY_LINKS.map(({ text, url }) => <Link href={url}>{text}</Link>)}
+                    {ABOUT_COMPANY_LINKS.map(({ text, url }) => <Link key={url} href={url}>{text}</Link>)}
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>
                     <FooterLinksHeader>Поставки</FooterLinksHeader>
-                    {DELIVERY_LINKS.map(({ text, url }) => <Link href={url}>{text}</Link>)}
+                    {DELIVERY_LINKS.map(({ text, url }) => <Link key={url} href={url}>{text}</Link>)}
                 </FooterLinksWrapper>
 
 

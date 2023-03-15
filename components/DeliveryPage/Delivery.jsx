@@ -58,7 +58,7 @@ const Delivery = () => {
                 <H2>ЛИНЕЙКА ПОСТАВОК</H2>
                 <CardsWrapper>
                     {companyCards.map(card => (
-                        <CompanyCard url={card.url} alt={card.alt} />
+                        <CompanyCard key={card.url} url={card.url} alt={card.alt} />
                     ))}
                 </CardsWrapper>
             </AsideLayout>
