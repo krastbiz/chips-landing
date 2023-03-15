@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Container } from "styled-bootstrap-grid"
 import styled from "styled-components"
+import { Delimeter } from "../ui/Delimeter"
 
 const NAV_LINKS = [
     {
@@ -142,26 +143,6 @@ const Nav = styled.nav`
     }
 `
 
-const Delimeter = styled.div`
-    position: relative;
-    height: 1px;
-    background-color: #C4C4C4;
-    width: 100%;
-    ::before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 7px;
-        height: 7px;
-        border-radius: 10px;
-        background: #C4C4C4;
-        transform: translateY(-50%);
-    }
-`
-
-const LogoWrapper = styled.div``
 const Logo = styled.img``
 
 export default AppHeader

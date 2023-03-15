@@ -4,6 +4,7 @@ import { GlobalStyle } from '../lib/globalStyles'
 const theme = {
   colors: {
     primary: '#4F4F4F',
+    secondary: '#F4F4F4',
     grayed: '#808080', 
     light: '#ffffff',
   },
