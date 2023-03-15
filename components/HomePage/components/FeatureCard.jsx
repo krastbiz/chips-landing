@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Delimeter } from "./Delimeter"
+import { Delimeter } from "../../ui/Delimeter"
 
 export const FeatureCard = ({ title, iconUrl, description }) => {
     return (

@@ -5,7 +5,7 @@ export const Section = (props) => {
     const { title, content, images, id } = props
     return (
         <PageSection id={id ? id: null}>
-            <H2Styled>{title}</H2Styled>
+            <H2>{title}</H2>
             <TextStyled>{content}</TextStyled>
 
             <Images>
@@ -36,10 +36,6 @@ const Images = styled.div`
     ${ImageWrapper} + ${ImageWrapper} {
         margin-left: 40px;
     }
-`
-
-const H2Styled = styled(H2)`
-    margin-bottom: 30px;
 `
 
 const TextStyled = styled(Text)`

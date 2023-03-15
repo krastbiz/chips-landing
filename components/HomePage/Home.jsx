@@ -5,7 +5,7 @@ import { PrimaryButton } from "../ui/buttons/PrimaryButton"
 import Link from "next/link"
 import { AsideLayout } from "../ui/layouts/AsideLayout"
 import { H1, H2, Text } from "../ui/Typography"
-import { FeatureCard, FeatureCardWrapper } from "../ui/FeatureCard"
+import { FeatureCard, FeatureCardWrapper } from "./components/FeatureCard"
 import { MainSection } from "../Common/MainSection"
 import { Section } from "./components/Section"
 
@@ -118,38 +118,8 @@ const Home = () => {
     )
 }
 
-
-const PageSection = styled.section`
-    margin-bottom: 100px;
-`
-
 const H1Styled = styled(H1)`
     margin-bottom: 52px;
-`
-
-const H2Styled = styled(H2)`
-    margin-bottom: 30px;
-`
-
-const TextStyled = styled(Text)`
-    margin-bottom: 30px;
-`
-
-const ImageWrapper = styled.div`
-    width: 33%;
-
-    img {
-        display: block;
-        width: 100%;
-    }
-`
-
-const Images = styled.div`
-    display: flex;
-
-    ${ImageWrapper} + ${ImageWrapper} {
-        margin-left: 40px;
-    }
 `
 
 const FeatureCardsWrapper = styled.div`

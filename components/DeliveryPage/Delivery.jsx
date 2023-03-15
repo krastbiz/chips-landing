@@ -55,7 +55,7 @@ const Delivery = () => {
             </Container>
 
             <AsideLayout>
-                <H2Styled>ЛИНЕЙКА ПОСТАВОК</H2Styled>
+                <H2>ЛИНЕЙКА ПОСТАВОК</H2>
                 <CardsWrapper>
                     {companyCards.map(card => (
                         <CompanyCard url={card.url} alt={card.alt} />
@@ -68,10 +68,6 @@ const Delivery = () => {
 
 const H1Styled = styled(H1)`
     padding-right: 300px;
-`
-
-const H2Styled = styled(H2)`
-    margin-bottom: 30px;
 `
 
 const CardsWrapper = styled.div`
