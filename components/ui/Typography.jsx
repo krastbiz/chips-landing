@@ -12,6 +12,12 @@ export const H1 = styled.h1`
     ${breakpoint.tablet`
         font-size: 48px;
     `}
+
+    ${breakpoint.mobile`
+        margin-bottom: 30px;
+        font-size: 24px;
+        line-height: 50px;
+    `}
 `
 
 export const H2 = styled.h2`

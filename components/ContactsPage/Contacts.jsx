@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { breakpoint } from "../../lib/theme"
 import { MainSection } from "../Common/MainSection"
 import { MapComponent } from "../Common/MapComponent"
 import { AsideLayout } from "../ui/layouts/AsideLayout"
@@ -39,9 +40,17 @@ const Contacts = () => {
 const ContactsWrapper = styled.div`
     margin-bottom: 77px;
     display: flex;
+
+    ${breakpoint.laptop`
+        flex-direction: column;
+    `}
 `
 const ContactBox = styled.div`
     width: 50%;
+
+    ${breakpoint.laptop`
+        width: unset;
+    `}
 `
 
 const ContactTitle = styled.p`

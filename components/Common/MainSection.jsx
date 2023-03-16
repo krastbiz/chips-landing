@@ -31,4 +31,9 @@ export const MainSection = styled.section`
             display: none;
         }
     `}
+
+    ${breakpoint.mobile`
+        text-align: center;
+        padding: 50px 50px;
+    `}
 `

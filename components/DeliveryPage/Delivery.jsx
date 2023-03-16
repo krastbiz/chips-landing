@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { breakpoint } from "../../lib/theme"
 import { MainSection } from "../Common/MainSection"
 import { AsideLayout } from "../ui/layouts/AsideLayout"
 import { Container } from "../ui/layouts/Container"
@@ -68,6 +69,10 @@ const Delivery = () => {
 
 const H1Styled = styled(H1)`
     padding-right: 300px;
+
+    ${breakpoint.tablet`
+        padding-right: 0;
+    `}
 `
 
 const CardsWrapper = styled.div`
@@ -76,7 +81,18 @@ const CardsWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
     column-gap: 30px;
     row-gap: 30px;
-    flex-wrap: wrap;
+
+    ${breakpoint.tablet`
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+        row-gap: 10px;
+    `}
+
+    ${breakpoint.mobile`
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 10px;
+        row-gap: 10px;
+    `}
 `
 
 export default Delivery

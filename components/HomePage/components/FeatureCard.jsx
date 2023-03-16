@@ -64,6 +64,19 @@ const FeatureNumber = styled.div`
             right: 20px;
         }
     `}
+
+    ${breakpoint.mobile`
+        display: flex;
+        align-items: center;
+
+        ::before {
+            width: 50px;
+            height: 50px;
+            bottom: 50%;
+            transform: translateY(50%);
+            right: 20px;
+        }
+    `}
 `
 const FeatureDescription = styled.p`
     margin-top: 24px;

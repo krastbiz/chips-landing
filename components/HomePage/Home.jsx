@@ -138,6 +138,12 @@ const FeatureCardsWrapper = styled.div`
             width: 40%;
         }
     `}
+
+    ${breakpoint.mobile`
+        ${FeatureCardWrapper} {
+            width: 60%;
+        }
+    `}
 `
 
 const FeaturesSections = styled.section`
@@ -190,10 +196,20 @@ const FeaturesSectionsTitle = styled(H2)`
 
 const MainCTAWrapper = styled.div`
     display: flex;
-
+    
     a + a {
         margin-left: 26px;
     }
+
+    ${breakpoint.mobile`
+        flex-direction: column;
+        align-items: center;
+        a + a {
+            margin-left: 0;
+
+            margin-top: 10px;
+        }
+    `}
 `
 
 const AdvantagesSection = styled.section`
@@ -234,6 +250,11 @@ const AdvantagesItem = styled.li`
     ${breakpoint.tablet`
         width: 100%;
         margin-bottom: 10px;
+        padding-left: 20px;
+
+        ::before {
+            left: 0;
+        }
     `}
 
 `
