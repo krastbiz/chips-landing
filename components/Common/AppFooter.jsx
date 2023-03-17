@@ -31,26 +31,26 @@ const AppFooter = () => {
             <ContainerStyled>
                 <LogoWrapper>
                     <a href="/">
-                        <img src="/static/logo-footer.svg" alt="Логотип подвала" />
+                        <img src="/static/icons/logo-footer.svg" alt="Логотип подвала" />
                     </a>
                 </LogoWrapper>
 
                 <FooterInfoWrapper>
                     <FooterInfoItem>
                         <div>
-                            <img src="/static/point-icon.svg" alt="phone icon"></img>
+                            <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
                             <span>Санкт-Петербург,<br /> Невский пр-кт, дом № 151, литера А</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
                         <a href="tel:+7(812)3375359">
-                            <img src="/static/phone-icon.svg" alt="phone icon"></img>
+                            <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
                             <span>+7 (812) 337 53 59</span>
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
                         <a href="mailto:info@chipstrade.ru">
-                            <img src="/static/email-icon.svg" alt="phone icon"></img>
+                            <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
                             <span>info@chipstrade.ru</span>
                         </a>
                     </FooterInfoItem>

@@ -3,8 +3,10 @@ const next = require('next')
 
 const HOSTNAME = 'localhost'
 const PORT = 3000
+const devArgStr = process.argv.slice(-1)[0]
+const isDevMode = devArgStr.split('=')[1] === 'true'
 
-const app = next({ dev: true, hostname: HOSTNAME, port: PORT })
+const app = next({ dev: isDevMode, hostname: HOSTNAME, port: PORT })
 const pageHandler = app.getRequestHandler()
 
 app.prepare().then(() => {

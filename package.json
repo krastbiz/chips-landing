@@ -4,7 +4,9 @@
   "description": "landing for chips seller company",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "dev": "node server.js dev=true",
+    "start": "node server.js dev=false",
+    "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,7 +27,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
-    "styled-bootstrap-grid": "^3.1.2",
     "styled-components": "^5.3.8"
   }
 }

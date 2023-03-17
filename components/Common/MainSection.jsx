@@ -6,7 +6,7 @@ export const MainSection = styled.section`
     margin-bottom: 64px;
     position: relative;
     padding: 200px 64px;
-    background: url('/static/main-bg.jpeg') center no-repeat;
+    background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
 
     ::before {

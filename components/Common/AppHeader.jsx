@@ -31,17 +31,17 @@ const NAV_LINKS = [
 const CONTACTS = {
     phone: {
         title: '+7 (812) 337 53 59',
-        image: { url: '/static/phone-icon.svg', alt: 'Иконка телефона' },
+        image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
         href: 'tel:+7(812)3375359'  
     },
     email: {
         title: 'info@chipstrade.ru',
-        image: { url: '/static/email-icon.svg', alt: 'Иконка почты' },
+        image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
         href: 'mailto:info@chipstrade.ru',
     },
     address: {
         title: 'Санкт-Петербург, Невский пр-кт, дом № 151, литера А',
-        image: { url: '/static/point-icon.svg', alt: 'Иконка адреса' },
+        image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
     }
 }
@@ -66,14 +66,14 @@ const AppHeader = () => {
 
                 <LogoWrapper>
                     <a href="/">
-                        <Logo src="/static/logo.svg" alt="Логотип"/>
+                        <Logo src="/static/icons/logo.svg" alt="Логотип"/>
                     </a>
                 </LogoWrapper>
 
                 <HeaderInfoWrapper>
                     <HeaderInfoTop>
                         {contactsLinks.map(({ title, href, image}) => (
-                            <ContactItem title={title} href={href} image={image}/>
+                            <ContactItem key={href + title} title={title} href={href} image={image}/>
                         ))}
                         <BurgerMenu isActive={isMobileMenuActive} onClick={() => setIsMobileMenuActive((prev) => !prev)}/>
                     </HeaderInfoTop>

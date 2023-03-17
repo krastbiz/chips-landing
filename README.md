@@ -14,4 +14,8 @@ git clone https://github.com/krastbiz/chips-landing.git
 
 3. run `npm ci` (or if there is no package-lock.json file, run `npm i`)
 
-4. run `npm run start`
+4. run `npm run dev`
+
+### How to run the project in production mode
+1. run `npm run build`
+1. run `npm run start`
