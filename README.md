@@ -2,8 +2,8 @@
 Landing page for ships seller company
 
 ## About the project
-This project uses Next.JS for server-side rendering.
-Documentation can be found at https://nextjs.org/docs/getting-started
+This project uses Next.JS for server-side rendering. It runs by Express server.
+Documentation can be found at https://nextjs.org/docs/getting-started.
 
 ## Development
 
