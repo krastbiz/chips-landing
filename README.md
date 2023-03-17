@@ -18,4 +18,12 @@ git clone https://github.com/krastbiz/chips-landing.git
 
 ### How to run the project in production mode
 1. run `npm run build`
-1. run `npm run start`
+2. run `npm run start`
+
+## Deployment
+
+### How to deploy the project
+1. copy all the content to the root, omitting `.next` and `.node_modules` folders
+2. run `npm ci`
+3. run `npm run build`
+4. run `npm run start`
