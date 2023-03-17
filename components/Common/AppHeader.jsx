@@ -1,8 +1,13 @@
 import Link from "next/link"
+import { useState } from "react"
 import styled from "styled-components"
 import { breakpoint } from "../../lib/theme"
+import { useDeviceCheck } from "../../lib/utils/hooks/useDeviceCheck"
+import { BurgerMenu, BurgerWrapper } from "../ui/buttons/BurgerMenu"
+import { ContactInfoWrapper, ContactItem } from "../ui/ContactItem"
 import { Delimeter } from "../ui/Delimeter"
 import { Container } from "../ui/layouts/Container"
+import { MobileMenu } from "./MobileMenu"
 
 const NAV_LINKS = [
     {
@@ -23,16 +28,40 @@ const NAV_LINKS = [
     }
 ]
 
-const AppHeader = () => {
-
-    const renderNavLink = ({ text, url }) => {
-        if (url.startsWith('#')) return <a key={url} href={url}>{text}</a>
-
-        return <Link key={url} href={url}>{text}</Link>
+const CONTACTS = {
+    phone: {
+        title: '+7 (812) 337 53 59',
+        image: { url: '/static/phone-icon.svg', alt: 'Иконка телефона' },
+        href: 'tel:+7(812)3375359'  
+    },
+    email: {
+        title: 'info@chipstrade.ru',
+        image: { url: '/static/email-icon.svg', alt: 'Иконка почты' },
+        href: 'mailto:info@chipstrade.ru',
+    },
+    address: {
+        title: 'Санкт-Петербург, Невский пр-кт, дом № 151, литера А',
+        image: { url: '/static/point-icon.svg', alt: 'Иконка адреса' },
+        href: null,
     }
+}
+
+export const renderNavLink = ({ text, url, onClick }) => {
+    if (url.startsWith('#')) return <a key={url} href={url} onClick={onClick}>{text}</a>
+
+    return <Link key={url} href={url} onClick={onClick}>{text}</Link>
+}
+
+const AppHeader = () => {
+    const [isMobileMenuActive, setIsMobileMenuActive] = useState(false)
+
+    const { isMobile, isTablet } = useDeviceCheck()
+    const isMobileOrTablet = isMobile || isTablet
+
+    const contactsLinks = [CONTACTS.phone, CONTACTS.email, CONTACTS.address]
 
     return (
-        <Header>
+        <Header isMobileMenuActive={isMobileMenuActive}>
             <ContainerStyled>
 
                 <LogoWrapper>
@@ -43,24 +72,10 @@ const AppHeader = () => {
 
                 <HeaderInfoWrapper>
                     <HeaderInfoTop>
-                        <PhoneItem>
-                            <a href="tel:+7(812)3375359">
-                                <img src="/static/phone-icon.svg" alt="phone icon"></img>
-                                +7 (812) 337 53 59
-                            </a>
-                        </PhoneItem>
-                        <EmailItem>
-                            <a href="mailto:info@chipstrade.ru">
-                                <img src="/static/email-icon.svg" alt="phone icon"></img>
-                                info@chipstrade.ru
-                            </a>
-                        </EmailItem>
-                        <AddressItem>
-                            <div>
-                                <img src="/static/point-icon.svg" alt="phone icon"></img>
-                                Санкт-Петербург, Невский пр-кт, дом № 151, литера А
-                            </div>
-                        </AddressItem>
+                        {contactsLinks.map(({ title, href, image}) => (
+                            <ContactItem title={title} href={href} image={image}/>
+                        ))}
+                        <BurgerMenu isActive={isMobileMenuActive} onClick={() => setIsMobileMenuActive((prev) => !prev)}/>
                     </HeaderInfoTop>
 
                     <Delimeter />
@@ -77,6 +92,8 @@ const AppHeader = () => {
 
 
             </ContainerStyled>
+
+            {isMobileOrTablet && <MobileMenu isActive={isMobileMenuActive} onClose={() => setIsMobileMenuActive(false)} links={NAV_LINKS} contacts={CONTACTS}/>}
         </Header>
     )
 }
@@ -93,7 +110,15 @@ const ContainerStyled = styled(Container)`
     `}
 `
 
-const Header = styled.header``
+const Header = styled.header`
+    position: relative;
+
+    ${({ isMobileMenuActive }) => isMobileMenuActive && `
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    `}
+`
 
 const HeaderInfoBottom = styled.div`
     padding: 32px 0;
@@ -127,48 +152,31 @@ const HeaderInfoTop = styled.div`
     display: flex;
     align-items: center;
 
+    ${BurgerWrapper} {
+        display: none
+    } 
+
     ${breakpoint.laptop`
         margin-bottom: 14px;
     `}
 
     ${breakpoint.tablet`
         margin-bottom: 0;
-    `}
-`
 
+        ${BurgerWrapper} {
+            margin-left: 10px;
+            display: flex;
+        } 
 
-
-const HeaderInfoItem = styled.div`
-    margin-left: 32px;
-    font-family: ${({ theme }) => theme.fonts.roboto};
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors.grayed};
-
-    a, div {
-        display: flex;
-        align-items: center;
-
-        img {
-            margin-right: 6px;
+        ${ContactInfoWrapper}:nth-child(3) {
+            display: none;
         }
-    }
-
-    ${breakpoint.laptop`
-        margin-left: 24px;
-        font-size: 12px;
     `}
 
-`
-
-const PhoneItem = styled(HeaderInfoItem)``
-const EmailItem = styled(HeaderInfoItem)`
     ${breakpoint.mobile`
-        display: none;
-    `}
-`
-const AddressItem = styled(HeaderInfoItem)`
-    ${breakpoint.tablet`
-        display: none;
+        ${ContactInfoWrapper}:nth-child(2) {
+            display: none;
+        }
     `}
 `
 

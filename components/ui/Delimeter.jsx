@@ -4,7 +4,7 @@ export const Delimeter = styled.div`
     position: relative;
     height: 1px;
     background-color: #C4C4C4;
-    width: 100%;
+    width: ${({ width }) => width ? width : '100%'};
     ${({ hideDot, right }) => !hideDot ? `
     ::before {
         content: '';

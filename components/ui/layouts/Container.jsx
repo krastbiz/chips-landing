@@ -16,7 +16,7 @@ const Container = styled.div`
     ${breakpoint.tablet`
         padding-right: 10px;
         padding-left: 10px;
-        max-width: 100%;
+        width: 100%;
     `}
 
     ${breakpoint.mobile`
