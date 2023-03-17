@@ -27,3 +27,6 @@ git clone https://github.com/krastbiz/chips-landing.git
 2. run `npm ci`
 3. run `npm run build`
 4. run `npm run start`
+
+## Requirements
+In order to run this project, you need node.js 16.17.1 or higher version 
