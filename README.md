@@ -1,6 +1,10 @@
 # chips-landing
 Landing page for ships seller company
 
+## About the project
+This project uses Next.JS for server-side rendering.
+Documentation can be found at https://nextjs.org/docs/getting-started
+
 ## Development
 
 ### How to run the project locally
