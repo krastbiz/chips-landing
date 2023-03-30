@@ -28,6 +28,7 @@ const ImageWrapper = styled.div`
     img {
         display: block;
         width: 100%;
+        max-height: 170px;
     }
 `
 

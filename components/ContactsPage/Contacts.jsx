@@ -21,11 +21,11 @@ const Contacts = () => {
                 <ContactsWrapper>
                     <ContactBox>
                         <ContactTitle>Ардес</ContactTitle>
-                        <ContactContent>Санкт-Петербург, Невский пр-кт, дом № 151, литера А</ContactContent>
+                        <ContactContent>Санкт-Петербург, ул. Учительская, д.23, литера «А», помещ. №448</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)3375359">+7 (812) 337 53 59</ContactContent>
+                        <ContactContent as="a" href="tel:+7(921)7472429">+7 (921) 747 24 29</ContactContent>
                     </ContactBox>
                 </ContactsWrapper>
 
@@ -47,6 +47,7 @@ const ContactsWrapper = styled.div`
 `
 const ContactBox = styled.div`
     width: 50%;
+    margin-left: 30px;
 
     ${breakpoint.laptop`
         width: unset;

@@ -17,6 +17,7 @@ const BurgerLine = styled.div`
     height: 2px;
     width: 100%;
     background: #545D49;
+    transition: all 0.3s ease-out;
 `
 
 export const BurgerWrapper = styled.div`
@@ -24,6 +25,8 @@ export const BurgerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
 
     width: 20px;
     height: 15px;

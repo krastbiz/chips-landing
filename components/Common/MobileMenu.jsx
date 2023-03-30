@@ -47,6 +47,7 @@ const MobileMenuWrapper = styled.div`
     height: 100vh;
     width: 100vw;
     z-index: 1000;
+    transition: all 0.3s ease-out;
 
     a {
         display: block;
@@ -57,6 +58,9 @@ const MobileMenuWrapper = styled.div`
         text-transform: uppercase;
         color: ${({ theme }) => theme.colors.primary};
         margin-bottom: 50px;
+        &:hover {
+            color: #ABA2B6;
+        }
     }
 `
 

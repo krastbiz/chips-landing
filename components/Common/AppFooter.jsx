@@ -20,7 +20,7 @@ const DELIVERY_LINKS = [
         url: '/#develop'
     },
     {
-        text: 'Поставка компонентов для оптовых покупателей',
+        text: 'Преимущества',
         url: '/#bulk'
     }
 ]
@@ -31,7 +31,7 @@ const AppFooter = () => {
             <ContainerStyled>
                 <LogoWrapper>
                     <a href="/">
-                        <img src="/static/icons/logo-footer.svg" alt="Логотип подвала" />
+                        <img src="/static/icons/logo1.png" alt="Логотип подвала" />
                     </a>
                 </LogoWrapper>
 
@@ -39,27 +39,27 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br /> Невский пр-кт, дом № 151, литера А</span>
+                            <span>Санкт-Петербург,<br /> ул. Учительская, д.23, литера «А», помещ. №448</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="tel:+7(812)3375359">
+                        <a href="tel:+7(921)7472429">
                             <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
-                            <span>+7 (812) 337 53 59</span>
+                            <span>+7 (921) 747 24 29</span>
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:info@chipstrade.ru">
+                        <a href="mailto:info@el-etk.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>info@chipstrade.ru</span>
+                            <span>info@el-etk.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>
 
-                <FooterLinksWrapper>
+                {/* <FooterLinksWrapper>
                     <FooterLinksHeader>О Компании</FooterLinksHeader>
                     {ABOUT_COMPANY_LINKS.map(({ text, url }) => <Link key={url} href={url}>{text}</Link>)}
-                </FooterLinksWrapper>
+                </FooterLinksWrapper> */}
 
                 <FooterLinksWrapper>
                     <FooterLinksHeader>Поставки</FooterLinksHeader>
@@ -80,6 +80,7 @@ const ContainerStyled = styled(Container)`
     padding: 114px 100px;
     background-color: #545D49;
     color: ${({ theme }) => theme.colors.light};
+    // margin-bottom: 30px;
 
     ::before {
         content: '';
@@ -170,6 +171,7 @@ const FooterLinksHeader = styled.h3`
 `
 
 const LogoWrapper = styled.div`
+    background-color: white;
     img {
         width: 100%;
     }

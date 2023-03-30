@@ -30,17 +30,17 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 337 53 59',
+        title: '+7 (921) 747 24 29',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)3375359'  
+        href: 'tel:+7(921)7472429'  
     },
     email: {
-        title: 'info@chipstrade.ru',
+        title: 'info@el-etk.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:info@chipstrade.ru',
+        href: 'mailto:info@el-etk.ru',
     },
     address: {
-        title: 'Санкт-Петербург, Невский пр-кт, дом № 151, литера А',
+        title: 'Санкт-Петербург, ул. Учительская, д.23, литера «А», помещ. №448',
         image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
     }
@@ -66,7 +66,7 @@ const AppHeader = () => {
 
                 <LogoWrapper>
                     <a href="/">
-                        <Logo src="/static/icons/logo.svg" alt="Логотип"/>
+                        <Logo src="/static/icons/logo1.png" alt="Логотип"/>
                     </a>
                 </LogoWrapper>
 
@@ -174,6 +174,9 @@ const HeaderInfoTop = styled.div`
     `}
 
     ${breakpoint.mobile`
+        ${ContactInfoWrapper}:nth-child(1) {
+        margin-left: 0px;
+        }
         ${ContactInfoWrapper}:nth-child(2) {
             display: none;
         }

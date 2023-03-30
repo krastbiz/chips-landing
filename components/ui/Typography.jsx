@@ -6,8 +6,8 @@ export const H1 = styled.h1`
     font-family: ${({ theme }) => theme.fonts.montserrat};
     color: ${({ theme }) => theme.colors.light};
     font-weight: bold;
-    font-size: 64px;
-    line-height: 78px;
+    font-size: 45px;
+    line-height: 55px;
 
     ${breakpoint.tablet`
         font-size: 48px;
@@ -15,8 +15,8 @@ export const H1 = styled.h1`
 
     ${breakpoint.mobile`
         margin-bottom: 30px;
-        font-size: 24px;
-        line-height: 50px;
+        font-size: 20px;
+        line-height: 30px;
     `}
 `
 

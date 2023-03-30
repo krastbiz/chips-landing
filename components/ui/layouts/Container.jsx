@@ -4,6 +4,9 @@ import { breakpoint, screenWidth } from "../../../lib/theme";
 const Container = styled.div`
     max-width: ${screenWidth.desktop};
     margin: 0 auto;
+    // &:first-child {
+    //     max-height: 20vh;
+    // }
 
     ${breakpoint.desktop`
         max-width: ${screenWidth.laptop};

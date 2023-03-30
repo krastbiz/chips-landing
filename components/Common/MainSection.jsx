@@ -5,9 +5,10 @@ export const MainSection = styled.section`
     overflow: hidden;
     margin-bottom: 64px;
     position: relative;
-    padding: 200px 64px;
-    background: url('/static/images/main-bg.jpeg') center no-repeat;
+    padding: 80px 64px;
+    background: url('/static/images/main-bj1.jpeg') center no-repeat;
     background-size: cover;
+    overflow: hidden;
 
     ::before {
         content: '';
@@ -34,6 +35,6 @@ export const MainSection = styled.section`
 
     ${breakpoint.mobile`
         text-align: center;
-        padding: 50px 50px;
+        padding: 10px 10px;
     `}
 `
