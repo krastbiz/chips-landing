@@ -20,7 +20,7 @@ const DELIVERY_LINKS = [
         url: '/#develop'
     },
     {
-        text: 'Поставка компонентов для оптовых покупателей',
+        text: 'Преимущества',
         url: '/#bulk'
     }
 ]
@@ -39,27 +39,27 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br /> Невский пр-кт, дом № 151, литера А</span>
+                            <span>Санкт-Петербург,<br />муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="tel:+7(812)3375359">
+                        <a href="tel:+7(812)4482640">
                             <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
-                            <span>+7 (812) 337 53 59</span>
+                            <span>+7 (812) 448-26-40</span>
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:info@chipstrade.ru">
+                        <a href="mailto:spb@neitronec.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>info@chipstrade.ru</span>
+                            <span>spb@neitronec.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>
 
-                <FooterLinksWrapper>
+                {/* <FooterLinksWrapper>
                     <FooterLinksHeader>О Компании</FooterLinksHeader>
                     {ABOUT_COMPANY_LINKS.map(({ text, url }) => <Link key={url} href={url}>{text}</Link>)}
-                </FooterLinksWrapper>
+                </FooterLinksWrapper> */}
 
                 <FooterLinksWrapper>
                     <FooterLinksHeader>Поставки</FooterLinksHeader>
@@ -78,8 +78,9 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background-color: #545D49;
+    background-color: #273D5E;
     color: ${({ theme }) => theme.colors.light};
+    // margin-bottom: 30px;
 
     ::before {
         content: '';
@@ -122,7 +123,7 @@ const FooterInfoWrapper = styled.div`
 
 const FooterInfoItem = styled.div`
     margin-bottom: 20px;
-
+    line-height: 22 px;
     a, div {
         display: flex;
     }
@@ -170,17 +171,31 @@ const FooterLinksHeader = styled.h3`
 `
 
 const LogoWrapper = styled.div`
-    img {
-        width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 30px;
+    position: relative;
+    right: 20px;
+    & a {
+        display: flex;
+        aligh-items: center;
+        justify-content: center;
+        height: 100%;
+        &  img {
+            width: 100%;
+        }
     }
+  
 
     ${breakpoint.laptop`
         margin-right: 20px;
         width: 70px;
+        max-height: 100px; 
     `}
 
     ${breakpoint.tablet`
         margin-bottom: 20px;
+        top: -15px;
     `}
 
 `

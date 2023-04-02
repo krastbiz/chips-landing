@@ -30,17 +30,17 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 337 53 59',
+        title: '+7 (812) 448-26-40',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)3375359'  
+        href: 'tel:+7(812)4482640'  
     },
     email: {
-        title: 'info@chipstrade.ru',
+        title: 'spb@neitronec.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:info@chipstrade.ru',
+        href: 'mailto:spb@neitronec.ru',
     },
     address: {
-        title: 'Санкт-Петербург, Невский пр-кт, дом № 151, литера А',
+        title: 'Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)',
         image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
     }

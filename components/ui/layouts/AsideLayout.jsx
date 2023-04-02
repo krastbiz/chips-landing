@@ -26,7 +26,7 @@ export const AsideLayout = (props) => {
                         </LinkGroupTitle>
                         <Link href="/delivery">Линейка поставок</Link>
                         <Link href="/#develop">Поставка компонентов под разработку</Link>
-                        <Link href="/#bulk">Поставка компонентов для оптовых покупателей</Link>
+                        <Link href="/#bulk">Преимущества</Link>
                     </LinkGroup>
                 </Aside>
                 <PageContent>{children}</PageContent>

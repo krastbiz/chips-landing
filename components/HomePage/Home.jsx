@@ -242,7 +242,7 @@ const AdvantagesItem = styled.li`
         position: absolute;
         width: 8px;
         height: 8px;
-        background: #D8A835;
+        background: #1868DF;
         top: 12px;
         left: -34px;
     }

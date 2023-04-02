@@ -16,6 +16,12 @@ export const CompanyCardWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.5s ease-out;
+    &:hover { 
+    -webkit-box-shadow: 0px 0px 12px 10px rgba(119, 221, 231, 0.3);
+    -moz-box-shadow: 0px 0px 12px 10px rgba(119, 221, 231, 0.3);
+    box-shadow: 0px 0px 12px 10px rgba(119, 221, 231, 0.3);
+    }
 `
 const CompanyImageWrapper = styled.div`
     img {
