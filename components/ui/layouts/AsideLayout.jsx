@@ -59,6 +59,7 @@ const LinkGroup = styled.div`
 
     a:hover {
         text-decoration: underline;
+        color: #77DDE7;
     }
 
     a + a {

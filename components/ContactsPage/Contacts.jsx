@@ -20,12 +20,12 @@ const Contacts = () => {
 
                 <ContactsWrapper>
                     <ContactBox>
-                        <ContactTitle>Ардес</ContactTitle>
-                        <ContactContent>Санкт-Петербург, Невский пр-кт, дом № 151, литера А</ContactContent>
+                        <ContactTitle>Адрес</ContactTitle>
+                        <ContactContent>Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)3375359">+7 (812) 337 53 59</ContactContent>
+                        <ContactContent as="a" href="tel:+7(812)4482640">+7 (812) 448-26-40</ContactContent>
                     </ContactBox>
                 </ContactsWrapper>
 
@@ -47,6 +47,9 @@ const ContactsWrapper = styled.div`
 `
 const ContactBox = styled.div`
     width: 50%;
+    &:last-child {
+        margin-left: 20px;
+    }
 
     ${breakpoint.laptop`
         width: unset;
