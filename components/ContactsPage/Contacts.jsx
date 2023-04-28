@@ -20,12 +20,20 @@ const Contacts = () => {
 
                 <ContactsWrapper>
                     <ContactBox>
-                        <ContactTitle>Адрес</ContactTitle>
+                        <ContactTitle>Адрес:</ContactTitle>
                         <ContactContent>Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</ContactContent>
-                    </ContactBox>
-                    <ContactBox>
                         <ContactTitle>Телефон:</ContactTitle>
                         <ContactContent as="a" href="tel:+7(812)4482640">+7 (812) 448-26-40</ContactContent>
+                    </ContactBox>
+                    <ContactBox>
+                        <ContactTitle>Реквизиты:</ContactTitle>
+                        <ContactContent>
+                            <div><b>Получатель:</b> ООО "Нейтрон-ЭК"</div>
+                            <div><b>Номер счета:</b> 40702810000000296020</div>
+                            <div>ПАО Банк “АЛЕКСАНДРОВСКИЙ”</div>
+                            <div><b>Корреспондентский счет:</b> 30101810000000000755 в Северо-Западном ГУ Банка России</div>
+                            <div><b>БИК:</b> 044030755</div>
+                        </ContactContent>
                     </ContactBox>
                 </ContactsWrapper>
 
@@ -47,12 +55,12 @@ const ContactsWrapper = styled.div`
 `
 const ContactBox = styled.div`
     width: 50%;
-    &:last-child {
-        margin-left: 20px;
-    }
+    margin-bottom: 10px;
+    margin-right: 20px;
 
     ${breakpoint.laptop`
         width: unset;
+        margin-right: 0px;
     `}
 `
 
