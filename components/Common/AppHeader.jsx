@@ -30,17 +30,17 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 448-26-40',
+        title: '+7 (812) 000-00-00',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)4482640'  
+        href: 'tel:+7(812)0000000'  
     },
     email: {
-        title: 'spb@neitronec.ru',
+        title: 'spb@e-tim.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@neitronec.ru',
+        href: 'mailto:spb@e-tim.ru',
     },
     address: {
-        title: 'Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)',
+        title: 'Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)',
         image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
     }
@@ -207,6 +207,7 @@ const Logo = styled.img`
 `
 
 const LogoWrapper = styled.div`
+    max-width: 130px;
 
     ${breakpoint.laptop`
         width: 70px;

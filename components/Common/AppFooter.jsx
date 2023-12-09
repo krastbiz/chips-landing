@@ -39,19 +39,19 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br />муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</span>
+                            <span>Санкт-Петербург,<br />муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="tel:+7(812)4482640">
+                        <a href="tel:+7(812)000000">
                             <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
-                            <span>+7 (812) 448-26-40</span>
+                            <span>+7 (812) 000000</span>
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:spb@neitronec.ru">
+                        <a href="mailto:spb@e-tim.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>spb@neitronec.ru</span>
+                            <span>spb@e-tim.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>
@@ -78,7 +78,8 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background-color: #273D5E;
+    background: rgb(120,214,16);
+    background: linear-gradient(165deg, rgba(120,214,16,1) 0%, rgba(75,163,97,1) 35%, rgba(19,108,177,1) 100%);
     color: ${({ theme }) => theme.colors.light};
     // margin-bottom: 30px;
 
@@ -176,6 +177,7 @@ const LogoWrapper = styled.div`
     margin-right: 30px;
     position: relative;
     right: 20px;
+    max-width: 150px;
     & a {
         display: flex;
         aligh-items: center;
