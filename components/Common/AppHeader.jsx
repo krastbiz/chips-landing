@@ -35,9 +35,9 @@ const CONTACTS = {
         href: 'tel:+7(812)0000000'  
     },
     email: {
-        title: 'spb@chipsell.ru',
+        title: 'spb@tauelec.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@chipsell.ru',
+        href: 'mailto:spb@tauelec.ru',
     },
     address: {
         title: 'Санкт-Петербург, муниципальный округ Звездное вн.тер.г., Дунайский пр-кт, д. 13, к. 1, лит. А, помещ. №423',
