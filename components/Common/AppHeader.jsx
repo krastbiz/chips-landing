@@ -35,12 +35,12 @@ const CONTACTS = {
         href: 'tel:+7(812)0000000'  
     },
     email: {
-        title: 'spb@e-tim.ru',
+        title: 'spb@chipsell.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@e-tim.ru',
+        href: 'mailto:spb@chipsell.ru',
     },
     address: {
-        title: 'Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)',
+        title: 'Санкт-Петербург, муниципальный округ Звездное вн.тер.г., Дунайский пр-кт, д. 13, к. 1, лит. А, помещ. №423',
         image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
     }

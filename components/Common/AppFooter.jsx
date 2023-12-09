@@ -39,7 +39,7 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br />муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)</span>
+                            <span>Санкт-Петербург,<br />муниципальный округ Звездное вн.тер.г., Дунайский пр-кт, д. 13, к. 1, лит. А, помещ. №423</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
@@ -49,9 +49,9 @@ const AppFooter = () => {
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:spb@e-tim.ru">
+                        <a href="mailto:spb@chipsell.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>spb@e-tim.ru</span>
+                            <span>spb@chipsell.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>
@@ -78,8 +78,8 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background: rgb(120,214,16);
-    background: linear-gradient(165deg, rgba(120,214,16,1) 0%, rgba(75,163,97,1) 35%, rgba(19,108,177,1) 100%);
+    background: rgb(67,75,77);
+    background: linear-gradient(48deg, rgba(67,75,77,1) 0%, rgba(154,118,41,1) 60%, rgba(206,159,57,1) 100%);
     color: ${({ theme }) => theme.colors.light};
     // margin-bottom: 30px;
 

@@ -29,7 +29,7 @@ const FeatureNumber = styled.div`
     font-size: 96px;
     line-height: 117px;
     text-transform: uppercase;
-    color: #6cb929;
+    color: black;
 
     ::before {
         content: '';
