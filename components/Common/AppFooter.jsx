@@ -39,7 +39,7 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br />муниципальный округ Звездное вн.тер.г., Дунайский пр-кт, д. 13, к. 1, лит. А, помещ. №423</span>
+                            <span>Санкт-Петербург,<br />Ленинский пр д. 151, лит А, оф.713Б</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>

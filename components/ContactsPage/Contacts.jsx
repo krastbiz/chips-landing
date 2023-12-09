@@ -21,15 +21,15 @@ const Contacts = () => {
                 <ContactsWrapper>
                     <ContactBox>
                         <ContactTitle>Адрес:</ContactTitle>
-                        <ContactContent>Санкт-Петербург, муниципальный округ Звездное вн.тер.г., Дунайский пр-кт, д. 13, к. 1, лит. А, помещ. №423</ContactContent>
+                        <ContactContent>Санкт-Петербург, Ленинский пр д. 151, лит А, оф.713Б</ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
                         <ContactContent as="a" href="tel:+7(812)0000000">+7 (812) 000-00-00</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Реквизиты:</ContactTitle>
                         <ContactContent>
-                            <div><b>Получатель:</b> ООО "Чипсэлл"</div>
-                            <div><b>Номер счета:</b> 40702810800000296246</div>
+                            <div><b>Получатель:</b> ООО "Тау Электроникс"</div>
+                            <div><b>Номер счета:</b> 40702810300000296319</div>
                             <div>ПАО Банк “АЛЕКСАНДРОВСКИЙ”</div>
                             <div><b>Корреспондентский счет:</b> 30101810000000000755 в Северо-Западном ГУ Банка России</div>
                             <div><b>БИК:</b> 044030755</div>
