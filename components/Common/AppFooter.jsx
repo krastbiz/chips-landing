@@ -39,19 +39,19 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br />муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</span>
+                            <span>Санкт-Петербург,<br />пр-кт Лермонтовский, дом 43/1, литера А, помещение № 21-Н, комната 154-156 (ОФИС 2071)</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="tel:+7(812)4482640">
+                        <a href="tel:+7(812)0000000">
                             <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
-                            <span>+7 (812) 448-26-40</span>
+                            <span>+7 (812) 000-00-00</span>
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:spb@neitronec.ru">
+                        <a href="mailto:spb@windec.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>spb@neitronec.ru</span>
+                            <span>spb@windec.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>
@@ -78,7 +78,8 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background-color: #273D5E;
+    background: rgb(190,95,165);
+    background: linear-gradient(155deg, rgba(190,95,165,1) 0%, rgba(132,94,169,1) 60%, rgba(57,195,206,1) 100%);
     color: ${({ theme }) => theme.colors.light};
     // margin-bottom: 30px;
 

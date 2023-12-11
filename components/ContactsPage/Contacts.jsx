@@ -21,15 +21,15 @@ const Contacts = () => {
                 <ContactsWrapper>
                     <ContactBox>
                         <ContactTitle>Адрес:</ContactTitle>
-                        <ContactContent>Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</ContactContent>
+                        <ContactContent>Санкт-Петербург, пр-кт Лермонтовский, дом 43/1, литера А, помещение № 21-Н, комната 154-156 (ОФИС 2071)</ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)4482640">+7 (812) 448-26-40</ContactContent>
+                        <ContactContent as="a" href="tel:+7(812)0000000">+7 (812) 000-00-00</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Реквизиты:</ContactTitle>
                         <ContactContent>
-                            <div><b>Получатель:</b> ООО "Нейтрон-ЭК"</div>
-                            <div><b>Номер счета:</b> 40702810000000296020</div>
+                            <div><b>Получатель:</b> ООО "Виндэк"</div>
+                            <div><b>Номер счета:</b> 40702810700000296333</div>
                             <div>ПАО Банк “АЛЕКСАНДРОВСКИЙ”</div>
                             <div><b>Корреспондентский счет:</b> 30101810000000000755 в Северо-Западном ГУ Банка России</div>
                             <div><b>БИК:</b> 044030755</div>
