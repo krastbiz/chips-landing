@@ -78,8 +78,8 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background: rgb(190,95,165);
-    background: linear-gradient(155deg, rgba(190,95,165,1) 0%, rgba(132,94,169,1) 60%, rgba(57,195,206,1) 100%);
+    background: rgb(111,79,40);
+    background: linear-gradient(76deg, rgba(111,79,40,1) 0%, rgba(204,156,92,1) 30%, rgba(25,58,91,1) 90%);
     color: ${({ theme }) => theme.colors.light};
     // margin-bottom: 30px;
 
