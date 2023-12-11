@@ -39,7 +39,7 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br />пр-кт Лермонтовский, дом 43/1, литера А, помещение № 21-Н, комната 154-156 (ОФИС 2071)</span>
+                            <span>Санкт-Петербург,<br /> ул. Таллинская, д.7, лит.О, офис 402-6</span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
@@ -49,9 +49,9 @@ const AppFooter = () => {
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:spb@windec.ru">
+                        <a href="mailto:spb@indrive.spb.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>spb@windec.ru</span>
+                            <span>spb@indrive.spb.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>
@@ -177,6 +177,7 @@ const LogoWrapper = styled.div`
     margin-right: 30px;
     position: relative;
     right: 20px;
+    padding:10px;
     & a {
         display: flex;
         aligh-items: center;

@@ -58,7 +58,7 @@ const LinkGroup = styled.div`
     }
 
     a:hover {
-        color: #77DDE7;
+        color: #d6a664;
     }
 
     a + a {

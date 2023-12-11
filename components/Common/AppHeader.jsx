@@ -35,12 +35,12 @@ const CONTACTS = {
         href: 'tel:+7(812)0000000'  
     },
     email: {
-        title: 'spb@windec.ru',
+        title: 'spb@indrive.spb.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@windec.ru',
+        href: 'mailto:spb@indrive.spb.ru',
     },
     address: {
-        title: 'Санкт-Петербург, пр-кт Лермонтовский, дом 43/1, литера А, помещение № 21-Н, комната 154-156 (ОФИС 2071)',
+        title: 'Санкт-Петербург,  ул. Таллинская, д.7, лит.О, офис 402-6',
         image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
     }
@@ -208,7 +208,7 @@ const Logo = styled.img`
 `
 
 const LogoWrapper = styled.div`
-    max-width:220px;
+    max-width:200px;
 
     ${breakpoint.laptop`
         width: 70px;
