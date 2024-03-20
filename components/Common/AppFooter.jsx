@@ -43,9 +43,9 @@ const AppFooter = () => {
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="tel:+7(812)000000">
+                        <a href="tel:+7(812)3181983">
                             <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
-                            <span>+7 (812) 000000</span>
+                            <span>+7 (812) 318-19-83</span>
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
