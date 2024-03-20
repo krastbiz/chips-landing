@@ -30,9 +30,9 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 000-00-00',
+        title: '+7 (812) 318-19-83',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)0000000'  
+        href: 'tel:+7(812)3181983'  
     },
     email: {
         title: 'spb@e-tim.ru',
