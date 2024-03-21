@@ -23,7 +23,7 @@ const Contacts = () => {
                         <ContactTitle>Адрес:</ContactTitle>
                         <ContactContent>Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)</ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)4482640">+7 (812) 448-26-40</ContactContent>
+                        <ContactContent as="a" href="tel:+7(812)6129935">+7 (812) 612-99-35</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Реквизиты:</ContactTitle>

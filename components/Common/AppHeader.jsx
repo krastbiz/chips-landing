@@ -30,9 +30,9 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 448-26-40',
+        title: '+7 (812) 612-99-35',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)4482640'  
+        href: 'tel:+7(812)6129935'  
     },
     email: {
         title: 'spb@neitronec.ru',
