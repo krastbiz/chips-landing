@@ -30,9 +30,9 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 000-00-00',
+        title: '+7 (812)  456-01-56',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)0000000'  
+        href: 'tel:+7(812)4560156'  
     },
     email: {
         title: 'spb@windec.ru',
