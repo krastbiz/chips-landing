@@ -23,7 +23,7 @@ const Contacts = () => {
                         <ContactTitle>Адрес:</ContactTitle>
                         <ContactContent>Санкт-Петербург,  ул. Таллинская, д.7, лит.О, офис 402-6</ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)0000000">+7 (812) 000-00-00</ContactContent>
+                        <ContactContent as="a" href="tel:+7(812)4560018">+7 (812) 456-00-18</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Реквизиты:</ContactTitle>

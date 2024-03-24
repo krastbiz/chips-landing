@@ -30,9 +30,9 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 000-00-00',
+        title: '+7 (812) 456-00-18',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)0000000'  
+        href: 'tel:+7(812)4560018'  
     },
     email: {
         title: 'spb@indrive.spb.ru',
