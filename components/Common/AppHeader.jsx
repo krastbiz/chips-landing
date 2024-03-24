@@ -30,9 +30,9 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (812) 000-00-00',
+        title: '+7 (812) 418-15-90',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)0000000'  
+        href: 'tel:+7(812)4181590'  
     },
     email: {
         title: 'spb@tauelec.ru',
