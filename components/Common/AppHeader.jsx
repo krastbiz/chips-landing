@@ -35,9 +35,9 @@ const CONTACTS = {
         href: 'tel:+7(812)3181983'  
     },
     email: {
-        title: 'spb@e-tim.ru',
+        title: 'info@e-tim.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@e-tim.ru',
+        href: 'mailto:info@e-tim.ru',
     },
     address: {
         title: 'Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)',
