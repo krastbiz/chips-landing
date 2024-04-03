@@ -49,9 +49,9 @@ const AppFooter = () => {
                         </a>
                     </FooterInfoItem>
                     <FooterInfoItem>
-                        <a href="mailto:spb@tauelec.ru">
+                        <a href="mailto:info@tauelec.ru">
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>spb@tauelec.ru</span>
+                            <span>info@tauelec.ru</span>
                         </a>
                     </FooterInfoItem>
                 </FooterInfoWrapper>

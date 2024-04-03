@@ -35,9 +35,9 @@ const CONTACTS = {
         href: 'tel:+7(812)4181590'  
     },
     email: {
-        title: 'spb@tauelec.ru',
+        title: 'info@tauelec.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@tauelec.ru',
+        href: 'mailto:info@tauelec.ru',
     },
     address: {
         title: 'Санкт-Петербург, Ленинский пр д. 151, лит А, оф.713Б',
