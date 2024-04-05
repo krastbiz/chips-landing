@@ -35,9 +35,9 @@ const CONTACTS = {
         href: 'tel:+7(812)6497757'  
     },
     email: {
-        title: 'spb@chipsell.ru',
+        title: 'info@chipsell.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@chipsell.ru',
+        href: 'mailto:info@chipsell.ru',
     },
     address: {
         title: 'Санкт-Петербург, муниципальный округ Звездное вн.тер.г., Дунайский пр-кт, д. 13, к. 1, лит. А, помещ. №423',
