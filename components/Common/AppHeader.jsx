@@ -35,9 +35,9 @@ const CONTACTS = {
         href: 'tel:+7(812)6129935'  
     },
     email: {
-        title: 'spb@neitronec.ru',
+        title: 'info@neitronec.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@neitronec.ru',
+        href: 'mailto:info@neitronec.ru',
     },
     address: {
         title: 'Санкт-Петербург, муниципальный округ Пискаревка вн.тер.г., Руставели ул., д. 13, Литера А, помещ. 22Н, комн. №14(оф.509)',
