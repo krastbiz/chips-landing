@@ -35,9 +35,9 @@ const CONTACTS = {
         href: 'tel:+7(812)4560156'  
     },
     email: {
-        title: 'spb@windec.ru',
+        title: 'info@windec.ru',
         image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
-        href: 'mailto:spb@windec.ru',
+        href: 'mailto:info@windec.ru',
     },
     address: {
         title: 'Санкт-Петербург, пр-кт Лермонтовский, дом 43/1, литера А, помещение № 21-Н, комната 154-156 (ОФИС 2071)',
