@@ -30,9 +30,9 @@ const NAV_LINKS = [
 
 const CONTACTS = {
     phone: {
-        title: '+7 (921) 747 24 29',
+        title: '+7 (812) 500-22-15',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(921)7472429'  
+        href: 'tel:+7(812)5002215'  
     },
     email: {
         title: 'info@el-etk.ru',

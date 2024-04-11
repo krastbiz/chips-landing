@@ -25,7 +25,7 @@ const Contacts = () => {
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(921)7472429">+7 (921) 747 24 29</ContactContent>
+                        <ContactContent as="a" href="tel:+7(812)5002215">+7 (812) 500-22-15</ContactContent>
                     </ContactBox>
                 </ContactsWrapper>
 
