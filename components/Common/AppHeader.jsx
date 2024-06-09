@@ -5,6 +5,7 @@ import { breakpoint } from "../../lib/theme"
 import { useDeviceCheck } from "../../lib/utils/hooks/useDeviceCheck"
 import { BurgerMenu, BurgerWrapper } from "../ui/buttons/BurgerMenu"
 import { ContactInfoWrapper, ContactItem } from "../ui/ContactItem"
+import { PhoneItem } from "../ui/PhoneItem"
 import { Delimeter } from "../ui/Delimeter"
 import { Container } from "../ui/layouts/Container"
 import { MobileMenu } from "./MobileMenu"
@@ -58,7 +59,7 @@ const AppHeader = () => {
     const { isMobile, isTablet } = useDeviceCheck()
     const isMobileOrTablet = isMobile || isTablet
 
-    const contactsLinks = [CONTACTS.phone, CONTACTS.email, CONTACTS.address]
+    const contactsLinks = [CONTACTS.email, CONTACTS.address]
 
     return (
         <Header isMobileMenuActive={isMobileMenuActive}>
@@ -72,6 +73,7 @@ const AppHeader = () => {
 
                 <HeaderInfoWrapper>
                     <HeaderInfoTop>
+                        <PhoneItem title={CONTACTS.phone.title} href={CONTACTS.phone.href} image={CONTACTS.phone.image}></PhoneItem>
                         {contactsLinks.map(({ title, href, image}) => (
                             <ContactItem key={href + title} title={title} href={href} image={image}/>
                         ))}
