@@ -8,7 +8,9 @@ export const ContactFormHeader = ({ isVisible, setIsFormVisible }) => {
     const [name, setName] = useState('')
     const [tel, setTel] = useState('')
     const [formSubmitted, setFormSubmitted] = useState(false)
-    console.log(isVisible)
+    if (!isVisible) {
+        return null;
+    }
 
     const resetForm = () => {
         setName('')
@@ -30,7 +32,7 @@ export const ContactFormHeader = ({ isVisible, setIsFormVisible }) => {
     }
 
     return (
-        <ContactFormWrapper isVisible={isVisible}>
+        <ContactFormWrapper>
             <ContactFormTitle>{formSubmitted ? 'Запрос отправлен!' : 'Заказать звонок'}</ContactFormTitle>
             {formSubmitted ? (
                 <ContactFormSuccessMessage>Спасибо, что связались с нами!</ContactFormSuccessMessage>
@@ -64,7 +66,6 @@ export const ContactFormHeader = ({ isVisible, setIsFormVisible }) => {
 }
 
 const ContactFormWrapper = styled.div`
-    display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
     padding: 20px;
     width: 300px;
     border: 1px solid ${({ theme }) => theme.colors.background};
@@ -72,7 +73,10 @@ const ContactFormWrapper = styled.div`
     text-align: center;
     position: absolute;
     top: 60px;
-    left: 60px;
+    left: -50px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
 `
 
 const ContactForm = styled.form`

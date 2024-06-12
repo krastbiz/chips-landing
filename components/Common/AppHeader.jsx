@@ -59,8 +59,6 @@ const AppHeader = () => {
     const { isMobile, isTablet } = useDeviceCheck()
     const isMobileOrTablet = isMobile || isTablet
 
-    const contactsLinks = [CONTACTS.email, CONTACTS.address]
-
     return (
         <Header isMobileMenuActive={isMobileMenuActive}>
             <ContainerStyled>
@@ -73,10 +71,9 @@ const AppHeader = () => {
 
                 <HeaderInfoWrapper>
                     <HeaderInfoTop>
+                        <ContactItem title={CONTACTS.email.title} href={CONTACTS.email.href} image={CONTACTS.email.image} />
                         <PhoneItem title={CONTACTS.phone.title} href={CONTACTS.phone.href} image={CONTACTS.phone.image}></PhoneItem>
-                        {contactsLinks.map(({ title, href, image}) => (
-                            <ContactItem key={href + title} title={title} href={href} image={image}/>
-                        ))}
+                        <ContactItem title={CONTACTS.address.title} href={CONTACTS.address.href} image={CONTACTS.address.image} />
                         <BurgerMenu isActive={isMobileMenuActive} onClick={() => setIsMobileMenuActive((prev) => !prev)}/>
                     </HeaderInfoTop>
 

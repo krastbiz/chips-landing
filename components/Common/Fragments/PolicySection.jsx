@@ -434,7 +434,7 @@ const SidebarLink = styled.div`
     color: ${({ theme, isActive }) => (isActive ? theme.colors.active : theme.colors.main)};
 
     &:hover {
-        color: #5b76cf;
+        color: ${({ theme }) => (theme.colors.hover)};
     }
 `
 

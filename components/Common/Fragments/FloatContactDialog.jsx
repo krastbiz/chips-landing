@@ -96,9 +96,9 @@ export const FloatContactDialog = () => {
                     <PolicyInfoBannerWrapper>
                         <PolicyInfoBanner>
                             Продолжая просмотр сайта, вы соглашаетесь с{' '}
-                            <StyledLink href={'/policy#privacyPolicy'}>Политикой конфиденциальности</StyledLink> и с
+                            <StyledLink href={'/policy#privacyPolicy'} alternativeColored >Политикой конфиденциальности</StyledLink> и с
                             использованием файлов cookie в соответствии с{' '}
-                            <StyledLink href={'/policy#cookiePolicy'}>
+                            <StyledLink href={'/policy#cookiePolicy'} alternativeColored >
                                 Информацией об использовании файлов cookie
                             </StyledLink>
                             .
@@ -202,7 +202,7 @@ const FloatWrapper = styled.div`
 const PolicyInfoBannerWrapper = styled.div`
     display: flex;
     margin-right: 30px;
-    background-color: ${({ theme }) => theme.colors.banner};
+    background-color: ${({ theme }) => theme.colors.active};
     border-radius: 5px;
     max-width: 600px;
     font-weight: 400;

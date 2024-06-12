@@ -18,13 +18,14 @@ export const PhoneItem = (props) => {
                 <img src={url} alt={alt} />
                 {title}
             </a>
-            {/* <HeaderContactMe onClick={toggleFormVisibility}>Заказать звонок</HeaderContactMe> */}
-            {/* <ContactFormHeader isVisible={isFormVisible} setIsFormVisible={setIsFormVisible} /> */}
+            <HeaderContactMe onClick={toggleFormVisibility}>Заказать звонок</HeaderContactMe>
+            <ContactFormHeader isVisible={isFormVisible} setIsFormVisible={setIsFormVisible} />
         </ContactInfoWrapper>
     )
 }
 
 export const ContactInfoWrapper = styled.div`
+    position: relative;
     margin-left: 32px;
     font-family: ${({ theme }) => theme.fonts.roboto};
     font-weight: 500;
@@ -52,11 +53,11 @@ export const ContactInfoWrapper = styled.div`
 
 
 const HeaderContactMe = styled.div`
-    color: #1e4294;
+    color: ${({ theme }) => (theme.colors.active)};
     font-size: 12px;
     user-select: none;
     text-align: center;
     &:hover {
-        color: #5b76cf;
+        color: ${({ theme }) => (theme.colors.hover)};
     }
 `
