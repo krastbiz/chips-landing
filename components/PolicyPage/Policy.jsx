@@ -1,4 +1,4 @@
-import { PolicySection } from '../Common/Fragments/PolicySection'
+import { PolicySection } from './components/PolicySection'
 import { MainLayout } from '../ui/layouts/MainLayout'
 
 export const Policy = () => {

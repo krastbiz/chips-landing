@@ -16,6 +16,7 @@ const PrimaryButton = styled.button`
     color: white;
     cursor: ${({ theme }) => theme.colors.light};
     transition: 0.3s;
+    background:  ${({ theme }) => theme.colors.red};
 
     :hover {
         background: white;
@@ -23,6 +24,7 @@ const PrimaryButton = styled.button`
     }
 
     ${(props) => props.filled && filledCss}
+    ${(props) => props.red && redCss}
 `
 
 const filledCss = css`
@@ -34,6 +36,9 @@ const filledCss = css`
         color: ${({ theme }) => theme.colors.light};
         border: 2px solid ${({ theme }) => theme.colors.primary};
     }
+`
+const redCss = css`
+background: 'red';
 `
 
 export { PrimaryButton }

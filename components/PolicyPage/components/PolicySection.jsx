@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../../ui/layouts/Container'
 import { StyledLink } from '../../ui/Link'

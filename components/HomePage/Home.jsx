@@ -16,8 +16,8 @@ const Home = () => {
         <>
             <H1Styled>ЭЛЕКТРОННЫЕ КОМПОНЕНТЫ</H1Styled>
             <MainCTAWrapper>
-                <Link href="/contacts" passHref legacyBehavior><PrimaryButton as={'a'}>Контакты</PrimaryButton></Link>
-                <Link href="/delivery" passHref legacyBehavior><PrimaryButton as={'a'} filled marginLeft={'26px'}>Каталог</PrimaryButton></Link>
+                <Link href="/request" passHref legacyBehavior><PrimaryButton as={'a'} red>Оставить заявку</PrimaryButton></Link>
+                <Link href="/contacts" passHref legacyBehavior><PrimaryButton as={'a'} filled marginLeft={'26px'}>Контакты</PrimaryButton></Link>
             </MainCTAWrapper>
         </>
     )
