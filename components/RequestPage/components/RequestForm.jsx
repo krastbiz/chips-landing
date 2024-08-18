@@ -15,7 +15,8 @@ export const RequestForm = () => {
         email: '',
         tel: '',
     })
-    const [emailWasSent, setEmailWasSent] = useState(false)
+    const [emailWasSent, setEmailWasSent] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const resetForm = () => {
         setFormData({
@@ -24,18 +25,25 @@ export const RequestForm = () => {
             email: '',
             tel: '',
         })
+        setSelectedFile(null);
         setEmailWasSent(false)
     }
-
     const onFormSubmit = (e) => {
-        e.preventDefault()
-        // sendContactForm(formData).then(() => {
-        //     setEmailWasSent(true);
-        //     resetForm();
-        // }).catch((error) => {
-        //     console.error("Error sending form: ", error);
-        // });
-    }
+        e.preventDefault();
+        const formDataWithFile = new FormData();
+        for (const key in formData) {
+            formDataWithFile.append(key, formData[key]);
+        }
+        if (selectedFile) {
+            formDataWithFile.append('file', selectedFile);
+        }
+        sendContactForm(formDataWithFile).then(() => {
+            setEmailWasSent(true);
+            resetForm();
+        }).catch((error) => {
+            console.error("Error sending form: ", error);
+        });
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -44,6 +52,9 @@ export const RequestForm = () => {
             [name]: value,
         }))
     }
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0]);
+    };
 
     const handleTextAreaChange = (e) => {
         handleChange(e)
@@ -70,6 +81,17 @@ export const RequestForm = () => {
                                 onChange={handleTextAreaChange}
                                 ref={textareaRef}
                             />
+                                                   <FileUploadLabel>
+                                <input
+                                    type="file"
+                                    name="file"
+                                    onChange={handleFileChange}
+                                />
+                                <FileUploadText>
+                                    <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
+                                    Прикрепите файл
+                                </FileUploadText>
+                            </FileUploadLabel>
                             <input
                                 name="name"
                                 type="text"
@@ -122,9 +144,8 @@ const RequestFormWrapper = styled.div`
 const TitleWrapper = styled(H2)`
     flex: 1;
     width: 50%;
-    padding-top: 150px;
-    ${breakpoint.mobile`
     padding-top: 50px;
+    ${breakpoint.mobile`
     width: 100%;`}
 `
 
@@ -166,7 +187,7 @@ const StyledTextarea = styled.textarea`
     line-height: 1.5;
     overflow-y: hidden;
     ${breakpoint.mobile`
-    min-height: 70px;
+    min-height: 75px;
     `}
 `
 
@@ -185,3 +206,26 @@ const ContactFormDescription = styled.p`
     color: ${({ theme }) => theme.colors.main};
     text-align: start;
 `
+const FileUploadLabel = styled.label`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    input[type='file'] {
+        display: none;
+    }
+`;
+
+const FileUploadText = styled.span`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: 14px;
+
+    img {
+        width: 16px;
+        height: 16px;
+    }
+`;
