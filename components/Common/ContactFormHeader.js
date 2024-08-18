@@ -9,7 +9,7 @@ export const ContactFormHeader = ({ isVisible, setIsFormVisible }) => {
     const [tel, setTel] = useState('')
     const [formSubmitted, setFormSubmitted] = useState(false)
     if (!isVisible) {
-        return null;
+        return null
     }
 
     const resetForm = () => {

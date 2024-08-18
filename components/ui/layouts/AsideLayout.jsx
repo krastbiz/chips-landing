@@ -1,9 +1,9 @@
-import Link from "next/link"
-import styled from "styled-components"
-import { breakpoint } from "../../../lib/theme"
-import { Delimeter } from "../Delimeter"
-import { H3 } from "../Typography"
-import { Container } from "./Container"
+import Link from 'next/link'
+import styled from 'styled-components'
+import { breakpoint } from '../../../lib/theme'
+import { Delimeter } from '../Delimeter'
+import { H3 } from '../Typography'
+import { Container } from './Container'
 
 export const AsideLayout = (props) => {
     const { children } = props
@@ -14,15 +14,15 @@ export const AsideLayout = (props) => {
                     <LinkGroup>
                         <LinkGroupTitle>
                             <H3Styled>О КОМПАНИИ</H3Styled>
-                            <Delimeter right/>
+                            <Delimeter right />
                         </LinkGroupTitle>
                         <Link href="/contacts">Контакты</Link>
                     </LinkGroup>
-                    
+
                     <LinkGroup>
                         <LinkGroupTitle>
                             <H3Styled>ПОСТАВКИ</H3Styled>
-                            <Delimeter right/>
+                            <Delimeter right />
                         </LinkGroupTitle>
                         <Link href="/delivery">Линейка поставок</Link>
                         <Link href="/#develop">Поставка компонентов под разработку</Link>
@@ -58,7 +58,7 @@ const LinkGroup = styled.div`
     }
 
     a:hover {
-        color: #77DDE7;
+        color: #77dde7;
     }
 
     a + a {

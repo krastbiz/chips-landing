@@ -21,5 +21,5 @@ export const StyledLink = styled(NextLink)`
     text-decoration: underline;
     &:hover {
         color: ${({ alternativeColored, theme }) => (alternativeColored ? 'white' : theme.colors.active)};
-    };
+    }
 `

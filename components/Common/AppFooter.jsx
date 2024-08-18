@@ -1,28 +1,28 @@
-import Link from "next/link"
-import styled from "styled-components"
-import { breakpoint } from "../../lib/theme"
-import { Container } from "../ui/layouts/Container"
+import Link from 'next/link'
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
+import { Container } from '../ui/layouts/Container'
 
 const ABOUT_COMPANY_LINKS = [
     {
         text: 'Контакты',
-        url: '/contacts'
+        url: '/contacts',
     },
 ]
 
 const DELIVERY_LINKS = [
     {
         text: 'Линейка поставок',
-        url: '/delivery'
+        url: '/delivery',
     },
     {
         text: 'Поставка компонентов под разработку',
-        url: '/#develop'
+        url: '/#develop',
     },
     {
         text: 'Преимущества',
-        url: '/#bulk'
-    }
+        url: '/#bulk',
+    },
 ]
 
 const AppFooter = () => {
@@ -39,7 +39,12 @@ const AppFooter = () => {
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
-                            <span>Санкт-Петербург,<br />муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)</span>
+                            <span>
+                                Санкт-Петербург,
+                                <br />
+                                муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн.
+                                №16,17(оф.407)
+                            </span>
                         </div>
                     </FooterInfoItem>
                     <FooterInfoItem>
@@ -63,10 +68,12 @@ const AppFooter = () => {
 
                 <FooterLinksWrapper>
                     <FooterLinksHeader>Поставки</FooterLinksHeader>
-                    {DELIVERY_LINKS.map(({ text, url }) => <Link key={url} href={url}>{text}</Link>)}
+                    {DELIVERY_LINKS.map(({ text, url }) => (
+                        <Link key={url} href={url}>
+                            {text}
+                        </Link>
+                    ))}
                 </FooterLinksWrapper>
-
-
             </ContainerStyled>
         </footer>
     )
@@ -78,8 +85,8 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background: rgb(120,214,16);
-    background: linear-gradient(165deg, rgba(120,214,16,1) 0%, rgba(75,163,97,1) 35%, rgba(19,108,177,1) 100%);
+    background: rgb(120, 214, 16);
+    background: linear-gradient(165deg, rgba(120, 214, 16, 1) 0%, rgba(75, 163, 97, 1) 35%, rgba(19, 108, 177, 1) 100%);
     color: ${({ theme }) => theme.colors.light};
     // margin-bottom: 30px;
 
@@ -125,7 +132,8 @@ const FooterInfoWrapper = styled.div`
 const FooterInfoItem = styled.div`
     margin-bottom: 20px;
     line-height: 22 px;
-    a, div {
+    a,
+    div {
         display: flex;
     }
 
@@ -183,11 +191,10 @@ const LogoWrapper = styled.div`
         aligh-items: center;
         justify-content: center;
         height: 100%;
-        &  img {
+        & img {
             width: 100%;
         }
     }
-  
 
     ${breakpoint.laptop`
         margin-right: 20px;
@@ -199,7 +206,6 @@ const LogoWrapper = styled.div`
         margin-bottom: 20px;
         top: -15px;
     `}
-
 `
 
 export default AppFooter

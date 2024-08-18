@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { breakpoint, screenWidth } from "../../../lib/theme";
+import styled from 'styled-components'
+import { breakpoint, screenWidth } from '../../../lib/theme'
 
 const Container = styled.div`
     max-width: ${screenWidth.desktop};
@@ -23,6 +23,6 @@ const Container = styled.div`
         padding-right: 10px;
         padding-left: 10px;
         width: 100%;
-    `} 
+    `}
 `
 export { Container }

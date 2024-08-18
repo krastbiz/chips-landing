@@ -1,17 +1,13 @@
-import styled from "styled-components"
-import { Delimeter } from "../../ui/Delimeter"
+import styled from 'styled-components'
+import { Delimeter } from '../../ui/Delimeter'
 import { breakpoint } from '../../../lib/theme'
 
 export const FeatureCard = ({ title, iconUrl, description }) => {
     return (
         <FeatureCardWrapper>
-            <FeatureNumber iconUrl={iconUrl}>
-                {title}
-            </FeatureNumber>
-            <Delimeter hideDot/>
-            <FeatureDescription>
-             {description}
-            </FeatureDescription>
+            <FeatureNumber iconUrl={iconUrl}>{title}</FeatureNumber>
+            <Delimeter hideDot />
+            <FeatureDescription>{description}</FeatureDescription>
         </FeatureCardWrapper>
     )
 }
@@ -85,7 +81,7 @@ const FeatureDescription = styled.p`
     font-weight: 300;
     font-size: 18px;
     line-height: 30px;
-    color: #14140C;
+    color: #14140c;
 
     ${breakpoint.laptop`
         margin-bottom: 10px;

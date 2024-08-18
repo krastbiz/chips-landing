@@ -1,10 +1,10 @@
-import { useEffect } from "react"
-import styled from "styled-components"
-import { BurgerMenu } from "../ui/buttons/BurgerMenu"
-import { ContactInfoWrapper, ContactItem } from "../ui/ContactItem"
-import { Delimeter } from "../ui/Delimeter"
-import { Container } from "../ui/layouts/Container"
-import { renderNavLink } from "./AppHeader"
+import { useEffect } from 'react'
+import styled from 'styled-components'
+import { BurgerMenu } from '../ui/buttons/BurgerMenu'
+import { ContactInfoWrapper, ContactItem } from '../ui/ContactItem'
+import { Delimeter } from '../ui/Delimeter'
+import { Container } from '../ui/layouts/Container'
+import { renderNavLink } from './AppHeader'
 
 export const MobileMenu = (props) => {
     const { isActive, onClose, links, contacts } = props
@@ -23,12 +23,12 @@ export const MobileMenu = (props) => {
     return (
         <MobileMenuWrapper isActive={isActive}>
             <MobileBurgerContainer>
-                <BurgerMenu isActive={true} onClick={() => onClose()}/>
+                <BurgerMenu isActive={true} onClick={() => onClose()} />
             </MobileBurgerContainer>
             <Container>
-                {links.map(link => (renderNavLink({ text: link.text, url: link.url, onClick: onClose })))}
+                {links.map((link) => renderNavLink({ text: link.text, url: link.url, onClick: onClose }))}
             </Container>
-            <Delimeter right width={'80%'}/>
+            <Delimeter right width={'80%'} />
             <MobileContactsContainer>
                 <ContactItem title={contacts.phone.title} image={contacts.phone.image} href={contacts.phone.href} />
                 <ContactItem title={contacts.email.title} image={contacts.email.image} href={contacts.email.href} />
@@ -38,7 +38,7 @@ export const MobileMenu = (props) => {
 }
 
 const MobileMenuWrapper = styled.div`
-    display: ${({ isActive }) => isActive ? 'block' : 'none'};
+    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
     padding-top: 40px;
     padding-bottom: 30px;
     background: white;

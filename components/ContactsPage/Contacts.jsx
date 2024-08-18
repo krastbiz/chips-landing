@@ -1,11 +1,11 @@
-import styled from "styled-components"
-import { breakpoint } from "../../lib/theme"
-import { MainSection } from "../Common/MainSection"
-import { MapComponent } from "../Common/MapComponent"
-import { AsideLayout } from "../ui/layouts/AsideLayout"
-import { Container } from "../ui/layouts/Container"
-import { MainLayout } from "../ui/layouts/MainLayout"
-import { H1, H2 } from "../ui/Typography"
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
+import { MainSection } from '../Common/MainSection'
+import { MapComponent } from '../Common/MapComponent'
+import { AsideLayout } from '../ui/layouts/AsideLayout'
+import { Container } from '../ui/layouts/Container'
+import { MainLayout } from '../ui/layouts/MainLayout'
+import { H1, H2 } from '../ui/Typography'
 
 const Contacts = () => {
     return (
@@ -21,18 +21,31 @@ const Contacts = () => {
                 <ContactsWrapper>
                     <ContactBox>
                         <ContactTitle>Адрес:</ContactTitle>
-                        <ContactContent>Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)</ContactContent>
+                        <ContactContent>
+                            Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1,
+                            помещ. 5-H, комн. №16,17(оф.407)
+                        </ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)3181983">+7 (812) 318-19-83</ContactContent>
+                        <ContactContent as="a" href="tel:+7(812)3181983">
+                            +7 (812) 318-19-83
+                        </ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Реквизиты:</ContactTitle>
                         <ContactContent>
-                            <div><b>Получатель:</b> ООО "Е-ТИМ"</div>
-                            <div><b>Номер счета:</b> 40702810300000295721</div>
+                            <div>
+                                <b>Получатель:</b> ООО "Е-ТИМ"
+                            </div>
+                            <div>
+                                <b>Номер счета:</b> 40702810300000295721
+                            </div>
                             <div>ПАО Банк “АЛЕКСАНДРОВСКИЙ”</div>
-                            <div><b>Корреспондентский счет:</b> 30101810000000000755 в Северо-Западном ГУ Банка России</div>
-                            <div><b>БИК:</b> 044030755</div>
+                            <div>
+                                <b>Корреспондентский счет:</b> 30101810000000000755 в Северо-Западном ГУ Банка России
+                            </div>
+                            <div>
+                                <b>БИК:</b> 044030755
+                            </div>
                         </ContactContent>
                     </ContactBox>
                 </ContactsWrapper>

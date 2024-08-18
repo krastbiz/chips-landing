@@ -1,7 +1,7 @@
-import { useState } from "react"
-import styled from "styled-components"
-import { breakpoint } from "../../lib/theme"
-import { ContactFormHeader } from "../Common/ContactFormHeader"
+import { useState } from 'react'
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
+import { ContactFormHeader } from '../Common/ContactFormHeader'
 
 export const PhoneItem = (props) => {
     const { title, image, href } = props
@@ -9,7 +9,7 @@ export const PhoneItem = (props) => {
     const [isFormVisible, setIsFormVisible] = useState(false)
 
     const toggleFormVisibility = () => {
-    setIsFormVisible((prevState) => !prevState)
+        setIsFormVisible((prevState) => !prevState)
     }
 
     return (
@@ -34,7 +34,8 @@ export const ContactInfoWrapper = styled.div`
     flex-direction: column;
     gap: 5px;
 
-    a, div {
+    a,
+    div {
         font-size: 12px;
         font-weight: 500;
         display: flex;
@@ -51,13 +52,12 @@ export const ContactInfoWrapper = styled.div`
     `}
 `
 
-
 const HeaderContactMe = styled.div`
-    color: ${({ theme }) => (theme.colors.active)};
+    color: ${({ theme }) => theme.colors.active};
     font-size: 12px;
     user-select: none;
     text-align: center;
     &:hover {
-        color: ${({ theme }) => (theme.colors.hover)};
+        color: ${({ theme }) => theme.colors.hover};
     }
 `

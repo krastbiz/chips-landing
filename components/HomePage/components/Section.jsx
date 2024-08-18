@@ -1,17 +1,19 @@
-import styled from "styled-components"
-import { breakpoint } from "../../../lib/theme"
-import { H2, Text } from "../../ui/Typography"
+import styled from 'styled-components'
+import { breakpoint } from '../../../lib/theme'
+import { H2, Text } from '../../ui/Typography'
 
 export const Section = (props) => {
     const { title, content, images, id } = props
     return (
-        <PageSection id={id ? id: null}>
+        <PageSection id={id ? id : null}>
             <H2>{title}</H2>
             <TextStyled>{content}</TextStyled>
 
             <Images>
-                {images.map(image => (
-                    <ImageWrapper key={image.url}><img src={image.url} alt={image.alt} /></ImageWrapper>
+                {images.map((image) => (
+                    <ImageWrapper key={image.url}>
+                        <img src={image.url} alt={image.alt} />
+                    </ImageWrapper>
                 ))}
             </Images>
         </PageSection>

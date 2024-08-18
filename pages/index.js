@@ -9,10 +9,10 @@ const HomePage = () => {
     return (
         <>
             <Head>
-                {getPageMetadata(pageTitle, pageDescription )}
+                {getPageMetadata(pageTitle, pageDescription)}
                 {getPageCanonical('/')}
             </Head>
-            <Home/>
+            <Home />
         </>
     )
 }

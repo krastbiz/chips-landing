@@ -1,19 +1,19 @@
-import Link from "next/link"
-import { useState } from "react"
-import styled from "styled-components"
-import { breakpoint } from "../../lib/theme"
-import { useDeviceCheck } from "../../lib/utils/hooks/useDeviceCheck"
-import { BurgerMenu, BurgerWrapper } from "../ui/buttons/BurgerMenu"
-import { ContactInfoWrapper, ContactItem } from "../ui/ContactItem"
-import { PhoneItem } from "../ui/PhoneItem"
-import { Delimeter } from "../ui/Delimeter"
-import { Container } from "../ui/layouts/Container"
-import { MobileMenu } from "./MobileMenu"
+import Link from 'next/link'
+import { useState } from 'react'
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
+import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
+import { BurgerMenu, BurgerWrapper } from '../ui/buttons/BurgerMenu'
+import { ContactInfoWrapper, ContactItem } from '../ui/ContactItem'
+import { PhoneItem } from '../ui/PhoneItem'
+import { Delimeter } from '../ui/Delimeter'
+import { Container } from '../ui/layouts/Container'
+import { MobileMenu } from './MobileMenu'
 
 const NAV_LINKS = [
     {
         text: 'Главная',
-        url: '/'
+        url: '/',
     },
     {
         text: 'Линейка поставок',
@@ -26,14 +26,14 @@ const NAV_LINKS = [
     {
         text: 'Контакты',
         url: '/contacts',
-    }
+    },
 ]
 
 const CONTACTS = {
     phone: {
         title: '+7 (812) 318-19-83',
         image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
-        href: 'tel:+7(812)3181983'  
+        href: 'tel:+7(812)3181983',
     },
     email: {
         title: 'info@e-tim.ru',
@@ -44,13 +44,22 @@ const CONTACTS = {
         title: 'Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)',
         image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
         href: null,
-    }
+    },
 }
 
 export const renderNavLink = ({ text, url, onClick }) => {
-    if (url.startsWith('#')) return <a key={url} href={url} onClick={onClick}>{text}</a>
+    if (url.startsWith('#'))
+        return (
+            <a key={url} href={url} onClick={onClick}>
+                {text}
+            </a>
+        )
 
-    return <Link key={url} href={url} onClick={onClick}>{text}</Link>
+    return (
+        <Link key={url} href={url} onClick={onClick}>
+            {text}
+        </Link>
+    )
 }
 
 const AppHeader = () => {
@@ -62,37 +71,51 @@ const AppHeader = () => {
     return (
         <Header isMobileMenuActive={isMobileMenuActive}>
             <ContainerStyled>
-
                 <LogoWrapper>
                     <a href="/">
-                        <Logo src="/static/icons/logo.svg" alt="Логотип"/>
+                        <Logo src="/static/icons/logo.svg" alt="Логотип" />
                     </a>
                 </LogoWrapper>
 
                 <HeaderInfoWrapper>
                     <HeaderInfoTop>
-                        <ContactItem title={CONTACTS.email.title} href={CONTACTS.email.href} image={CONTACTS.email.image} />
-                        <PhoneItem title={CONTACTS.phone.title} href={CONTACTS.phone.href} image={CONTACTS.phone.image}></PhoneItem>
-                        <ContactItem title={CONTACTS.address.title} href={CONTACTS.address.href} image={CONTACTS.address.image} />
-                        <BurgerMenu isActive={isMobileMenuActive} onClick={() => setIsMobileMenuActive((prev) => !prev)}/>
+                        <ContactItem
+                            title={CONTACTS.email.title}
+                            href={CONTACTS.email.href}
+                            image={CONTACTS.email.image}
+                        />
+                        <PhoneItem
+                            title={CONTACTS.phone.title}
+                            href={CONTACTS.phone.href}
+                            image={CONTACTS.phone.image}
+                        ></PhoneItem>
+                        <ContactItem
+                            title={CONTACTS.address.title}
+                            href={CONTACTS.address.href}
+                            image={CONTACTS.address.image}
+                        />
+                        <BurgerMenu
+                            isActive={isMobileMenuActive}
+                            onClick={() => setIsMobileMenuActive((prev) => !prev)}
+                        />
                     </HeaderInfoTop>
 
                     <Delimeter />
 
                     <HeaderInfoBottom>
-                        <Nav>
-                            {
-                                NAV_LINKS.map(({ text, url }) => renderNavLink({ text, url }))
-                            }
-                        </Nav>
+                        <Nav>{NAV_LINKS.map(({ text, url }) => renderNavLink({ text, url }))}</Nav>
                     </HeaderInfoBottom>
-
                 </HeaderInfoWrapper>
-
-
             </ContainerStyled>
 
-            {isMobileOrTablet && <MobileMenu isActive={isMobileMenuActive} onClose={() => setIsMobileMenuActive(false)} links={NAV_LINKS} contacts={CONTACTS}/>}
+            {isMobileOrTablet && (
+                <MobileMenu
+                    isActive={isMobileMenuActive}
+                    onClose={() => setIsMobileMenuActive(false)}
+                    links={NAV_LINKS}
+                    contacts={CONTACTS}
+                />
+            )}
         </Header>
     )
 }
@@ -112,7 +135,9 @@ const ContainerStyled = styled(Container)`
 const Header = styled.header`
     position: relative;
 
-    ${({ isMobileMenuActive }) => isMobileMenuActive && `
+    ${({ isMobileMenuActive }) =>
+        isMobileMenuActive &&
+        `
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -152,8 +177,8 @@ const HeaderInfoTop = styled.div`
     align-items: center;
 
     ${BurgerWrapper} {
-        display: none
-    } 
+        display: none;
+    }
 
     ${breakpoint.laptop`
         margin-bottom: 14px;
@@ -188,12 +213,12 @@ const Nav = styled.nav`
     color: ${({ theme }) => theme.colors.primary};
 
     a {
-        transition: all .2s;
-        border-bottom: 1px solid rgba(79,79,79,0);
+        transition: all 0.2s;
+        border-bottom: 1px solid rgba(79, 79, 79, 0);
     }
 
     a:hover {
-        border-bottom: 1px solid rgba(79,79,79,1);
+        border-bottom: 1px solid rgba(79, 79, 79, 1);
     }
 
     a + a {

@@ -1,7 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const BurgerMenu = (props) => {
-
     const { isActive, onClick } = props
 
     return (
@@ -16,7 +15,7 @@ export const BurgerMenu = (props) => {
 const BurgerLine = styled.div`
     height: 2px;
     width: 100%;
-    background: #545D49;
+    background: #545d49;
 `
 
 export const BurgerWrapper = styled.div`
@@ -28,7 +27,9 @@ export const BurgerWrapper = styled.div`
     width: 20px;
     height: 15px;
 
-    ${({ isActive }) => isActive && `
+    ${({ isActive }) =>
+        isActive &&
+        `
         ${BurgerLine}:nth-child(1) {
             transform: rotate(45deg);
             position: absolute;

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { breakpoint } from "../../lib/theme";
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
 
 export const H1 = styled.h1`
     margin-bottom: 52px;

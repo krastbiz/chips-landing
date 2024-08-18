@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 const PrimaryButton = styled.button`
     display: block;
@@ -16,11 +16,11 @@ const PrimaryButton = styled.button`
     color: white;
     cursor: ${({ theme }) => theme.colors.light};
     transition: 0.3s;
-    background:  ${({ theme }) => theme.colors.red};
+    background: ${({ theme }) => theme.colors.red};
 
     :hover {
         background: white;
-        color: ${({ theme }) => theme.colors.primary}
+        color: ${({ theme }) => theme.colors.primary};
     }
 
     ${(props) => props.filled && filledCss}
@@ -38,7 +38,7 @@ const filledCss = css`
     }
 `
 const redCss = css`
-background: 'red';
+    background: 'red';
 `
 
 export { PrimaryButton }

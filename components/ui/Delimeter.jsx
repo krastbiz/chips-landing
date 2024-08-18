@@ -1,11 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Delimeter = styled.div`
     position: relative;
     height: 1px;
     background-color: #C4C4C4;
-    width: ${({ width }) => width ? width : '100%'};
-    ${({ hideDot, right }) => !hideDot ? `
+    width: ${({ width }) => (width ? width : '100%')};
+    ${({ hideDot, right }) =>
+        !hideDot
+            ? `
     ::before {
         content: '';
         display: block;
@@ -17,6 +19,7 @@ export const Delimeter = styled.div`
         border-radius: 10px;
         background: #C4C4C4;
         transform: translateY(-50%);
-    ` : ''}
+    `
+            : ''}
     }
 `

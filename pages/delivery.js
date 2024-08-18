@@ -1,6 +1,6 @@
-import Head from "next/head"
-import Delivery from "../components/DeliveryPage/Delivery"
-import { getPageCanonical, getPageMetadata } from "../lib/utils/pageHelper"
+import Head from 'next/head'
+import Delivery from '../components/DeliveryPage/Delivery'
+import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const DeliveryPage = () => {
     const pageTitle = 'Электронные компоненты'
@@ -9,7 +9,7 @@ const DeliveryPage = () => {
     return (
         <>
             <Head>
-                {getPageMetadata(pageTitle, pageDescription )}
+                {getPageMetadata(pageTitle, pageDescription)}
                 {getPageCanonical('/delivery')}
             </Head>
             <Delivery />

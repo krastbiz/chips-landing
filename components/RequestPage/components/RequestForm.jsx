@@ -1,62 +1,55 @@
-import { useRef , useState } from 'react';
-import styled from 'styled-components';
-import { sendContactForm } from '../../../lib/api';
-import { breakpoint } from '../../../lib/theme';
-import { Button } from '../../ui/buttons/Button';
-import { H2 } from '../../ui/Typography';
-import { StyledLink } from '../../ui/Link';
-import { Container } from "../../ui/layouts/Container";
+import { useRef, useState } from 'react'
+import styled from 'styled-components'
+import { sendContactForm } from '../../../lib/api'
+import { breakpoint } from '../../../lib/theme'
+import { Button } from '../../ui/buttons/Button'
+import { H2 } from '../../ui/Typography'
+import { StyledLink } from '../../ui/Link'
+import { Container } from '../../ui/layouts/Container'
 
 export const RequestForm = () => {
-
-    const textareaRef = useRef(null);
+    const textareaRef = useRef(null)
     const [formData, setFormData] = useState({
         components: '',
-        quantity: '',
-        region: '',
-        deadlines: '',
         name: '',
         email: '',
-        tel: ''
-    });
-    const [emailWasSent, setEmailWasSent] = useState(false);
+        tel: '',
+    })
+    const [emailWasSent, setEmailWasSent] = useState(false)
 
     const resetForm = () => {
         setFormData({
             components: '',
-            quantity: '',
-            region: '',
-            deadlines: '',
             name: '',
             email: '',
-            tel: ''
-        });
-        setEmailWasSent(false);
-    };
+            tel: '',
+        })
+        setEmailWasSent(false)
+    }
 
     const onFormSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         // sendContactForm(formData).then(() => {
         //     setEmailWasSent(true);
         //     resetForm();
         // }).catch((error) => {
         //     console.error("Error sending form: ", error);
         // });
-    };
+    }
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
+        const { name, value } = e.target
+        setFormData((prevState) => ({
             ...prevState,
-            [name]: value
-        }));
-    };
+            [name]: value,
+        }))
+    }
 
     const handleTextAreaChange = (e) => {
-        handleChange(e);
-        const textarea = textareaRef.current;
-        textarea.style.height = 'auto';
-        textarea.style.height = `${textarea.scrollHeight}px`;
+        handleChange(e)
+        const textarea = textareaRef.current
+        textarea.style.height = 'auto'
+        textarea.style.height = `${textarea.scrollHeight}px`
     }
 
     return (
@@ -76,20 +69,6 @@ export const RequestForm = () => {
                                 value={formData.components}
                                 onChange={handleTextAreaChange}
                                 ref={textareaRef}
-                            />
-                            <input
-                                name="region"
-                                type="text"
-                                placeholder="В какой регион необходимо доставить?"
-                                value={formData.region}
-                                onChange={handleChange}
-                            />
-                            <input
-                                name="deadlines"
-                                type="text"
-                                placeholder="Какие сроки вас устроят?"
-                                value={formData.deadlines}
-                                onChange={handleChange}
                             />
                             <input
                                 name="name"
@@ -127,8 +106,8 @@ export const RequestForm = () => {
                 </FormWrapper>
             </RequestFormWrapper>
         </Container>
-    );
-};
+    )
+}
 
 const RequestFormWrapper = styled.div`
     display: flex;
@@ -138,7 +117,7 @@ const RequestFormWrapper = styled.div`
     font-family: ${({ theme }) => theme.fonts.montserrat};
     ${breakpoint.mobile`
         flex-direction: column`}
-`;
+`
 
 const TitleWrapper = styled(H2)`
     flex: 1;
@@ -147,14 +126,14 @@ const TitleWrapper = styled(H2)`
     ${breakpoint.mobile`
     padding-top: 50px;
     width: 100%;`}
-`;
+`
 
 const FormWrapper = styled.div`
     flex: 1;
     width: 50%;
     ${breakpoint.mobile`
     width: 100%;`}
-`;
+`
 
 const StyledContactForm = styled.form`
     display: flex;
@@ -177,7 +156,7 @@ const StyledContactForm = styled.form`
         padding: 10px;
         color: #ccc;
     }
-`;
+`
 
 const StyledTextarea = styled.textarea`
     width: 100%;
@@ -186,14 +165,17 @@ const StyledTextarea = styled.textarea`
     min-height: 60px;
     line-height: 1.5;
     overflow-y: hidden;
-`;
+    ${breakpoint.mobile`
+    min-height: 70px;
+    `}
+`
 
 const ContactFormSuccessMessage = styled.p`
     display: flex;
     padding-top: 20px;
     justify-content: center;
     height: 180px;
-`;
+`
 
 const ContactFormDescription = styled.p`
     font-weight: 400;
@@ -202,6 +184,4 @@ const ContactFormDescription = styled.p`
     margin-top: 10px;
     color: ${({ theme }) => theme.colors.main};
     text-align: start;
-`;
-
-
+`

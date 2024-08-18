@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { breakpoint } from "../../lib/theme"
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
 
 export const ContactItem = (props) => {
     const { title, image, href } = props
@@ -18,7 +18,6 @@ export const ContactItem = (props) => {
                     {title}
                 </div>
             )}
-
         </ContactInfoWrapper>
     )
 }
@@ -29,7 +28,8 @@ export const ContactInfoWrapper = styled.div`
     font-weight: 500;
     color: ${({ theme }) => theme.colors.grayed};
 
-    a, div {
+    a,
+    div {
         font-size: 12px;
         font-weight: 500;
         display: flex;
@@ -44,5 +44,4 @@ export const ContactInfoWrapper = styled.div`
         margin-left: 24px;
         font-size: 12px;
     `}
-
 `

@@ -1,6 +1,6 @@
-import Head from "next/head"
-import { Request } from "../components/RequestPage/Request"
-import { getPageCanonical, getPageMetadata } from "../lib/utils/pageHelper"
+import Head from 'next/head'
+import { Request } from '../components/RequestPage/Request'
+import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const RequestPage = () => {
     const pageTitle = 'Электронные компоненты | Наши контакты'
@@ -9,10 +9,10 @@ const RequestPage = () => {
     return (
         <>
             <Head>
-                {getPageMetadata(pageTitle, pageDescription )}
+                {getPageMetadata(pageTitle, pageDescription)}
                 {getPageCanonical('/request')}
             </Head>
-            <Request /> 
+            <Request />
         </>
     )
 }

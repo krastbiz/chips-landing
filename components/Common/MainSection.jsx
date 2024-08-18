@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { breakpoint } from "../../lib/theme";
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
 
 export const MainSection = styled.section`
     overflow: hidden;

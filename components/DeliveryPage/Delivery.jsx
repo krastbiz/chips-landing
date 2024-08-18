@@ -1,11 +1,11 @@
-import styled from "styled-components"
-import { breakpoint } from "../../lib/theme"
-import { MainSection } from "../Common/MainSection"
-import { AsideLayout } from "../ui/layouts/AsideLayout"
-import { Container } from "../ui/layouts/Container"
-import { MainLayout } from "../ui/layouts/MainLayout"
-import { H1, H2 } from "../ui/Typography"
-import { CompanyCard } from "./components/CompanyCard"
+import styled from 'styled-components'
+import { breakpoint } from '../../lib/theme'
+import { MainSection } from '../Common/MainSection'
+import { AsideLayout } from '../ui/layouts/AsideLayout'
+import { Container } from '../ui/layouts/Container'
+import { MainLayout } from '../ui/layouts/MainLayout'
+import { H1, H2 } from '../ui/Typography'
+import { CompanyCard } from './components/CompanyCard'
 
 const Delivery = () => {
     const companyCards = [
@@ -64,7 +64,7 @@ const Delivery = () => {
             <AsideLayout>
                 <H2>ЛИНЕЙКА ПОСТАВОК</H2>
                 <CardsWrapper>
-                    {companyCards.map(card => (
+                    {companyCards.map((card) => (
                         <CompanyCard key={card.url} url={card.url} alt={card.alt} />
                     ))}
                 </CardsWrapper>

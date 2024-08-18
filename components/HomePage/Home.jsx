@@ -1,23 +1,30 @@
-import { MainLayout } from "../ui/layouts/MainLayout"
-import styled from "styled-components"
-import { Container } from "../ui/layouts/Container"
-import { PrimaryButton } from "../ui/buttons/PrimaryButton"
-import Link from "next/link"
-import { AsideLayout } from "../ui/layouts/AsideLayout"
-import { H1, H2, Text } from "../ui/Typography"
-import { FeatureCard, FeatureCardWrapper } from "./components/FeatureCard"
-import { MainSection } from "../Common/MainSection"
-import { Section } from "./components/Section"
-import { breakpoint } from "../../lib/theme"
+import { MainLayout } from '../ui/layouts/MainLayout'
+import styled from 'styled-components'
+import { Container } from '../ui/layouts/Container'
+import { PrimaryButton } from '../ui/buttons/PrimaryButton'
+import Link from 'next/link'
+import { AsideLayout } from '../ui/layouts/AsideLayout'
+import { H1, H2, Text } from '../ui/Typography'
+import { FeatureCard, FeatureCardWrapper } from './components/FeatureCard'
+import { MainSection } from '../Common/MainSection'
+import { Section } from './components/Section'
+import { breakpoint } from '../../lib/theme'
 
 const Home = () => {
-
     const mainSection = (
         <>
             <H1Styled>ЭЛЕКТРОННЫЕ КОМПОНЕНТЫ</H1Styled>
             <MainCTAWrapper>
-                <Link href="/request" passHref legacyBehavior><PrimaryButton as={'a'} red>Оставить заявку</PrimaryButton></Link>
-                <Link href="/contacts" passHref legacyBehavior><PrimaryButton as={'a'} filled marginLeft={'26px'}>Контакты</PrimaryButton></Link>
+                <Link href="/request" passHref legacyBehavior>
+                    <PrimaryButton as={'a'} red>
+                        Оставить заявку
+                    </PrimaryButton>
+                </Link>
+                <Link href="/contacts" passHref legacyBehavior>
+                    <PrimaryButton as={'a'} filled marginLeft={'26px'}>
+                        Контакты
+                    </PrimaryButton>
+                </Link>
             </MainCTAWrapper>
         </>
     )
@@ -48,9 +55,7 @@ const Home = () => {
     return (
         <MainLayout>
             <Container>
-                <MainSection>
-                    {mainSection}
-                </MainSection>
+                <MainSection>{mainSection}</MainSection>
             </Container>
             <AsideLayout>
                 <Section
@@ -60,7 +65,18 @@ const Home = () => {
                         { url: '/static/images/chip-3.jpeg', alt: 'Изображение чипа' },
                     ]}
                     title="ИННОВАЦИОННЫЕ РАЗРАБОТКИ"
-                    content={<>Е-ТИМ– Российский дистрибьютор ведущих мировых производителей компонентов и оборудования<br /><br />Е-ТИМ предлагает инновационные разработки, используемые для ответственных применений. Поставляемые компанией компоненты и оборудование отвечают самым высоким требованиям наших заказчиков – промышленных предприятий к высокой надежности, качеству и инновационности технических решений.</>}/>
+                    content={
+                        <>
+                            Е-ТИМ– Российский дистрибьютор ведущих мировых производителей компонентов и оборудования
+                            <br />
+                            <br />
+                            Е-ТИМ предлагает инновационные разработки, используемые для ответственных применений.
+                            Поставляемые компанией компоненты и оборудование отвечают самым высоким требованиям наших
+                            заказчиков – промышленных предприятий к высокой надежности, качеству и инновационности
+                            технических решений.
+                        </>
+                    }
+                />
 
                 <Section
                     id="develop"
@@ -89,30 +105,33 @@ const Home = () => {
                     <FeaturesSectionsTitle>МЫ СТРОИМ НАШУ РАБОТУ, БАЗИРУЯСЬ НА:</FeaturesSectionsTitle>
                     <FeatureCardsWrapper>
                         {featureCards.map((card, index) => (
-                            <FeatureCard key={card.iconUrl + index} title={`0${index + 1}`} description={card.description} iconUrl={card.iconUrl}/>
+                            <FeatureCard
+                                key={card.iconUrl + index}
+                                title={`0${index + 1}`}
+                                description={card.description}
+                                iconUrl={card.iconUrl}
+                            />
                         ))}
                     </FeatureCardsWrapper>
                 </Container>
             </FeaturesSections>
 
             <AdvantagesSection>
-                <AdvantagesTitle>
-                СОТРУДНИЧАЯ С Е-ТИМ НАШИ ЗАКАЗЧИКИ-ПАРТНЕРЫ ПОЛУЧАЮТ:
-                </AdvantagesTitle>
+                <AdvantagesTitle>СОТРУДНИЧАЯ С Е-ТИМ НАШИ ЗАКАЗЧИКИ-ПАРТНЕРЫ ПОЛУЧАЮТ:</AdvantagesTitle>
                 <Container>
-                <AdvantagesList>
-                    <AdvantagesItem>индивидуальный гибкий подход к каждому клиенту</AdvantagesItem>
-                    <AdvantagesItem>своевременную и оперативную информацию</AdvantagesItem>
-                    <AdvantagesItem>доступ к товарам на разных рынках</AdvantagesItem>
-                    <AdvantagesItem>бесплатные образцы</AdvantagesItem>
-                    <AdvantagesItem>бесплатные образцы</AdvantagesItem>
-                    <AdvantagesItem>сопровождение проектов</AdvantagesItem>
-                    <AdvantagesItem>оригинальные качественные компоненты</AdvantagesItem>
-                    <AdvantagesItem>высокую надежность поставок</AdvantagesItem>
-                    <AdvantagesItem>сроки поставки от 10 дней</AdvantagesItem>
-                    <AdvantagesItem>гарантию на поставленные компоненты</AdvantagesItem>
-                    <AdvantagesItem>новые знания о рынке и продукте</AdvantagesItem>
-                </AdvantagesList>
+                    <AdvantagesList>
+                        <AdvantagesItem>индивидуальный гибкий подход к каждому клиенту</AdvantagesItem>
+                        <AdvantagesItem>своевременную и оперативную информацию</AdvantagesItem>
+                        <AdvantagesItem>доступ к товарам на разных рынках</AdvantagesItem>
+                        <AdvantagesItem>бесплатные образцы</AdvantagesItem>
+                        <AdvantagesItem>бесплатные образцы</AdvantagesItem>
+                        <AdvantagesItem>сопровождение проектов</AdvantagesItem>
+                        <AdvantagesItem>оригинальные качественные компоненты</AdvantagesItem>
+                        <AdvantagesItem>высокую надежность поставок</AdvantagesItem>
+                        <AdvantagesItem>сроки поставки от 10 дней</AdvantagesItem>
+                        <AdvantagesItem>гарантию на поставленные компоненты</AdvantagesItem>
+                        <AdvantagesItem>новые знания о рынке и продукте</AdvantagesItem>
+                    </AdvantagesList>
                 </Container>
             </AdvantagesSection>
         </MainLayout>
@@ -181,7 +200,6 @@ const FeaturesSections = styled.section`
             }
         }
     `}
-
 `
 
 const FeaturesSectionsTitle = styled(H2)`
@@ -196,7 +214,7 @@ const FeaturesSectionsTitle = styled(H2)`
 
 const MainCTAWrapper = styled.div`
     display: flex;
-    
+
     a + a {
         margin-left: 26px;
     }
@@ -256,7 +274,6 @@ const AdvantagesItem = styled.li`
             left: 0;
         }
     `}
-
 `
 const AdvantagesList = styled.ul`
     width: 70%;
