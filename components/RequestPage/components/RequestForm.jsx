@@ -16,7 +16,7 @@ export const RequestForm = () => {
         tel: '',
     })
     const [emailWasSent, setEmailWasSent] = useState(false);
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFiles, setSelectedFiles] = useState([]);
 
     const resetForm = () => {
         setFormData({
@@ -25,18 +25,19 @@ export const RequestForm = () => {
             email: '',
             tel: '',
         })
-        setSelectedFile(null);
+        setSelectedFiles([]);
         setEmailWasSent(false)
     }
+
     const onFormSubmit = (e) => {
         e.preventDefault();
         const formDataWithFile = new FormData();
         for (const key in formData) {
             formDataWithFile.append(key, formData[key]);
         }
-        if (selectedFile) {
-            formDataWithFile.append('file', selectedFile);
-        }
+        selectedFiles.forEach(file => {
+            formDataWithFile.append('files', file);
+        });
         sendContactForm(formDataWithFile).then(() => {
             setEmailWasSent(true);
             resetForm();
@@ -52,8 +53,10 @@ export const RequestForm = () => {
             [name]: value,
         }))
     }
+
     const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
+        const files = Array.from(e.target.files);
+        setSelectedFiles(prevFiles => [...prevFiles, ...files]);
     };
 
     const handleTextAreaChange = (e) => {
@@ -81,17 +84,27 @@ export const RequestForm = () => {
                                 onChange={handleTextAreaChange}
                                 ref={textareaRef}
                             />
-                                                   <FileUploadLabel>
+                            <FileUploadLabel>
                                 <input
                                     type="file"
                                     name="file"
                                     onChange={handleFileChange}
+                                    multiple
                                 />
                                 <FileUploadText>
                                     <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
                                     Прикрепите файл
                                 </FileUploadText>
                             </FileUploadLabel>
+                            {selectedFiles.length > 0 && (
+                                <AttachedFilesList>
+                                    {selectedFiles.map((file, index) => (
+                                        <AttachedFileItem key={index}>
+                                            {file.name}
+                                        </AttachedFileItem>
+                                    ))}
+                                </AttachedFilesList>
+                            )}
                             <input
                                 name="name"
                                 type="text"
@@ -206,6 +219,7 @@ const ContactFormDescription = styled.p`
     color: ${({ theme }) => theme.colors.main};
     text-align: start;
 `
+
 const FileUploadLabel = styled.label`
     display: flex;
     align-items: center;
@@ -229,3 +243,17 @@ const FileUploadText = styled.span`
         height: 16px;
     }
 `;
+
+const AttachedFilesList = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+`;
+
+const AttachedFileItem = styled.li`
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+`;
+
+
