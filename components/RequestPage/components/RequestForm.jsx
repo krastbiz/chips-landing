@@ -73,9 +73,9 @@ export const RequestForm = () => {
                     {emailWasSent ? (
                         <ContactFormSuccessMessage>
                             Мы приняли Вашу заявку! Спасибо, что связались с нами!
-                            <Button primary type="reset" onClick={() => setEmailWasSent(false)}>
+                            <ContactFormSuccessMessageButton primary type="reset" onClick={() => setEmailWasSent(false)}>
                                 Новая заявка
-                            </Button>
+                            </ContactFormSuccessMessageButton>
                         </ContactFormSuccessMessage>
                     ) : (
                         <StyledContactForm onSubmit={onFormSubmit}>
@@ -211,6 +211,11 @@ const ContactFormSuccessMessage = styled.p`
     padding-top: 20px;
     justify-content: center;
     height: 180px;
+    flex-direction: column;
+`
+
+const ContactFormSuccessMessageButton = styled(Button)`
+    width: 30%;
 `
 
 const ContactFormDescription = styled.p`
