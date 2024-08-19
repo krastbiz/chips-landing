@@ -216,6 +216,7 @@ const ContactFormSuccessMessage = styled.p`
 
 const ContactFormSuccessMessageButton = styled(Button)`
     width: 30%;
+    margin-top: 20px;
 `
 
 const ContactFormDescription = styled.p`
