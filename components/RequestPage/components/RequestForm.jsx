@@ -26,7 +26,6 @@ export const RequestForm = () => {
             tel: '',
         })
         setSelectedFiles([]);
-        setEmailWasSent(false)
     }
 
     const onFormSubmit = (e) => {
@@ -74,6 +73,9 @@ export const RequestForm = () => {
                     {emailWasSent ? (
                         <ContactFormSuccessMessage>
                             Мы приняли Вашу заявку! Спасибо, что связались с нами!
+                            <Button primary type="reset" onClick={() => setEmailWasSent(false)}>
+                                Новая заявка
+                            </Button>
                         </ContactFormSuccessMessage>
                     ) : (
                         <StyledContactForm onSubmit={onFormSubmit}>
