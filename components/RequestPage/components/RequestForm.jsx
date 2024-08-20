@@ -30,14 +30,7 @@ export const RequestForm = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        const formDataWithFile = new FormData();
-        for (const key in formData) {
-            formDataWithFile.append(key, formData[key]);
-        }
-        selectedFiles.forEach(file => {
-            formDataWithFile.append('files', file);
-        });
-        sendContactForm(formDataWithFile).then(() => {
+        sendContactForm({...formData, selectedFiles }).then(() => {
             setEmailWasSent(true);
             resetForm();
         }).catch((error) => {
