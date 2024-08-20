@@ -19,12 +19,15 @@ export default async function handler(req, res) {
       }
 
       const { email, message, name, tel, components } = fields;
-      const uploadedFiles = Array.isArray(files.file) ? files.file : [files.file];
 
-      const attachments = uploadedFiles.map((file) => ({
-        filename: file.originalFilename,
-        content: fs.readFileSync(file.filepath),
-      }));
+      let attachments = [];
+      if (files.file) {
+        const uploadedFiles = Array.isArray(files.file) ? files.file : [files.file];
+        attachments = uploadedFiles.map((file) => ({
+          filename: file.originalFilename,
+          content: fs.readFileSync(file.filepath),
+        }));
+      }
 
       sendMail({
         email,
@@ -32,7 +35,7 @@ export default async function handler(req, res) {
         name,
         tel,
         components,
-        files: attachments,
+        files: attachments.length ? attachments : null,
       })
         .then(() => res.status(200).json({ success: true }))
         .catch((error) =>
