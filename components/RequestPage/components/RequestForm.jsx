@@ -8,13 +8,13 @@ import { StyledLink } from '../../ui/Link'
 import { Container } from '../../ui/layouts/Container'
 
 export const RequestForm = () => {
-    const textareaRef = useRef(null)
+    const textareaRef = useRef(null);
     const [formData, setFormData] = useState({
         components: '',
         name: '',
         email: '',
         tel: '',
-    })
+    });
     const [emailWasSent, setEmailWasSent] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -24,13 +24,25 @@ export const RequestForm = () => {
             name: '',
             email: '',
             tel: '',
-        })
+        });
         setSelectedFiles([]);
-    }
+    };
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        sendContactForm({...formData, selectedFiles }).then(() => {
+        
+        const formDataToSend = new FormData();
+        
+        formDataToSend.append('components', formData.components);
+        formDataToSend.append('name', formData.name);
+        formDataToSend.append('email', formData.email);
+        formDataToSend.append('tel', formData.tel);
+
+        selectedFiles.forEach((file) => {
+            formDataToSend.append('file', file); 
+        });
+
+        sendContactForm(formDataToSend).then(() => {
             setEmailWasSent(true);
             resetForm();
         }).catch((error) => {
@@ -39,12 +51,12 @@ export const RequestForm = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         setFormData((prevState) => ({
             ...prevState,
             [name]: value,
-        }))
-    }
+        }));
+    };
 
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
@@ -52,11 +64,11 @@ export const RequestForm = () => {
     };
 
     const handleTextAreaChange = (e) => {
-        handleChange(e)
-        const textarea = textareaRef.current
-        textarea.style.height = 'auto'
-        textarea.style.height = `${textarea.scrollHeight}px`
-    }
+        handleChange(e);
+        const textarea = textareaRef.current;
+        textarea.style.height = 'auto';
+        textarea.style.height = `${textarea.scrollHeight}px`;
+    };
 
     return (
         <Container>
@@ -71,7 +83,7 @@ export const RequestForm = () => {
                             </ContactFormSuccessMessageButton>
                         </ContactFormSuccessMessage>
                     ) : (
-                        <StyledContactForm onSubmit={onFormSubmit}>
+                        <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
                             <StyledTextarea
                                 name="components"
                                 placeholder="Какие комплектующие вам необходимы и какое количество вам необходимо?"
@@ -136,8 +148,8 @@ export const RequestForm = () => {
                 </FormWrapper>
             </RequestFormWrapper>
         </Container>
-    )
-}
+    );
+};
 
 const RequestFormWrapper = styled.div`
     display: flex;
