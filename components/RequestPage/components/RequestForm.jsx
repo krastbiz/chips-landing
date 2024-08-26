@@ -79,8 +79,8 @@ export const RequestForm = () => {
                 <FormWrapper>
                     {emailWasSent ? (
                         <ContactFormSuccessMessage>
-                            Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.
-                            Спасибо, что связались с нами!
+                            <div>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</div>
+                            <div>Спасибо, что связались с нами!</div>
                             <ContactFormSuccessMessageButton primary type="reset" onClick={() => setEmailWasSent(false)}>
                                 Новая заявка
                             </ContactFormSuccessMessageButton>
