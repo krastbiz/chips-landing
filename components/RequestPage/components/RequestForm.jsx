@@ -17,6 +17,7 @@ export const RequestForm = () => {
     });
     const [emailWasSent, setEmailWasSent] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState([]);
+    const [requestNumber, setRequestNumber] = useState(null);
 
     const resetForm = () => {
         setFormData({
@@ -42,8 +43,9 @@ export const RequestForm = () => {
             formDataToSend.append('file', file); 
         });
 
-        sendContactForm(formDataToSend).then(() => {
+        sendContactForm(formDataToSend).then((response) => {
             setEmailWasSent(true);
+            setRequestNumber(response.data.requestNumber);
             resetForm();
         }).catch((error) => {
             console.error("Error sending form: ", error);
@@ -77,7 +79,8 @@ export const RequestForm = () => {
                 <FormWrapper>
                     {emailWasSent ? (
                         <ContactFormSuccessMessage>
-                            Мы приняли Вашу заявку! Спасибо, что связались с нами!
+                            Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.
+                            Спасибо, что связались с нами!
                             <ContactFormSuccessMessageButton primary type="reset" onClick={() => setEmailWasSent(false)}>
                                 Новая заявка
                             </ContactFormSuccessMessageButton>

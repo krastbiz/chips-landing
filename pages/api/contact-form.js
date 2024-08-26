@@ -8,6 +8,29 @@ export const config = {
   },
 };
 
+const getCurrentRequestNumber = () => {
+  try {
+    const data = fs.readFileSync('request-counter.txt', 'utf8');
+    return parseInt(data, 10) || 0;
+  } catch (err) {
+    console.error('Error reading request counter file:', err);
+    return 0;
+  }
+};
+
+const incrementRequestNumber = () => {
+  const currentNumber = getCurrentRequestNumber();
+  const newNumber = currentNumber + 1;
+
+  try {
+    fs.writeFileSync('request-counter.txt', newNumber.toString());
+  } catch (err) {
+    console.error('Error writing request counter file:', err);
+  }
+
+  return newNumber;
+};
+
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const form = new IncomingForm({ multiples: true });
@@ -18,6 +41,7 @@ export default async function handler(req, res) {
         return;
       }
 
+      const requestNumber = incrementRequestNumber();
       const { email, message, name, tel, components } = fields;
 
       let attachments = [];
@@ -35,9 +59,10 @@ export default async function handler(req, res) {
         name,
         tel,
         components,
+        requestNumber,
         files: attachments.length ? attachments : null,
       })
-        .then(() => res.status(200).json({ success: true }))
+        .then(() => res.status(200).json({ success: true, requestNumber  }))
         .catch((error) =>
           res.status(500).json({ error: `Failed to send email: ${error.message}` })
         );
