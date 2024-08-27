@@ -34,10 +34,10 @@ export const FloatContactDialog = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault()
-        const formDataToSend = new FormData();
-        formDataToSend.append('email', email);
-        formDataToSend.append('tel', tel);
-        formDataToSend.append('message', message);
+        const formDataToSend = new FormData()
+        formDataToSend.append('email', email)
+        formDataToSend.append('tel', tel)
+        formDataToSend.append('message', message)
         sendContactForm(formDataToSend).then(() => {
             setEmailWasSent(true)
         })

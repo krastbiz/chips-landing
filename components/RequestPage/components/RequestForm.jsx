@@ -8,16 +8,16 @@ import { StyledLink } from '../../ui/Link'
 import { Container } from '../../ui/layouts/Container'
 
 export const RequestForm = () => {
-    const textareaRef = useRef(null);
+    const textareaRef = useRef(null)
     const [formData, setFormData] = useState({
         components: '',
         name: '',
         email: '',
         tel: '',
-    });
-    const [emailWasSent, setEmailWasSent] = useState(false);
-    const [selectedFiles, setSelectedFiles] = useState([]);
-    const [requestNumber, setRequestNumber] = useState(null);
+    })
+    const [emailWasSent, setEmailWasSent] = useState(false)
+    const [selectedFiles, setSelectedFiles] = useState([])
+    const [requestNumber, setRequestNumber] = useState(null)
 
     const resetForm = () => {
         setFormData({
@@ -25,52 +25,54 @@ export const RequestForm = () => {
             name: '',
             email: '',
             tel: '',
-        });
-        setSelectedFiles([]);
-    };
+        })
+        setSelectedFiles([])
+    }
 
     const onFormSubmit = (e) => {
-        e.preventDefault();
-        
-        const formDataToSend = new FormData();
-        
-        formDataToSend.append('components', formData.components);
-        formDataToSend.append('name', formData.name);
-        formDataToSend.append('email', formData.email);
-        formDataToSend.append('tel', formData.tel);
+        e.preventDefault()
+
+        const formDataToSend = new FormData()
+
+        formDataToSend.append('components', formData.components)
+        formDataToSend.append('name', formData.name)
+        formDataToSend.append('email', formData.email)
+        formDataToSend.append('tel', formData.tel)
 
         selectedFiles.forEach((file) => {
-            formDataToSend.append('file', file); 
-        });
+            formDataToSend.append('file', file)
+        })
 
-        sendContactForm(formDataToSend).then((response) => {
-            setEmailWasSent(true);
-            setRequestNumber(response.data.requestNumber);
-            resetForm();
-        }).catch((error) => {
-            console.error("Error sending form: ", error);
-        });
-    };
+        sendContactForm(formDataToSend)
+            .then((response) => {
+                setEmailWasSent(true)
+                setRequestNumber(response.data.requestNumber)
+                resetForm()
+            })
+            .catch((error) => {
+                console.error('Error sending form: ', error)
+            })
+    }
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setFormData((prevState) => ({
             ...prevState,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const handleFileChange = (e) => {
-        const files = Array.from(e.target.files);
-        setSelectedFiles(prevFiles => [...prevFiles, ...files]);
-    };
+        const files = Array.from(e.target.files)
+        setSelectedFiles((prevFiles) => [...prevFiles, ...files])
+    }
 
     const handleTextAreaChange = (e) => {
-        handleChange(e);
-        const textarea = textareaRef.current;
-        textarea.style.height = 'auto';
-        textarea.style.height = `${textarea.scrollHeight}px`;
-    };
+        handleChange(e)
+        const textarea = textareaRef.current
+        textarea.style.height = 'auto'
+        textarea.style.height = `${textarea.scrollHeight}px`
+    }
 
     return (
         <Container>
@@ -81,7 +83,11 @@ export const RequestForm = () => {
                         <ContactFormSuccessMessage>
                             <div>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</div>
                             <div>Спасибо, что связались с нами!</div>
-                            <ContactFormSuccessMessageButton primary type="reset" onClick={() => setEmailWasSent(false)}>
+                            <ContactFormSuccessMessageButton
+                                primary
+                                type="reset"
+                                onClick={() => setEmailWasSent(false)}
+                            >
                                 Новая заявка
                             </ContactFormSuccessMessageButton>
                         </ContactFormSuccessMessage>
@@ -95,12 +101,7 @@ export const RequestForm = () => {
                                 ref={textareaRef}
                             />
                             <FileUploadLabel>
-                                <input
-                                    type="file"
-                                    name="file"
-                                    onChange={handleFileChange}
-                                    multiple
-                                />
+                                <input type="file" name="file" onChange={handleFileChange} multiple />
                                 <FileUploadText>
                                     <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
                                     Прикрепите файл
@@ -109,9 +110,7 @@ export const RequestForm = () => {
                             {selectedFiles.length > 0 && (
                                 <AttachedFilesList>
                                     {selectedFiles.map((file, index) => (
-                                        <AttachedFileItem key={index}>
-                                            {file.name}
-                                        </AttachedFileItem>
+                                        <AttachedFileItem key={index}>{file.name}</AttachedFileItem>
                                     ))}
                                 </AttachedFilesList>
                             )}
@@ -151,8 +150,8 @@ export const RequestForm = () => {
                 </FormWrapper>
             </RequestFormWrapper>
         </Container>
-    );
-};
+    )
+}
 
 const RequestFormWrapper = styled.div`
     display: flex;
@@ -245,7 +244,7 @@ const FileUploadLabel = styled.label`
     input[type='file'] {
         display: none;
     }
-`;
+`
 
 const FileUploadText = styled.span`
     display: flex;
@@ -258,18 +257,16 @@ const FileUploadText = styled.span`
         width: 16px;
         height: 16px;
     }
-`;
+`
 
 const AttachedFilesList = styled.ul`
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
-`;
+`
 
 const AttachedFileItem = styled.li`
     font-size: 14px;
     color: #555;
     margin-bottom: 5px;
-`;
-
-
+`
