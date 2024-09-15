@@ -4,8 +4,7 @@ import { search } from '../../../lib/api'
 import debounce from 'lodash/debounce'
 
 export const useCatalogSearch = () => {
-    const router = useRouter()
-    const { query } = router
+    const { query } = useRouter()
 
     const [data, setData] = useState([])
     const [page, setPage] = useState(1)

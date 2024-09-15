@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 import { Button } from '../../ui/buttons/Button'
 import { Text } from '../../ui/Typography'
 
 export const CatalogTable = ({ data = [], loading }) => {
+    const router = useRouter();
     return (
         <>
             <StyledTable>
@@ -26,7 +28,7 @@ export const CatalogTable = ({ data = [], loading }) => {
                                 <td>{item.available}</td>
                                 <td>{item.leadtime}</td>
                                 <td>
-                                    <Button primary>Заказать</Button>
+                                    <Button onClick={() => router.push(`/request?brand=${item.brand}&partnumber=${item.partnumber}`)} primary>Заказать</Button>
                                 </td>
                             </TableRow>
                         ))}

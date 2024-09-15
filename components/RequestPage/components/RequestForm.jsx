@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 import { sendContactForm } from '../../../lib/api'
 import { breakpoint } from '../../../lib/theme'
 import { Button } from '../../ui/buttons/Button'
@@ -9,8 +10,9 @@ import { Container } from '../../ui/layouts/Container'
 
 export const RequestForm = () => {
     const textareaRef = useRef(null)
+    const { query } = useRouter();
     const [formData, setFormData] = useState({
-        components: '',
+        components: `${query.brand} ${query.partnumber}`,
         name: '',
         email: '',
         tel: '',
