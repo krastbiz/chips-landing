@@ -502,7 +502,7 @@ const FeaturesListItemHeader = styled.li`
     display: block;
     font-size: 18px;
     line-height: 40px;
-    color: ${({ alternativeColored, theme }) => (alternativeColored ? 'white' : theme.colors.primary)};
+    color: ${({ alternative, theme }) => (alternative === 'true' ? 'white' : theme.colors.primary)};
     font-weight: bold;
     margin-bottom: 20px;
 

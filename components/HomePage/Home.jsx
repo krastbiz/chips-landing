@@ -4,16 +4,18 @@ import { Container } from '../ui/layouts/Container'
 import { PrimaryButton } from '../ui/buttons/PrimaryButton'
 import Link from 'next/link'
 import { AsideLayout } from '../ui/layouts/AsideLayout'
-import { H1, H2, Text } from '../ui/Typography'
+import { H1, H2 } from '../ui/Typography'
 import { FeatureCard, FeatureCardWrapper } from './components/FeatureCard'
 import { MainSection } from '../Common/MainSection'
 import { Section } from './components/Section'
 import { breakpoint } from '../../lib/theme'
+import { SearchComponent } from '../Common/Search'
 
 const Home = () => {
     const mainSection = (
         <>
             <H1Styled>ЭЛЕКТРОННЫЕ КОМПОНЕНТЫ</H1Styled>
+            <SearchComponent isHomePage />
             <MainCTAWrapper>
                 <Link href="/request" passHref legacyBehavior>
                     <PrimaryButton as={'a'} red>
