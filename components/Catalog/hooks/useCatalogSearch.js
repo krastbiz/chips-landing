@@ -1,60 +1,75 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
-import { useRouter } from 'next/router'
-import { search } from '../../../lib/api'
-import debounce from 'lodash/debounce'
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
+import { search } from '../../../lib/api';
+import debounce from 'lodash/debounce';
 
 export const useCatalogSearch = () => {
-    const { query } = useRouter()
+    const { query } = useRouter();
 
-    const [data, setData] = useState([])
-    const [page, setPage] = useState(1)
-    const [hasMore, setHasMore] = useState(true)
-    const [loading, setLoading] = useState(false)
+    const [data, setData] = useState([]);
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [sortBy, setSortBy] = useState('brand');
+    const [sortOrder, setSortOrder] = useState('asc');
     const defaultSearchValue = query.q || '';
     const searchValueRef = useRef(defaultSearchValue);
 
-    const fetchData = useCallback(async (query, pageNum) => {
-        setLoading(true)
+    const fetchData = useCallback(async (query, pageNum, sortBy, sortOrder) => {
+        setLoading(true);
         try {
-            const response = await search({ q: query, page: pageNum, itemsPerPage: 100 })
-            const { data: newData, total } = response.data
+            const response = await search({ q: query, page: pageNum, itemsPerPage: 100, sortBy, sortOrder });
+            const { data: newData, total } = response.data;
 
-            setData((prevData) => (pageNum === 1 ? newData : [...prevData, ...newData]))
-            setHasMore(newData.length > 0 && pageNum * 100 < total)
+            setData((prevData) => (pageNum === 1 ? newData : [...prevData, ...newData]));
+            setHasMore(newData.length > 0 && pageNum * 100 < total);
         } catch (error) {
-            console.error('Ошибка загрузки данных:', error)
+            console.error('Ошибка загрузки данных:', error);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    }, [])
+    }, []);
 
-    const debouncedFetchData = useCallback(debounce(async (query, pageNum) => {
-        await fetchData(query, pageNum)
-    }, 500), [fetchData])
+    const debouncedFetchData = useCallback(
+        debounce(async (query, pageNum, sortBy, sortOrder) => {
+            await fetchData(query, pageNum, sortBy, sortOrder);
+        }, 500),
+        [fetchData]
+    );
 
     const handleSearch = useCallback(
         async (value) => {
-            debouncedFetchData(value, 1)
+            debouncedFetchData(value, 1, sortBy, sortOrder);
         },
-        [debouncedFetchData]
-    )
+        [debouncedFetchData, sortBy, sortOrder]
+    );
+
+    const handleSort = useCallback(
+        (field) => {
+            const newSortOrder = sortBy === field ? (sortOrder === 'asc' ? 'desc' : 'asc') : 'asc';
+            setSortBy(field);
+            setSortOrder(newSortOrder);
+            setPage(1);
+        },
+        [sortBy, sortOrder]
+    );
+
 
     useEffect(() => {
         if (defaultSearchValue) {
-            fetchData(defaultSearchValue, 1)
+            fetchData(defaultSearchValue, 1, sortBy, sortOrder)
         }
     }, [])
 
-    
     useEffect(() => {
-        fetchData(searchValueRef.current, page)
-    }, [page])
+        fetchData(searchValueRef.current, page, sortBy, sortOrder);
+    }, [page, sortBy, sortOrder]);
 
-    const loadMoreRef = useRef(null)
-    
+    const loadMoreRef = useRef(null);
+
     const loadMore = () => {
-        setPage((prevPage) => prevPage + 1)
-    }
+        setPage((prevPage) => prevPage + 1);
+    };
 
     useEffect(() => {
         if (hasMore && loadMoreRef.current && !loading) {
@@ -62,22 +77,22 @@ export const useCatalogSearch = () => {
                 root: null,
                 rootMargin: '0px',
                 threshold: 1.0,
-            }
+            };
 
             const observerCallback = (entries) => {
                 if (entries[0].isIntersecting) {
-                    loadMore()
+                    loadMore();
                 }
-            }
+            };
 
-            const observer = new IntersectionObserver(observerCallback, options)
-            observer.observe(loadMoreRef.current)
+            const observer = new IntersectionObserver(observerCallback, options);
+            observer.observe(loadMoreRef.current);
 
             return () => {
-                observer.disconnect()
-            }
+                observer.disconnect();
+            };
         }
-    }, [hasMore, loadMore])
+    }, [hasMore, loadMore]);
 
     return {
         data,
@@ -87,5 +102,8 @@ export const useCatalogSearch = () => {
         hasMore,
         loading,
         handleSearch,
-    }
-}
+        handleSort,
+        sortBy,
+        sortOrder,
+    };
+};

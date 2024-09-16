@@ -11,13 +11,20 @@ const generateCatalogData = () => {
     const sheet = workbook.Sheets[sheetName]
     const data = xlsx.utils.sheet_to_json(sheet)
 
-    const transformedData = data.map((item) => ({
-        brand: item['Brand'] || '',
-        partnumber: item['Part Number'] || '',
-        available: item['Available'] || 0,
-        leadtime: item['Lead Time'],
-    }))
-
+    const transformedData = data.map((item) => {
+        const rawPartnumber = String(item['Part Number']) || '';
+        const cleanedPartnumber = rawPartnumber
+            .replace(/^\s+|\s+$/g, '')
+            .replace(/^\(|\)$/g, '')
+            .replace(/\s+/g, '');
+    
+        return {
+            brand: item['Brand'] || '',
+            partnumber: cleanedPartnumber,
+            available: item['Available'] || 'Под заказ',
+            leadtime: item['Lead Time'] || 'По запросу',
+        };
+    });
     fs.writeFileSync(JSON_FILE_PATH, JSON.stringify(transformedData, null, 2))
     console.log(`JSON файл был успешно создан: ${JSON_FILE_PATH}`)
 }

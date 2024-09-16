@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { breakpoint } from '../../lib/theme'
 
 export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) => {
     const [searchValue, setSearchValue] = useState(defaultValue || '')
@@ -68,6 +69,9 @@ const SearchInput = styled.input`
     width: 480px;
     box-sizing: border-box;
     margin: 20px 0;
+    ${breakpoint.mobile`
+    width: 260px;
+`}
 `
 
 const SearchButton = styled.button`

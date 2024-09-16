@@ -5,7 +5,7 @@ import { Container } from '../../ui/layouts/Container'
 import { Separator } from '../../ui/Separator'
 
 export const CatalogContent = () => {
-    const { data, defaultSearchValue, loadMoreRef, loading, handleSearch } = useCatalogSearch()
+    const { data, defaultSearchValue, loadMoreRef, loading, handleSearch, handleSort, sortBy, sortOrder } = useCatalogSearch()
 
     return (
         <Container>
@@ -15,7 +15,13 @@ export const CatalogContent = () => {
                 isHomePage={false}
             />
             <Separator />
-            <CatalogTable data={data} loading={loading} />
+            <CatalogTable
+                data={data}
+                loading={loading}
+                onSort={handleSort}
+                sortBy={sortBy}
+                sortOrder={sortOrder}
+            />
             <div ref={loadMoreRef} style={{ height: '20px' }} />
         </Container>
     )

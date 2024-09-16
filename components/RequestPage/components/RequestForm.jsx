@@ -12,7 +12,7 @@ export const RequestForm = () => {
     const textareaRef = useRef(null)
     const { query } = useRouter();
     const [formData, setFormData] = useState({
-        components: `${query.brand} ${query.partnumber}`,
+        components: `${query.brand || ''} ${query.partnumber || ''}`,
         name: '',
         email: '',
         tel: '',
