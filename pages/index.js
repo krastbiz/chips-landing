@@ -4,7 +4,7 @@ import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const HomePage = () => {
     const pageTitle = 'Электронные компоненты'
-    const pageDescription = 'Закажите электронные компоненты, оставьте вашу заявку'
+    const pageDescription = 'Закажите электронные компоненты, оставьте вашу заявку в етим'
 
     return (
         <>

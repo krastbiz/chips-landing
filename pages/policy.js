@@ -4,7 +4,7 @@ import { Policy } from '../components/PolicyPage/Policy'
 
 const PolicyPage = () => {
     const pageTitle = 'Электронные компоненты'
-    const pageDescription = 'Закажите доставку электронных компонентов, оставьте вашу заявку'
+    const pageDescription = 'Закажите доставку электронных компонентов, оставьте вашу заявку в етим'
     const pageRelativeUrl = '/policy'
 
     return (

@@ -10,7 +10,7 @@ export const AsideLayout = (props) => {
     return (
         <Container>
             <PageContentWrapper>
-                <Aside>
+                {/* <Aside>
                     <LinkGroup>
                         <LinkGroupTitle>
                             <H3Styled>О КОМПАНИИ</H3Styled>
@@ -28,7 +28,7 @@ export const AsideLayout = (props) => {
                         <Link href="/#develop">Поставка компонентов под разработку</Link>
                         <Link href="/#bulk">Преимущества</Link>
                     </LinkGroup>
-                </Aside>
+                </Aside> */}
                 <PageContent>{children}</PageContent>
             </PageContentWrapper>
         </Container>
@@ -39,11 +39,7 @@ const PageContentWrapper = styled.div`
     display: flex;
 `
 const PageContent = styled.div`
-    width: 70%;
-
-    ${breakpoint.tablet`
-        width: 100%;
-    `}
+    width: 100%;
 `
 
 const LinkGroup = styled.div`

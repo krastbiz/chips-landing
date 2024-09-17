@@ -3,8 +3,8 @@ import { Request } from '../components/RequestPage/Request'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const RequestPage = () => {
-    const pageTitle = 'Электронные компоненты | Наши контакты'
-    const pageDescription = 'Закажите электронные компоненты, оставьте вашу заявку'
+    const pageTitle = 'Оставь заявку в Е-Тим'
+    const pageDescription = 'Закажите электронные компоненты, оставьте вашу заявку в ЕТИМ'
 
     return (
         <>
