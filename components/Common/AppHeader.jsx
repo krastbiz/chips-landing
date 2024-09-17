@@ -16,8 +16,8 @@ const NAV_LINKS = [
         url: '/',
     },
     {
-        text: 'Линейка поставок',
-        url: '/delivery',
+        text: 'О компании',
+        url: '/#about',
     },
     {
         text: 'Контроль качества',

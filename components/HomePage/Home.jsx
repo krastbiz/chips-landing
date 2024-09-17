@@ -61,12 +61,13 @@ const Home = () => {
             </Container>
             <AsideLayout>
                 <Section
+                     id="about"
                     images={[
                         { url: '/static/images/chip-1.jpeg', alt: 'Изображение чипа' },
                         { url: '/static/images/chip-2.jpeg', alt: 'Изображение чипа' },
                         { url: '/static/images/chip-3.jpeg', alt: 'Изображение чипа' },
                     ]}
-                    title="ИННОВАЦИОННЫЕ РАЗРАБОТКИ"
+                    title="О компании"
                     content={
                         <>
                             Е-ТИМ– Российский дистрибьютор ведущих мировых производителей компонентов и оборудования
