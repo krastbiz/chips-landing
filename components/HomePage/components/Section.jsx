@@ -10,7 +10,7 @@ export const Section = (props) => {
             <TextStyled>{content}</TextStyled>
 
             <Images>
-                {images.map((image) => (
+                {images?.map((image) => (
                     <ImageWrapper key={image.url}>
                         <img src={image.url} alt={image.alt} />
                     </ImageWrapper>
@@ -21,7 +21,7 @@ export const Section = (props) => {
 }
 
 const PageSection = styled.section`
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 `
 
 const ImageWrapper = styled.div`

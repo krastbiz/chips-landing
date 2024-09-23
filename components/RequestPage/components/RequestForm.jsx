@@ -4,15 +4,15 @@ import { useRouter } from 'next/router'
 import { sendContactForm } from '../../../lib/api'
 import { breakpoint } from '../../../lib/theme'
 import { Button } from '../../ui/buttons/Button'
-import { H2 } from '../../ui/Typography'
+import { H2, H3 } from '../../ui/Typography'
 import { StyledLink } from '../../ui/Link'
 import { Container } from '../../ui/layouts/Container'
 
 export const RequestForm = () => {
     const textareaRef = useRef(null)
-    const { query } = useRouter();
+    const { query } = useRouter()
     const [formData, setFormData] = useState({
-        components: `${query.brand || ''} ${query.partnumber || ''}`,
+        components: query.brand && query.partnumber ? `${query.brand} ${query.partnumber}` : '',
         name: '',
         email: '',
         tel: '',
@@ -79,7 +79,15 @@ export const RequestForm = () => {
     return (
         <Container>
             <RequestFormWrapper>
-                <TitleWrapper>Рассчитаем стоимость и сроки доставки комплектующих</TitleWrapper>
+                <TitleWrapper>
+                    <H2>Рассчитаем стоимость и сроки доставки комплектующих</H2>
+                    <FormSubtitle>
+                        Ограничения по заказу: только юридические лица и ИП. 
+                    </FormSubtitle>
+                    <FormSubtitle>
+                        Минимальный заказ для новых партнеров от 10000 рублей.
+                    </FormSubtitle>
+                </TitleWrapper>
                 <FormWrapper>
                     {emailWasSent ? (
                         <ContactFormSuccessMessage>
@@ -95,6 +103,13 @@ export const RequestForm = () => {
                         </ContactFormSuccessMessage>
                     ) : (
                         <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
+                            <FormSubtitle>
+                                Заполняя данную форму, по возможности, просим указать: партномер, наименование
+                                производителя, тип корпуса, пожелания по году производства и срокам поставок, а также
+                                любые другие дополнительные требования к запрашиваемым компонентам. Эта информация
+                                позволит нам оперативно сформировать для Вас коммерческое предложение, что ускорит
+                                процесс обработки вашего запроса.
+                            </FormSubtitle>
                             <StyledTextarea
                                 name="components"
                                 placeholder="Какие комплектующие вам необходимы и какое количество вам необходимо?"
@@ -165,12 +180,21 @@ const RequestFormWrapper = styled.div`
         flex-direction: column`}
 `
 
-const TitleWrapper = styled(H2)`
+const TitleWrapper = styled.div`
     flex: 1;
     width: 50%;
+    display: flex;
+    flex-direction: column;
     padding-top: 50px;
     ${breakpoint.mobile`
     width: 100%;`}
+`
+
+const FormSubtitle = styled.p`
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 12px;
 `
 
 const FormWrapper = styled.div`

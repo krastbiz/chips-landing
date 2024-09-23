@@ -20,8 +20,8 @@ const NAV_LINKS = [
         url: '/#about',
     },
     {
-        text: 'Контроль качества',
-        url: '/#quality',
+        text: 'Покупателю',
+        url: '/#consulatation',
     },
     {
         text: 'Контакты',

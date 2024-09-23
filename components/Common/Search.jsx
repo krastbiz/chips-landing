@@ -9,17 +9,20 @@ export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) 
     const [error, setError] = useState('')
     const router = useRouter()
 
-    const handleSearch = useCallback((searchValue) => {
-        if (searchValue.length < 2) {
-            setError('Введите минимум 2 символа для поиска')
-            return
-        } else {
-            setError('')
-        }
-        if (!isHomePage) {
-            onSearch(searchValue)
-        }
-    }, [searchValue, router, onSearch, isHomePage])
+    const handleSearch = useCallback(
+        (searchValue) => {
+            if (searchValue.length < 2) {
+                setError('Введите минимум 2 символа для поиска')
+                return
+            } else {
+                setError('')
+            }
+            if (!isHomePage) {
+                onSearch(searchValue)
+            }
+        },
+        [searchValue, router, onSearch, isHomePage],
+    )
 
     const handleChange = (e) => {
         setSearchValue(e.target.value)
@@ -43,11 +46,11 @@ export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) 
                 onKeyDown={handleKeyDown}
             />
             {isHomePage && (
-               <Link href={ `/catalog?q=${searchValue}`} passHref>
-               <SearchButton>
-                   <SearchIcon src="/static/icons/search.svg" alt="Поиск" />
-               </SearchButton>
-           </Link>
+                <Link href={`/catalog?q=${searchValue}`} passHref>
+                    <SearchButton>
+                        <SearchIcon src="/static/icons/search.svg" alt="Поиск" />
+                    </SearchButton>
+                </Link>
             )}
             {error && <ErrorText>{error}</ErrorText>}
         </SearchContainer>

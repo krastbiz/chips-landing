@@ -1,48 +1,44 @@
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
-import { Button } from '../../ui/buttons/Button';
-import { Text } from '../../ui/Typography';
-import { useState, useEffect } from 'react';
+import styled from 'styled-components'
+import { useRouter } from 'next/router'
+import { Button } from '../../ui/buttons/Button'
+import { Text } from '../../ui/Typography'
+import { useState, useEffect } from 'react'
 
 export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) => {
-    const router = useRouter();
-    const [localSortBy, setLocalSortBy] = useState(sortBy);
-    const [localSortOrder, setLocalSortOrder] = useState(sortOrder);
+    const router = useRouter()
+    const [localSortBy, setLocalSortBy] = useState(sortBy)
+    const [localSortOrder, setLocalSortOrder] = useState(sortOrder)
 
     // Set default sorting on initial render if not provided
     useEffect(() => {
         if (!sortBy) {
-            setLocalSortBy('brand');
-            setLocalSortOrder('asc');
+            setLocalSortBy('brand')
+            setLocalSortOrder('asc')
         }
-    }, [sortBy]);
+    }, [sortBy])
 
     const handleSort = (field) => {
-        let newOrder = 'asc';
+        let newOrder = 'asc'
         if (localSortBy === field && localSortOrder === 'asc') {
-            newOrder = 'desc';
+            newOrder = 'desc'
         }
-        setLocalSortBy(field);
-        setLocalSortOrder(newOrder);
-        onSort(field, newOrder);
-    };
+        setLocalSortBy(field)
+        setLocalSortOrder(newOrder)
+        onSort(field, newOrder)
+    }
 
     const renderSortIcon = (field) => {
-        if (localSortBy !== field) return null;
-        return localSortOrder === 'asc' ? '▼' : '▲';
-    };
+        if (localSortBy !== field) return null
+        return localSortOrder === 'asc' ? '▼' : '▲'
+    }
 
     return (
         <>
             <StyledTable>
                 <TableHeader>
                     <tr>
-                        <th onClick={() => handleSort('brand')}>
-                            Производитель {renderSortIcon('brand')}
-                        </th>
-                        <th onClick={() => handleSort('partnumber')}>
-                            Компонент {renderSortIcon('partnumber')}
-                        </th>
+                        <th onClick={() => handleSort('brand')}>Производитель {renderSortIcon('brand')}</th>
+                        <th onClick={() => handleSort('partnumber')}>Компонент {renderSortIcon('partnumber')}</th>
                         <th>Доступно</th>
                         <th>Срок</th>
                         <th>Заказать</th>
@@ -60,7 +56,9 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) 
                                 <td>{item.leadtime}</td>
                                 <td>
                                     <Button
-                                        onClick={() => router.push(`/request?brand=${item.brand}&partnumber=${item.partnumber}`)}
+                                        onClick={() =>
+                                            router.push(`/request?brand=${item.brand}&partnumber=${item.partnumber}`)
+                                        }
                                         primary
                                     >
                                         Заказать
@@ -73,8 +71,8 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) 
             </StyledTable>
             {loading && <LoadingText>Загрузка...</LoadingText>}
         </>
-    );
-};
+    )
+}
 
 const StyledTable = styled.table`
     width: 100%;
@@ -82,7 +80,7 @@ const StyledTable = styled.table`
     font-family: ${({ theme }) => theme.fonts.roboto};
     font-size: 16px;
     margin-top: 20px;
-`;
+`
 
 const TableHeader = styled.thead`
     background: ${({ theme }) => theme.colors.active};
@@ -102,7 +100,7 @@ const TableHeader = styled.thead`
     th:nth-child(2) {
         width: 300px;
     }
-`;
+`
 
 const TableRow = styled.tr`
     &:nth-child(even) {
@@ -119,10 +117,10 @@ const TableRow = styled.tr`
         text-align: left;
         max-width: 288px;
     }
-`;
+`
 
 const LoadingText = styled.p`
     text-align: center;
     margin-top: 20px;
     font-size: 16px;
-`;
+`
