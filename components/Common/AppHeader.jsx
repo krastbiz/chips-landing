@@ -206,13 +206,14 @@ const HeaderInfoTop = styled.div`
 
 const Nav = styled.nav`
     font-family: ${({ theme }) => theme.fonts.montserrat};
-    font-weight: 500;
+    font-weight: 800;
     font-size: 13px;
     line-height: 16px;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.primary};
 
     a {
+        font-weight: 600;
         transition: all 0.2s;
         border-bottom: 1px solid rgba(79, 79, 79, 0);
     }
