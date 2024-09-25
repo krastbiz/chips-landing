@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { sendContactForm } from '../../../lib/api'
 import { breakpoint } from '../../../lib/theme'
 import { Button } from '../../ui/buttons/Button'
-import { H2, H3 } from '../../ui/Typography'
+import { H3 } from '../../ui/Typography'
 import { StyledLink } from '../../ui/Link'
 import { Container } from '../../ui/layouts/Container'
 
@@ -14,6 +14,7 @@ export const RequestForm = () => {
     const [formData, setFormData] = useState({
         components: query.brand && query.partnumber ? `${query.brand} ${query.partnumber}` : '',
         name: '',
+        company: '',
         email: '',
         tel: '',
     })
@@ -25,6 +26,7 @@ export const RequestForm = () => {
         setFormData({
             components: '',
             name: '',
+            company: '',
             email: '',
             tel: '',
         })
@@ -38,6 +40,7 @@ export const RequestForm = () => {
 
         formDataToSend.append('components', formData.components)
         formDataToSend.append('name', formData.name)
+        formDataToSend.append('company', formData.company)
         formDataToSend.append('email', formData.email)
         formDataToSend.append('tel', formData.tel)
 
@@ -80,12 +83,12 @@ export const RequestForm = () => {
         <Container>
             <RequestFormWrapper>
                 <TitleWrapper>
-                    <H2>Рассчитаем стоимость и сроки доставки комплектующих</H2>
+                    <CustomH3>Рассчитаем стоимость и сроки доставки комплектующих</CustomH3>
                     <FormSubtitle>
-                        Ограничения по заказу: только юридические лица и ИП. 
-                    </FormSubtitle>
-                    <FormSubtitle>
-                        Минимальный заказ для новых партнеров от 10000 рублей.
+                        Заполняя данную форму, по возможности, просим указать: партномер, наименование производителя,
+                        тип корпуса, пожелания по году производства и срокам поставок, а также любые другие
+                        дополнительные требования к запрашиваемым компонентам. Эта информация позволит нам оперативно
+                        сформировать для Вас коммерческое предложение, что ускорит процесс обработки вашего запроса.
                     </FormSubtitle>
                 </TitleWrapper>
                 <FormWrapper>
@@ -103,13 +106,8 @@ export const RequestForm = () => {
                         </ContactFormSuccessMessage>
                     ) : (
                         <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
-                            <FormSubtitle>
-                                Заполняя данную форму, по возможности, просим указать: партномер, наименование
-                                производителя, тип корпуса, пожелания по году производства и срокам поставок, а также
-                                любые другие дополнительные требования к запрашиваемым компонентам. Эта информация
-                                позволит нам оперативно сформировать для Вас коммерческое предложение, что ускорит
-                                процесс обработки вашего запроса.
-                            </FormSubtitle>
+                            <FormSubtitle>Ограничения по заказу: только юридические лица и ИП.</FormSubtitle>
+                            <FormSubtitle>Минимальный заказ для новых партнеров от 10000 рублей.</FormSubtitle>
                             <StyledTextarea
                                 name="components"
                                 placeholder="Какие комплектующие вам необходимы и какое количество вам необходимо?"
@@ -134,9 +132,17 @@ export const RequestForm = () => {
                             <input
                                 name="name"
                                 type="text"
-                                placeholder="Как можно к вам обращаться?"
+                                placeholder="Ваше имя?"
                                 required
                                 value={formData.name}
+                                onChange={handleChange}
+                            />
+                            <input
+                                name="company"
+                                type="text"
+                                placeholder="Ваша компания?"
+                                required
+                                value={formData.company}
                                 onChange={handleChange}
                             />
                             <input
@@ -185,9 +191,14 @@ const TitleWrapper = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    margin-right: 30px;
     ${breakpoint.mobile`
     width: 100%;`}
+`
+
+const CustomH3 = styled(H3)`
+    margin-bottom: 20px;
+    font-size: 14px;
 `
 
 const FormSubtitle = styled.p`
@@ -195,6 +206,7 @@ const FormSubtitle = styled.p`
     font-size: 14px;
     line-height: 18px;
     margin-bottom: 12px;
+    padding-right: 20px;
 `
 
 const FormWrapper = styled.div`

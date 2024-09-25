@@ -57,6 +57,7 @@ export default async function handler(req, res) {
                 email,
                 message,
                 name,
+                company,
                 tel,
                 components,
                 requestNumber,
