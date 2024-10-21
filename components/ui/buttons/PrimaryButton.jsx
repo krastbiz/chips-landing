@@ -2,43 +2,25 @@ import styled, { css } from 'styled-components'
 
 const PrimaryButton = styled.button`
     display: block;
-    border: 2px solid ${({ theme }) => theme.colors.light};
+    border: 1px solid ${({ theme }) => theme.colors.active};
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 35px;
     width: 228px;
     height: 40px;
     text-align: center;
-    text-transform: uppercase;
-    line-height: 36px;
+    line-height: 25px;
     font-family: ${({ theme }) => theme.fonts.montserrat};
     font-weight: bold;
-    font-size: 12px;
+    font-size: 18px;
     color: white;
-    cursor: ${({ theme }) => theme.colors.light};
+    cursor: pointer;
     transition: 0.3s;
-    background: ${({ theme }) => theme.colors.red};
+    background: ${({ theme }) => theme.colors.greenBackground};
 
     :hover {
-        background: white;
-        color: ${({ theme }) => theme.colors.primary};
+        background: ${({ theme }) => theme.colors.lightGreenBackground};
+        color: ${({ theme }) => theme.colors.active};
     }
-
-    ${(props) => props.filled && filledCss}
-    ${(props) => props.red && redCss}
-`
-
-const filledCss = css`
-    background: ${({ theme }) => theme.colors.light};
-    color: ${({ theme }) => theme.colors.primary};
-
-    :hover {
-        background: ${({ theme }) => theme.colors.primary};
-        color: ${({ theme }) => theme.colors.light};
-        border: 2px solid ${({ theme }) => theme.colors.primary};
-    }
-`
-const redCss = css`
-    background: 'red';
 `
 
 export { PrimaryButton }

@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Contacts from '../components/ContactsPage/Contacts'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
-const ContactsPage = () => {
-    const pageTitle = 'Электронные компоненты | Наши контакты'
+const VedPage = () => {
+    const pageTitle = 'Комплексные ВЭД решения етим'
     const pageDescription = 'Закажите электронные компоненты, оставьте вашу заявку в ЕТим'
-    const pageRelativeUrl = '/contacts'
+    const pageRelativeUrl = '/ved'
 
     return (
         <>
@@ -18,4 +18,4 @@ const ContactsPage = () => {
     )
 }
 
-export default ContactsPage
+export default VedPage

@@ -5,23 +5,22 @@ import { breakpoint } from '../../lib/theme'
 import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
 import { BurgerMenu, BurgerWrapper } from '../ui/buttons/BurgerMenu'
 import { ContactInfoWrapper, ContactItem } from '../ui/ContactItem'
-import { PhoneItem } from '../ui/PhoneItem'
-import { Delimeter } from '../ui/Delimeter'
 import { Container } from '../ui/layouts/Container'
+import { BaseContentContainer } from './BaseContentContainer'
 import { MobileMenu } from './MobileMenu'
 
 const NAV_LINKS = [
     {
-        text: 'Главная',
-        url: '/',
+        text: 'Поставки ЭКБ',
+        url: '/postavki',
     },
     {
-        text: 'О компании',
-        url: '/#about',
+        text: 'Комплексные ВЭД-решения',
+        url: '/ved',
     },
     {
-        text: 'Покупателю',
-        url: '/#consulatation',
+        text: 'Контрактное производство',
+        url: '/contract',
     },
     {
         text: 'Контакты',
@@ -32,29 +31,15 @@ const NAV_LINKS = [
 const CONTACTS = {
     phone: {
         title: '+7 (812) 318-19-83',
-        image: { url: '/static/icons/phone-icon.svg', alt: 'Иконка телефона' },
         href: 'tel:+7(812)3181983',
     },
     email: {
         title: 'info@e-tim.ru',
-        image: { url: '/static/icons/email-icon.svg', alt: 'Иконка почты' },
         href: 'mailto:info@e-tim.ru',
-    },
-    address: {
-        title: 'Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн. №16,17(оф.407)',
-        image: { url: '/static/icons/point-icon.svg', alt: 'Иконка адреса' },
-        href: null,
     },
 }
 
 export const renderNavLink = ({ text, url, onClick }) => {
-    if (url.startsWith('#'))
-        return (
-            <a key={url} href={url} onClick={onClick}>
-                {text}
-            </a>
-        )
-
     return (
         <Link key={url} href={url} onClick={onClick}>
             {text}
@@ -71,41 +56,23 @@ const AppHeader = () => {
     return (
         <Header isMobileMenuActive={isMobileMenuActive}>
             <ContainerStyled>
-                <LogoWrapper>
-                    <a href="/">
-                        <Logo src="/static/icons/logo.svg" alt="Логотип" />
-                    </a>
-                </LogoWrapper>
-
-                <HeaderInfoWrapper>
-                    <HeaderInfoTop>
-                        <ContactItem
-                            title={CONTACTS.email.title}
-                            href={CONTACTS.email.href}
-                            image={CONTACTS.email.image}
-                        />
-                        <PhoneItem
-                            title={CONTACTS.phone.title}
-                            href={CONTACTS.phone.href}
-                            image={CONTACTS.phone.image}
-                        ></PhoneItem>
-                        <ContactItem
-                            title={CONTACTS.address.title}
-                            href={CONTACTS.address.href}
-                            image={CONTACTS.address.image}
-                        />
-                        <BurgerMenu
+                <HeaderContainer>
+                    <LogoWrapper>
+                        <a href="/">
+                            <Logo src="/static/icons/logo.svg" alt="Логотип" />
+                        </a>
+                    </LogoWrapper>
+                    <ContactItem title={CONTACTS.email.title} href={CONTACTS.email.href} />
+                    <ContactItem title={CONTACTS.phone.title} href={CONTACTS.phone.href}></ContactItem>
+                    {/* <BurgerMenu
                             isActive={isMobileMenuActive}
                             onClick={() => setIsMobileMenuActive((prev) => !prev)}
-                        />
-                    </HeaderInfoTop>
+                        /> */}
+                </HeaderContainer>
 
-                    <Delimeter />
-
-                    <HeaderInfoBottom>
-                        <Nav>{NAV_LINKS.map(({ text, url }) => renderNavLink({ text, url }))}</Nav>
-                    </HeaderInfoBottom>
-                </HeaderInfoWrapper>
+                <BaseContentContainer>
+                    <Nav>{NAV_LINKS.map(({ text, url }) => renderNavLink({ text, url }))}</Nav>
+                </BaseContentContainer>
             </ContainerStyled>
 
             {isMobileOrTablet && (
@@ -120,20 +87,15 @@ const AppHeader = () => {
     )
 }
 
-const ContainerStyled = styled(Container)`
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-
-    ${breakpoint.tablet`
-        padding-top: 10px;
-        padding-bottom: 10px;
-    `}
-`
-
 const Header = styled.header`
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: ${({ theme }) => theme.colors.background};
+    opacity: 0.92;
+    ${breakpoint.desktop`
+        margin: 0 20px;
+    `}
 
     ${({ isMobileMenuActive }) =>
         isMobileMenuActive &&
@@ -144,86 +106,36 @@ const Header = styled.header`
     `}
 `
 
-const HeaderInfoBottom = styled.div`
-    padding: 32px 0;
-
-    ${breakpoint.laptop`
-        padding: 14px 0;
-    `}
-`
-
-const HeaderInfoWrapper = styled.div`
+const ContainerStyled = styled(Container)`
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
 
     ${breakpoint.tablet`
-        justify-content: center;
-
-        ${Delimeter} {
-            display: none;
-        }
-
-        ${HeaderInfoBottom} {
-            display: none;
-        }
+        padding-top: 10px;
+        padding-bottom: 10px;
     `}
 `
 
-const HeaderInfoTop = styled.div`
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-
-    ${BurgerWrapper} {
-        display: none;
-    }
-
-    ${breakpoint.laptop`
-        margin-bottom: 14px;
-    `}
-
-    ${breakpoint.tablet`
-        margin-bottom: 0;
-
-        ${BurgerWrapper} {
-            margin-left: 10px;
-            display: flex;
-        } 
-
-        ${ContactInfoWrapper}:nth-child(3) {
-            display: none;
-        }
-    `}
-
-    ${breakpoint.mobile`
-        ${ContactInfoWrapper}:nth-child(2) {
-            display: none;
-        }
-    `}
+const HeaderContainer = styled(BaseContentContainer)`
+    height: 45px;
+    background-color: ${({ theme }) => theme.colors.background};
+    flex-direction: row;
 `
 
 const Nav = styled.nav`
-    font-family: ${({ theme }) => theme.fonts.montserrat};
-    font-weight: 800;
-    font-size: 13px;
-    line-height: 16px;
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.primary};
-
     a {
-        font-weight: 600;
         transition: all 0.2s;
-        border-bottom: 1px solid rgba(79, 79, 79, 0);
     }
 
-    a:hover {
-        border-bottom: 1px solid rgba(79, 79, 79, 1);
+    a:hover,
+    a:active {
+        color: ${({ theme }) => theme.colors.active};
     }
 
     a + a {
-        margin-left: 20px;
+        margin-left: 30px;
     }
 `
 
@@ -232,10 +144,10 @@ const Logo = styled.img`
 `
 
 const LogoWrapper = styled.div`
-    max-width: 130px;
+    max-width: 55px;
 
     ${breakpoint.laptop`
-        width: 70px;
+        width: 55px;
     `}
 
     ${breakpoint.tablet`

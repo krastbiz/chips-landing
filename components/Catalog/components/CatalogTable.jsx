@@ -103,9 +103,7 @@ const TableHeader = styled.thead`
 `
 
 const TableRow = styled.tr`
-    &:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+    background-color: #f2f2f2;
 
     &:hover {
         background-color: #e0e0e0;

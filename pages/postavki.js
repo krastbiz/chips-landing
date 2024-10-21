@@ -3,14 +3,15 @@ import Head from 'next/head'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const SupplyPage = () => {
-    const pageTitle = 'Электронные компоненты'
+    const pageTitle = 'Электронные компоненты купить в E-Тим'
     const pageDescription = 'Закажите электронные компоненты, оставьте вашу заявку в етим'
+    const pageRelativeUrl = '/postavki'
 
     return (
         <>
             <Head>
                 {getPageMetadata(pageTitle, pageDescription)}
-                {getPageCanonical('/')}
+                {getPageCanonical(pageRelativeUrl)}
             </Head>
             <Supply />
         </>

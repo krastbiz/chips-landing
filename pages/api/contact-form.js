@@ -42,7 +42,7 @@ export default async function handler(req, res) {
             }
 
             const requestNumber = incrementRequestNumber()
-            const { email, message, name, tel, components } = fields
+            const { email, message, company, name, tel, components } = fields
 
             let attachments = []
             if (files.file) {

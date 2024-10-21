@@ -2,42 +2,21 @@ import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
 
 export const ContactItem = (props) => {
-    const { title, image, href } = props
-    const { url, alt } = image
+    const { title, href } = props
 
     return (
         <ContactInfoWrapper>
-            {href ? (
-                <a href={href}>
-                    <img src={url} alt={alt} />
-                    {title}
-                </a>
-            ) : (
-                <div href={href}>
-                    <img src={url} alt={alt} />
-                    {title}
-                </div>
-            )}
+            <a href={href}>{title}</a>
         </ContactInfoWrapper>
     )
 }
 
 export const ContactInfoWrapper = styled.div`
-    margin-left: 32px;
-    font-family: ${({ theme }) => theme.fonts.roboto};
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors.grayed};
-
     a,
     div {
-        font-size: 12px;
-        font-weight: 500;
         display: flex;
         align-items: center;
-
-        img {
-            margin-right: 6px;
-        }
+        margin-left: 50px;
     }
 
     ${breakpoint.laptop`

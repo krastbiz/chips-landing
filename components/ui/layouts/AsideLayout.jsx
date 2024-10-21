@@ -10,25 +10,6 @@ export const AsideLayout = (props) => {
     return (
         <Container>
             <PageContentWrapper>
-                {/* <Aside>
-                    <LinkGroup>
-                        <LinkGroupTitle>
-                            <H3Styled>О КОМПАНИИ</H3Styled>
-                            <Delimeter right />
-                        </LinkGroupTitle>
-                        <Link href="/contacts">Контакты</Link>
-                    </LinkGroup>
-
-                    <LinkGroup>
-                        <LinkGroupTitle>
-                            <H3Styled>ПОСТАВКИ</H3Styled>
-                            <Delimeter right />
-                        </LinkGroupTitle>
-                        <Link href="/delivery">Линейка поставок</Link>
-                        <Link href="/#develop">Поставка компонентов под разработку</Link>
-                        <Link href="/#bulk">Преимущества</Link>
-                    </LinkGroup>
-                </Aside> */}
                 <PageContent>{children}</PageContent>
             </PageContentWrapper>
         </Container>

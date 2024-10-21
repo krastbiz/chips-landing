@@ -2,33 +2,46 @@ import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
 
 export const H1 = styled.h1`
-    margin-bottom: 52px;
     font-family: ${({ theme }) => theme.fonts.montserrat};
     color: ${({ theme }) => theme.colors.light};
     font-weight: bold;
-    font-size: 64px;
-    line-height: 78px;
+    font-size: 45px;
+    line-height: 61px;
+
+    ${breakpoint.desktop`
+    font-size: 38px;
+    line-height: 51px;
+    `}
 
     ${breakpoint.tablet`
-        font-size: 48px;
+        font-size: 38px;
+        line-height: 51px;
     `}
 
     ${breakpoint.mobile`
-        margin-bottom: 30px;
-        font-size: 24px;
-        line-height: 50px;
+        font-size: 20px;
+        line-height: 41px;
     `}
 `
 
 export const H2 = styled.h2`
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-family: ${({ theme }) => theme.fonts.montserrat};
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.base};
+    opacity: 0.65;
+    ${breakpoint.desktop`
+   font-size: 20px;
+    line-height: 28px;
+    `}
+    ${breakpoint.mobile`
+        font-size: 16px;
+        line-height: 20px;
+    `}
 `
 
 export const H3 = styled.h3`
@@ -38,14 +51,20 @@ export const H3 = styled.h3`
     font-size: 18px;
     line-height: 22px;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.primary};
+    opacity: 0.65;
+    color: ${({ theme }) => theme.colors.base};
 `
 
 export const Text = styled.p`
     margin: 0;
-    font-family: ${({ theme }) => theme.fonts.roboto};
-    color: #000000;
+    font-family: ${({ theme }) => theme.fonts.montserrat};
+    color: ${({ theme }) => theme.colors.base};
+    opacity: 0.65;
     font-weight: 300;
     font-size: 18px;
-    line-height: 30px;
+    line-height: 25px;
+    ${breakpoint.desktop`
+   font-size: 16px;
+    line-height: 22px;
+    `}
 `

@@ -38,7 +38,7 @@ export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) 
     }
 
     return (
-        <SearchContainer>
+        <SearchContainer isHomePage={isHomePage}>
             <SearchInput
                 placeholder="Введите название компонента, например, INA818IDR"
                 value={searchValue}
@@ -61,6 +61,16 @@ const SearchContainer = styled.div`
     position: relative;
     display: inline-block;
     border-radius: 5px;
+
+    ${({ isHomePage }) =>
+        isHomePage &&
+        `
+        margin-top: 250px;
+        
+        ${breakpoint.desktop`
+            margin-top: 200px;
+        `}
+    `}
 `
 
 const SearchInput = styled.input`
