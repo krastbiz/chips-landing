@@ -19,7 +19,8 @@ export const Link = ({ href, target, children }) => {
 export const StyledLink = styled(NextLink)`
     font-style: italic;
     text-decoration: underline;
+    margin-left: 5px;
     &:hover {
-        color: ${({ alternative, theme }) => (alternative === 'true' ? 'white' : theme.colors.active)};
+        color: ${({ alternative, theme }) => theme.colors.active};
     }
 `

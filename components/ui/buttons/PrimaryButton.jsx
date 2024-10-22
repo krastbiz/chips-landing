@@ -5,8 +5,8 @@ const PrimaryButton = styled.button`
     border: 1px solid ${({ theme }) => theme.colors.active};
     box-sizing: border-box;
     border-radius: 35px;
-    width: 228px;
-    height: 40px;
+    width: 252px;
+    height: 55px;
     text-align: center;
     line-height: 25px;
     font-family: ${({ theme }) => theme.fonts.montserrat};

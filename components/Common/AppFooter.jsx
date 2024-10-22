@@ -3,25 +3,22 @@ import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
 import { Container } from '../ui/layouts/Container'
 
-const ABOUT_COMPANY_LINKS = [
+const LINKS = [
+    {
+        text: 'Поставки ЭКБ',
+        url: '/postavki',
+    },
+    {
+        text: 'Комплексные ВЭД-решения',
+        url: '/ved',
+    },
+    {
+        text: 'Контрактное производство',
+        url: '/contract',
+    },
     {
         text: 'Контакты',
         url: '/contacts',
-    },
-]
-
-const DELIVERY_LINKS = [
-    {
-        text: 'Линейка поставок',
-        url: '/delivery',
-    },
-    {
-        text: 'Поставка компонентов под разработку',
-        url: '/#develop',
-    },
-    {
-        text: 'Преимущества',
-        url: '/#bulk',
     },
 ]
 
@@ -36,6 +33,21 @@ const AppFooter = () => {
                 </LogoWrapper>
 
                 <FooterInfoWrapper>
+                    <FooterInfoItem>
+                        <span>
+                            <b>ИНН:</b> 7806562061
+                        </span>
+                    </FooterInfoItem>
+                    <FooterInfoItem>
+                        <span>
+                            <b>ОГРН:</b> 1197847145825
+                        </span>
+                    </FooterInfoItem>
+                    <FooterInfoItem>
+                        <span>
+                            <b>Режим работы:</b> пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00
+                        </span>
+                    </FooterInfoItem>
                     <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
@@ -61,14 +73,8 @@ const AppFooter = () => {
                     </FooterInfoItem>
                 </FooterInfoWrapper>
 
-                {/* <FooterLinksWrapper>
-                    <FooterLinksHeader>О Компании</FooterLinksHeader>
-                    {ABOUT_COMPANY_LINKS.map(({ text, url }) => <Link key={url} href={url}>{text}</Link>)}
-                </FooterLinksWrapper> */}
-
                 <FooterLinksWrapper>
-                    <FooterLinksHeader>Поставки</FooterLinksHeader>
-                    {DELIVERY_LINKS.map(({ text, url }) => (
+                    {LINKS.map(({ text, url }) => (
                         <Link key={url} href={url}>
                             {text}
                         </Link>
@@ -85,24 +91,9 @@ const ContainerStyled = styled(Container)`
     display: flex;
     justify-content: space-between;
     padding: 114px 100px;
-    background: rgb(120, 214, 16);
-    background: linear-gradient(165deg, rgba(120, 214, 16, 1) 0%, rgba(75, 163, 97, 1) 35%, rgba(19, 108, 177, 1) 100%);
+    background-color: ${({ theme }) => theme.colors.background};
+    opacity: 0.9;
     color: ${({ theme }) => theme.colors.light};
-    // margin-bottom: 30px;
-
-    ::before {
-        content: '';
-        background-color: white;
-        display: block;
-        position: absolute;
-        width: 487px;
-        height: 38px;
-        background: #ffffff;
-        transform: skewX(-45deg);
-        z-index: 100;
-        top: 0px;
-        left: -19px;
-    }
 
     ${breakpoint.laptop`
         padding: 100px 60px;
@@ -119,7 +110,7 @@ const ContainerStyled = styled(Container)`
 `
 
 const FooterInfoWrapper = styled.div`
-    font-family: ${({ theme }) => theme.fonts.roboto};
+    font-family: ${({ theme }) => theme.fonts.velasansmed};
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -144,12 +135,12 @@ const FooterInfoItem = styled.div`
 `
 
 const FooterLinksWrapper = styled.div`
-    width: 180px;
+    width: 220px;
     display: flex;
     flex-direction: column;
 
     a {
-        font-family: ${({ theme }) => theme.fonts.roboto};
+        font-family: ${({ theme }) => theme.fonts.velasansmed};
         font-size: 14px;
         line-height: 16px;
     }
@@ -166,29 +157,14 @@ const FooterLinksWrapper = styled.div`
         }
     `}
 `
-const FooterLinksHeader = styled.h3`
-    margin-bottom: 23px;
-    font-family: ${({ theme }) => theme.fonts.montserrat};
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 17px;
-    text-transform: uppercase;
-
-    ${breakpoint.tablet`
-        margin-bottom: 10px;
-    `}
-`
 
 const LogoWrapper = styled.div`
-    background-color: white;
-    border-radius: 10px;
     margin-right: 30px;
     position: relative;
     right: 20px;
     max-width: 150px;
     & a {
         display: flex;
-        aligh-items: center;
         justify-content: center;
         height: 100%;
         & img {

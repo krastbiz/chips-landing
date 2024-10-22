@@ -16,8 +16,6 @@ const Contacts = () => {
                 </MainSection>
             </Container>
             <AsideLayout>
-                <H2>КОНТАКТЫ</H2>
-
                 <ContactsWrapper>
                     <ContactBox>
                         <ContactTitle>Адрес:</ContactTitle>
@@ -26,9 +24,12 @@ const Contacts = () => {
                             помещ. 5-H, комн. №16,17(оф.407)
                         </ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)3181983">
-                            +7 (812) 318-19-83
+                        <ContactContent as="a" href="tel:+7(812)3181983">+7 (812) 318-19-83
                         </ContactContent>
+                        <ContactTitle>Почта:</ContactTitle>
+                        <ContactContent as="a" href="mailto:info@e-tim.ru">info@e-tim.ru
+                        </ContactContent>
+                        <ContactContent>Режим работы: пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00</ContactContent>
                     </ContactBox>
                     <ContactBox>
                         <ContactTitle>Реквизиты:</ContactTitle>
@@ -64,6 +65,7 @@ const Contacts = () => {
 const ContactsWrapper = styled.div`
     margin-bottom: 77px;
     display: flex;
+    color: ${({ theme }) => theme.colors.base};
 
     ${breakpoint.laptop`
         flex-direction: column;
@@ -81,13 +83,13 @@ const ContactBox = styled.div`
 `
 
 const ContactTitle = styled.p`
-    font-family: ${({ theme }) => theme.fonts.roboto};
+    font-family: ${({ theme }) => theme.fonts.velasansmed};
     font-weight: 500;
     font-size: 18px;
     line-height: 30px;
 `
 const ContactContent = styled.p`
-    font-family: ${({ theme }) => theme.fonts.roboto};
+    font-family: ${({ theme }) => theme.fonts.velasansmed};
     font-weight: 300;
     font-size: 18px;
     line-height: 30px;
@@ -95,6 +97,10 @@ const ContactContent = styled.p`
 
 const MapWrapper = styled.div`
     margin-bottom: 250px;
+`
+
+const Icon = styled.img`
+    margin-left: 10px
 `
 
 export default Contacts

@@ -26,7 +26,7 @@ const PageContent = styled.div`
 const LinkGroup = styled.div`
     a {
         display: block;
-        font-family: ${({ theme }) => theme.fonts.roboto};
+        font-family: ${({ theme }) => theme.fonts.velasansmed};
         font-size: 18px;
         line-height: 21px;
         color: ${({ theme }) => theme.colors.primary};

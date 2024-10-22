@@ -1,15 +1,26 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { sendContactForm } from '../../lib/api'
 import { breakpoint } from '../../lib/theme'
 import { Button } from '../ui/buttons/Button'
+import { PrimaryButton } from '../ui/buttons/PrimaryButton'
 import { BaseContentContainer } from './BaseContentContainer'
 import { H2 } from '../ui/Typography'
 import { StyledLink } from '../ui/Link'
 
 export const RequestForm = () => {
+    const initialText = `Заполняя форму "Запрос компонента", по возможности, просим указать:\n
+    - Партномер\n
+    - Корпус\n
+    - Производителя\n
+    - Пожелания по году производства\n
+    - Сроки поставки\n
+    - Любые другие дополнительные требования к запрашиваемым компонентам\n\n
+    Эта информация позволит нам оперативно сформировать для Вас коммерческое предложение, что ускорит процесс обработки Вашего запроса.\n\n
+    Ограничения по заказу: только юридические лица и ИП.\n
+    Минимальный заказ для новых партнеров от 10000 рублей.`
     const [formData, setFormData] = useState({
-        components: '',
+        components: initialText,
         name: '',
         company: '',
         email: '',
@@ -35,7 +46,7 @@ export const RequestForm = () => {
 
         const formDataToSend = new FormData()
 
-        formDataToSend.append('components', formData.components)
+        formDataToSend.append('components', initialText.includes(formData.components) ? '' : formData.components)
         formDataToSend.append('name', formData.name)
         formDataToSend.append('company', formData.company)
         formDataToSend.append('email', formData.email)
@@ -62,6 +73,12 @@ export const RequestForm = () => {
             ...prevState,
             [name]: value,
         }))
+    }
+
+    const handleBlur = () => {
+        if (!formData.components.trim()) {
+            setFormData({ ...formData, components: initialText })
+        }
     }
 
     const handleFileChange = (e) => {
@@ -92,70 +109,81 @@ export const RequestForm = () => {
                     ) : (
                         <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
                             <ControlsContainer>
-                            <InputsContainer>
-                                <StyledInput
-                                    name="name"
-                                    type="text"
-                                    placeholder="Ваше имя"
-                                    required
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                />
-                                <StyledInput
-                                    name="company"
-                                    type="text"
-                                    placeholder="Ваша компания"
-                                    required
-                                    value={formData.company}
-                                    onChange={handleChange}
-                                />
-                                <StyledInput
-                                    name="email"
-                                    required
-                                    type="email"
-                                    placeholder="mail@example.com"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                />
-                                <StyledInput
-                                    name="tel"
-                                    type="tel"
-                                    placeholder="+79999999"
-                                    required
-                                    value={formData.tel}
-                                    onChange={handleChange}
-                                />
-                            </InputsContainer>
-                            <StyledTextarea
-                                name="components"
-                                placeholder="Какие комплектующие вам необходимы и какое количество вам необходимо?"
-                                value={formData.components}
-                                onChange={handleChange}
-                            />
+                                <InputsContainer>
+                                    <StyledInput
+                                        name="name"
+                                        type="text"
+                                        placeholder="Ваше имя"
+                                        required
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                    />
+                                    <StyledInput
+                                        name="company"
+                                        type="text"
+                                        placeholder="Ваша компания"
+                                        required
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                    />
+                                    <StyledInput
+                                        name="email"
+                                        required
+                                        type="email"
+                                        placeholder="mail@example.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                    />
+                                    <StyledInput
+                                        name="tel"
+                                        type="tel"
+                                        placeholder="+79999999"
+                                        required
+                                        value={formData.tel}
+                                        onChange={handleChange}
+                                    />
+                                    <ContactFormDescription>
+                                        Нажимая кнопку "Отправить", Вы даете согласие на
+                                        <StyledLink href={'/policy#personalData'}>
+                                            обработку персональных данных
+                                        </StyledLink>
+                                    </ContactFormDescription>
+                                </InputsContainer>
+                                <InputsContainer>
+                                    <StyledTextarea
+                                        value={formData.components}
+                                        name="components"
+                                        onChange={handleChange}
+                                        onFocus={() =>
+                                            initialText.includes(formData.components) &&
+                                            setFormData({ ...formData, components: '' })
+                                        }
+                                        onBlur={handleBlur}
+                                    />
+                                    <ControlContainer>
+                                        <BaseContentContainer>
+                                            <FileUploadLabel>
+                                                <input type="file" name="file" onChange={handleFileChange} multiple />
+                                                <FileUploadText>
+                                                    <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
+                                                    Прикрепите файл
+                                                </FileUploadText>
+                                            </FileUploadLabel>
+                                        </BaseContentContainer>
+                                        <PrimaryButton primary type="submit">
+                                            Отправить
+                                        </PrimaryButton>
+                                    </ControlContainer>
+                                </InputsContainer>
                             </ControlsContainer>
-                            <ControlsContainer>
-                                <FileUploadLabel>
-                                    <input type="file" name="file" onChange={handleFileChange} multiple />
-                                    <FileUploadText>
-                                        <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
-                                        Прикрепите файл
-                                    </FileUploadText>
-                                </FileUploadLabel>
-                                {selectedFiles.length > 0 && (
+
+                            {/* {selectedFiles.length > 0 && (
                                     <AttachedFilesList>
                                         {selectedFiles.map((file, index) => (
                                             <AttachedFileItem key={index}>{file.name}</AttachedFileItem>
                                         ))}
                                     </AttachedFilesList>
-                                )}
-                                <Button primary type="submit">
-                                    Отправить
-                                </Button>
-                                <ContactFormDescription>
-                                    Нажимая кнопку "Отправить", Вы даете согласие на
-                                    <StyledLink href={'/policy#personalData'}>обработку персональных данных</StyledLink>
-                                </ContactFormDescription>
-                            </ControlsContainer>
+                                )} */}
                         </StyledContactForm>
                     )}
                 </FormWrapper>
@@ -199,13 +227,16 @@ const FormWrapper = styled.div`
 const InputsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    height: 235px;
-    justify-content: space-between;
+    justify-content: flex;
 `
 
 const ControlsContainer = styled.div`
     display: flex;
     flex-direction: row;
+`
+
+const ControlContainer = styled(ControlsContainer)`
+    justify-content: space-between;
 `
 
 const StyledContactForm = styled.form`
@@ -221,6 +252,7 @@ const StyledInput = styled.input`
     border-radius: 30px;
     border: 1px solid ${({ theme }) => theme.colors.grayed};
     width: 428px;
+    margin-bottom: 10px;
     height: 50px;
     font-size: 16px;
     line-height: 22px;
@@ -232,14 +264,18 @@ const StyledInput = styled.input`
 const StyledTextarea = styled.textarea`
     background-color: ${({ theme }) => theme.colors.altBackground};
     font-family: ${({ theme }) => theme.fonts.velasanslight};
+    color: ${({ theme }) => theme.colors.base};
+    opacity: 0.65;
     resize: none;
+    white-space: 'pre-wrap';
     border-radius: 30px;
     border: 1px solid ${({ theme }) => theme.colors.grayed};
     width: 800px;
-    height: 235px;
+    height: 435px;
     padding: 10px 20px 0;
     box-sizing: border-box;
     margin-left: 15px;
+    margin-bottom: 20px;
 `
 
 const ContactFormSuccessMessage = styled.p`
@@ -260,7 +296,8 @@ const ContactFormDescription = styled.p`
     font-size: 12px;
     line-height: 18px;
     margin-top: 10px;
-    color: ${({ theme }) => theme.colors.main};
+    width: 428px;
+    color: ${({ theme }) => theme.colors.base};
     text-align: start;
 `
 
@@ -279,7 +316,6 @@ const FileUploadText = styled.span`
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #333;
     font-size: 14px;
 
     img {
@@ -298,9 +334,4 @@ const AttachedFileItem = styled.li`
     font-size: 14px;
     color: #555;
     margin-bottom: 5px;
-`
-
-const BottomContainer = styled.div`
-    display: flex;
-    flex-direction: row;
 `

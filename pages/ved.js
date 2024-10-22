@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Contacts from '../components/ContactsPage/Contacts'
+import { Ved } from '../components/VedPage/Ved'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const VedPage = () => {
@@ -13,7 +13,7 @@ const VedPage = () => {
                 {getPageMetadata(pageTitle, pageDescription)}
                 {getPageCanonical(pageRelativeUrl)}
             </Head>
-            <Contacts />
+            <Ved />
         </>
     )
 }

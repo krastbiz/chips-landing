@@ -77,7 +77,7 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) 
 const StyledTable = styled.table`
     width: 100%;
     border-collapse: collapse;
-    font-family: ${({ theme }) => theme.fonts.roboto};
+    font-family: ${({ theme }) => theme.fonts.velasansmed};
     font-size: 16px;
     margin-top: 20px;
 `
