@@ -130,6 +130,7 @@ const ServicesWrapper = styled.div`
     background: url('/static/images/main-bg.png') center no-repeat;
     background-size: cover;
     padding: 50px 32px;
+    padding-top: 250px;
     border-radius: 35px;
 `
 
