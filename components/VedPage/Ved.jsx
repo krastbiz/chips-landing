@@ -61,23 +61,24 @@ export const Ved = () => {
                                 </SupplyText>
                             </AboutContainer>
                             <ServicesContainer>
-                                <Service
-                                    title="Надежный партнер"
-                                    content=">10 лет занимаемся трансграничными сделками"
-                                ></Service>
-                                <Service
-                                    title="Быстрая доставка"
-                                    content="от 2-х нед. средний срок доставки из Китая в РФ"
-                                ></Service>
-                                <Service
-                                    title="Работа напрямую с производителем"
-                                    content="Собственный склад консолидации в г. Шэньчжэнь"
-                                ></Service>
-                                <Link href="/#request">
+                            <Link href="/#request">
                                     <ContactButton as={'a'}>
                                         Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
                                     </ContactButton>
                                 </Link>
+                                <Service
+                                    title="1 год гарантии"
+                                    content="Мы гарантирӯем возврат денег, если товар вам не подошёл или его качество вас не устроило."
+                                ></Service>
+                                <Service
+                                    title="Гибкий график оплаты"
+                                    content="Мы готовы предложить гибкие условия оплаты, включая отсрочку, в зависимости от суммы и сроков заказа."
+                                ></Service>
+                                <Service
+                                    title="Таможенное оформление"
+                                    content="Имеется свидетельство таможенного представителя"
+                                ></Service>
+      
                             </ServicesContainer>
                         </DescriptionWrapper>
                     </ServicesWrapper>
