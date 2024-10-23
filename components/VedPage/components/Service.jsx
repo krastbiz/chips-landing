@@ -15,12 +15,14 @@ export const Service = ({ title, content }) => {
 export const ServiceWithIcon = ({ title, content, icon }) => {
     return (
         <ServiceContainerHigh>
-            <ServiceIconWrapper>
+            <ServiceWrapper>
                 <ServiceIcon src={`/static/icons/${icon}.svg`} alt={icon}></ServiceIcon>
                 <Text>{title}</Text>
-            </ServiceIconWrapper>
+            </ServiceWrapper>
 
-            <StyledText>{content}</StyledText>
+            <ServiceWrapper1>
+                <StyledText>{content}</StyledText>
+            </ServiceWrapper1>
         </ServiceContainerHigh>
     )
 }
@@ -47,17 +49,24 @@ const ServiceContainer = styled(BaseContentContainer)`
     `}
 `
 
-const ServiceContainerHigh = styled(BaseContentContainer)`
-    width: 444px;
-    height: 305px;
+const ServiceContainerHigh = styled.div`
+    height: 120px;
+    display: flex;
     justify-content: space-between;
-    margin-left: 10px;
+    flex-direction: row;
+    margin-bottom: 20px;
 `
 
-const ServiceIconWrapper = styled.div`
+const ServiceWrapper = styled(BaseContentContainer)`
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 280px;
+    margin-right: 30px;
+`
+
+const ServiceWrapper1 = styled(ServiceWrapper)`
+    width: 410px;
 `
 
 const ServiceIcon = styled.img`
@@ -68,8 +77,10 @@ const ServiceIcon = styled.img`
 const Title = styled(H3)`
     margin-bottom: 16px;
     color: ${({ theme }) => theme.colors.active};
+    font-weight: 600;
+    font-family: ${({ theme }) => theme.fonts.velasans};
 `
 
-const StyledText = styled(H2)`
+const StyledText = styled(H3)`
     color: ${({ theme }) => theme.colors.base};
 `

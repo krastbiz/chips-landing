@@ -1,24 +1,30 @@
 import styled from 'styled-components'
 import { breakpoint } from '../../../lib/theme'
 import { H2, Text } from '../../ui/Typography'
+import { BaseContentContainer } from '../../Common'
 
 export const Advantage = ({ title, content, number }) => {
     return (
         <AdvantageWrapper>
-            <Number>{number}</Number>
-            <AdvantageContainer>
+            <AdvantageBaseContainer1>
                 <Title>{title}</Title>
+            </AdvantageBaseContainer1>
+            <AdvantageBaseContainer>
                 <Content>{content}</Content>
-            </AdvantageContainer>
+            </AdvantageBaseContainer>
         </AdvantageWrapper>
     )
 }
 
 const AdvantageWrapper = styled.div`
     display: flex;
-    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
-    margin-left: 500px;
+    height: 80px;
+    max-width: 85%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    /* border-top: 1px solid ${({ theme }) => theme.colors.grayed}; */
 `
 
 const Number = styled.div`
@@ -26,6 +32,15 @@ const Number = styled.div`
     font-weight: bold;
     margin-right: 30px;
     color: ${({ theme }) => theme.colors.active};
+`
+
+const AdvantageBaseContainer1 = styled(BaseContentContainer)`
+    width: 33%;
+    margin-right: 30px;
+`
+
+const AdvantageBaseContainer = styled(BaseContentContainer)`
+    width: 65%;
 `
 
 const AdvantageContainer = styled.div`
@@ -56,8 +71,15 @@ const AdvantageContainer = styled.div`
 const Title = styled(H2)`
     margin-bottom: 16px;
     color: ${({ theme }) => theme.colors.active};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 `
 
 const Content = styled(Text)`
-    max-width: 450px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
 `

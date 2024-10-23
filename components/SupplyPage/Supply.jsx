@@ -86,7 +86,7 @@ export const Supply = () => {
                                     каждом этапе!
                                 </SupplyText>
                                 <ServicesContainer2>
-                                <Link href="/#request" onClick={handleScrollToForm}>
+                                    <Link href="/#request" onClick={handleScrollToForm}>
                                         <ContactButton as={'a'} onClick={handleScrollToForm}>
                                             Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
                                         </ContactButton>
@@ -129,7 +129,7 @@ export const Supply = () => {
                         title="Самостоятельное декларирование"
                         content="Осуществляем декларирование импортных комплектующих без привлечения таможенных брокеров, что ускоряет процесс"
                     />
-                                        <Advantage
+                    <Advantage
                         number="2."
                         title="Соблюдение условий транспортировки"
                         content="Гарантируем правильные условия транспортировки для сохранения качества компонентов"

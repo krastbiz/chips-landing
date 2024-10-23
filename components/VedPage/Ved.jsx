@@ -5,42 +5,51 @@ import { Container } from '../ui/layouts/Container'
 import Link from 'next/link'
 import { H1, H2, Text } from '../ui/Typography'
 import { PrimaryButton } from '../ui/buttons/PrimaryButton'
-import { MainSection } from '../Common'
+import { BaseContentContainer, MainSection, SearchComponent } from '../Common'
 import { breakpoint } from '../../lib/theme'
 import { Service, ServiceWithIcon } from './components/Service'
 import { Advantage, AdvantageWithIcon } from './components/Advantage'
 import { RequestForm } from '../Common/RequestForm'
 
 export const Ved = () => {
-    const sectionsRef = useRef([])
-    useEffect(() => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5,
+    // const sectionsRef = useRef([])
+    const formRef = useRef(null)
+
+    const handleScrollToForm = () => {
+        console.log(formRef.current)
+        if (formRef.current) {
+            console.log(formRef.current)
+            formRef.current.scrollIntoView({ behavior: 'smooth' })
         }
+    }
+    // useEffect(() => {
+    //     const options = {
+    //         root: null,
+    //         rootMargin: '0px',
+    //         threshold: 0.5,
+    //     }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                    })
-                }
-            })
-        }, options)
+    //     const observer = new IntersectionObserver((entries) => {
+    //         entries.forEach((entry) => {
+    //             if (entry.isIntersecting) {
+    //                 entry.target.scrollIntoView({
+    //                     behavior: 'smooth',
+    //                     block: 'start',
+    //                 })
+    //             }
+    //         })
+    //     }, options)
 
-        sectionsRef.current.forEach((section) => {
-            if (section) observer.observe(section)
-        })
+    //     sectionsRef.current.forEach((section) => {
+    //         if (section) observer.observe(section)
+    //     })
 
-        return () => {
-            if (sectionsRef.current) {
-                sectionsRef.current.forEach((section) => observer.unobserve(section))
-            }
-        }
-    }, [])
+    //     return () => {
+    //         if (sectionsRef.current) {
+    //             sectionsRef.current.forEach((section) => observer.unobserve(section))
+    //         }
+    //     }
+    // }, [])
     return (
         <MainLayout>
             <Container>
@@ -48,7 +57,9 @@ export const Ved = () => {
                     <ServicesWrapper>
                         <DescriptionWrapper>
                             <AboutContainer>
-                                <H2>Услуги</H2>
+                                <SearchComponent id="search" isHomePage />
+                            </AboutContainer>
+                            <ServicesContainer>
                                 <H1>КОМПЛЕКСНЫЕ ВЭД РЕШЕНИЯ</H1>
                                 <SupplyText>
                                     Компания Е-ТИМ предлагает комплексные решения в области внешнеэкономической
@@ -59,25 +70,25 @@ export const Ved = () => {
                                     позволяют эффективно решать любые финансовые и логистические задачи, даже в условиях
                                     санкций и ограничений. Е-ТИМ — ваш надежный партнер в международной торговле.
                                 </SupplyText>
-                            </AboutContainer>
-                            <ServicesContainer>
-                                <Link href="/#request">
-                                    <ContactButton as={'a'}>
-                                        Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
-                                    </ContactButton>
-                                </Link>
-                                <Service
-                                    title="1 год гарантии"
-                                    content="Мы гарантирӯем возврат денег, если товар вам не подошёл или его качество вас не устроило."
-                                ></Service>
-                                <Service
-                                    title="Гибкий график оплаты"
-                                    content="Мы готовы предложить гибкие условия оплаты, включая отсрочку, в зависимости от суммы и сроков заказа."
-                                ></Service>
-                                <Service
-                                    title="Таможенное оформление"
-                                    content="Имеется свидетельство таможенного представителя"
-                                ></Service>
+                                <ServicesContainer2>
+                                    <Link href="/#request">
+                                        <ContactButton as={'a'}>
+                                            Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
+                                        </ContactButton>
+                                    </Link>
+                                    <Service
+                                        title="1 год гарантии"
+                                        content="Мы гарантирӯем возврат денег, если товар вам не подошёл или его качество вас не устроило."
+                                    ></Service>
+                                    <Service
+                                        title="Гибкий график оплаты"
+                                        content="Мы готовы предложить гибкие условия оплаты, включая отсрочку, в зависимости от суммы и сроков заказа."
+                                    ></Service>
+                                    <Service
+                                        title="Таможенное оформление"
+                                        content="Имеется свидетельство таможенного представителя"
+                                    ></Service>
+                                </ServicesContainer2>
                             </ServicesContainer>
                         </DescriptionWrapper>
                     </ServicesWrapper>
@@ -113,7 +124,7 @@ export const Ved = () => {
                     />
                 </AdvantagesContainer>
             </AdvantagesSection>
-            <RequestForm />
+            <RequestForm ref={formRef} />
         </MainLayout>
     )
 }
@@ -126,30 +137,34 @@ const DescriptionWrapper = styled.div`
 `
 
 const ServicesWrapper = styled.div`
-    background: url('/static/images/main-bg.png') center no-repeat;
+    background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
-    padding: 50px 32px;
-    padding-top: 250px;
+    padding: 120px 32px;
     border-radius: 35px;
+    display: flex;
+    flex-direction: row;
 `
 
 const AboutContainer = styled.div`
-    max-width: 50%;
+    max-width: 52%;
     padding-right: 30px;
     ${breakpoint.desktop`
     max-width: 40%;`}
 `
 
 const SupplyText = styled(Text)`
-    margin-top: 40px;
+    margin-bottom: 40px;
 `
 
 const ServicesContainer = styled.div`
-    max-width: 60%;
+    max-width: 48%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+`
+const ServicesContainer2 = styled(ServicesContainer)`
+    max-width: 100%;
 `
 const ContactButton = styled(PrimaryButton)`
     width: 325px;
@@ -183,9 +198,9 @@ const ArrowIcon = styled.img`
 
 const PurchasesContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 80px;
     justify-content: space-between;
-    margin: 150px 0;
     position: relative;
 `
 
@@ -194,7 +209,6 @@ const AdvantagesSection = styled.div`
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    background-color: ${({ theme }) => theme.colors.altBackground};
     overflow-y: hidden;
 `
 

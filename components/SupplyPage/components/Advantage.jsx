@@ -6,8 +6,12 @@ import { BaseContentContainer } from '../../Common'
 export const Advantage = ({ title, content, number }) => {
     return (
         <AdvantageWrapper>
-                <AdvantageBaseContainer1><Title>{title}</Title></AdvantageBaseContainer1>
-                <AdvantageBaseContainer><Content>{content}</Content></AdvantageBaseContainer>
+            <AdvantageBaseContainer1>
+                <Title>{title}</Title>
+            </AdvantageBaseContainer1>
+            <AdvantageBaseContainer>
+                <Content>{content}</Content>
+            </AdvantageBaseContainer>
         </AdvantageWrapper>
     )
 }
