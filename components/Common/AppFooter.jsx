@@ -33,6 +33,16 @@ const AppFooter = () => {
                 </LogoWrapper>
 
                 <FooterInfoWrapper>
+                <div>                <FooterInfoItem>
+                        <span>
+                            <b>Режим работы:</b> пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00
+                        </span>
+                    </FooterInfoItem></div>
+                <div>                <FooterInfoItem>
+                        <span>
+                            <b>ООО</b> "E-ТИМ"
+                        </span>
+                    </FooterInfoItem>
                     <FooterInfoItem>
                         <span>
                             <b>ИНН:</b> 7806562061
@@ -42,13 +52,8 @@ const AppFooter = () => {
                         <span>
                             <b>ОГРН:</b> 1197847145825
                         </span>
-                    </FooterInfoItem>
-                    <FooterInfoItem>
-                        <span>
-                            <b>Режим работы:</b> пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00
-                        </span>
-                    </FooterInfoItem>
-                    <FooterInfoItem>
+                    </FooterInfoItem></div>
+                    <div>                    <FooterInfoItem>
                         <div>
                             <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
                             <span>
@@ -70,7 +75,9 @@ const AppFooter = () => {
                             <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
                             <span>info@e-tim.ru</span>
                         </a>
-                    </FooterInfoItem>
+                    </FooterInfoItem></div>
+
+
                 </FooterInfoWrapper>
 
                 <FooterLinksWrapper>
@@ -114,6 +121,8 @@ const FooterInfoWrapper = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+    display: flex;
+    flex-direction: row;
 
     ${breakpoint.tablet`
         margin-bottom: 20px;
