@@ -61,16 +61,6 @@ const SearchContainer = styled.div`
     position: relative;
     display: inline-block;
     border-radius: 5px;
-
-    ${({ isHomePage }) =>
-        isHomePage &&
-        `
-        margin-top: 250px;
-        
-        ${breakpoint.desktop`
-            margin-top: 200px;
-        `}
-    `}
 `
 
 const SearchInput = styled.input`
@@ -79,7 +69,7 @@ const SearchInput = styled.input`
     padding-right: 40px;
     border: 1px solid ${({ theme }) => theme.colors.main};
     border-radius: 5px;
-    width: 480px;
+    width: 750px;
     box-sizing: border-box;
     margin: 20px 0;
     ${breakpoint.mobile`

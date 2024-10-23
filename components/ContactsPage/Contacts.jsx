@@ -24,10 +24,12 @@ const Contacts = () => {
                             помещ. 5-H, комн. №16,17(оф.407)
                         </ContactContent>
                         <ContactTitle>Телефон:</ContactTitle>
-                        <ContactContent as="a" href="tel:+7(812)3181983">+7 (812) 318-19-83
+                        <ContactContent as="a" href="tel:+7(812)3181983">
+                            +7 (812) 318-19-83
                         </ContactContent>
                         <ContactTitle>Почта:</ContactTitle>
-                        <ContactContent as="a" href="mailto:info@e-tim.ru">info@e-tim.ru
+                        <ContactContent as="a" href="mailto:info@e-tim.ru">
+                            info@e-tim.ru
                         </ContactContent>
                         <ContactContent>Режим работы: пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00</ContactContent>
                     </ContactBox>
@@ -100,7 +102,7 @@ const MapWrapper = styled.div`
 `
 
 const Icon = styled.img`
-    margin-left: 10px
+    margin-left: 10px;
 `
 
 export default Contacts

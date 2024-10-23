@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { breakpoint, screenWidth } from '../../../lib/theme'
 
 const Container = styled.div`
-    max-width: 90%;
+    max-width: 98%;
     margin: 0 auto;
 
     ${breakpoint.desktop`

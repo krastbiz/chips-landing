@@ -61,7 +61,7 @@ export const Ved = () => {
                                 </SupplyText>
                             </AboutContainer>
                             <ServicesContainer>
-                            <Link href="/#request">
+                                <Link href="/#request">
                                     <ContactButton as={'a'}>
                                         Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
                                     </ContactButton>
@@ -78,7 +78,6 @@ export const Ved = () => {
                                     title="Таможенное оформление"
                                     content="Имеется свидетельство таможенного представителя"
                                 ></Service>
-      
                             </ServicesContainer>
                         </DescriptionWrapper>
                     </ServicesWrapper>
