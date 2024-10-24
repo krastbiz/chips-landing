@@ -25,7 +25,6 @@ export const H1 = styled.h1`
 `
 
 export const H2 = styled.h2`
-    margin-bottom: 20px;
     font-family: ${({ theme }) => theme.fonts.montserrat};
     font-style: normal;
     font-weight: bold;

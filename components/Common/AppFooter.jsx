@@ -33,51 +33,58 @@ const AppFooter = () => {
                 </LogoWrapper>
 
                 <FooterInfoWrapper>
-                <div>                <FooterInfoItem>
-                        <span>
-                            <b>Режим работы:</b> пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00
-                        </span>
-                    </FooterInfoItem></div>
-                <div>                <FooterInfoItem>
-                        <span>
-                            <b>ООО</b> "E-ТИМ"
-                        </span>
-                    </FooterInfoItem>
-                    <FooterInfoItem>
-                        <span>
-                            <b>ИНН:</b> 7806562061
-                        </span>
-                    </FooterInfoItem>
-                    <FooterInfoItem>
-                        <span>
-                            <b>ОГРН:</b> 1197847145825
-                        </span>
-                    </FooterInfoItem></div>
-                    <div>                    <FooterInfoItem>
-                        <div>
-                            <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
+                    <div>
+                        {' '}
+                        <FooterInfoItem>
                             <span>
-                                Санкт-Петербург,
-                                <br />
-                                муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H, комн.
-                                №16,17(оф.407)
+                                <b>Режим работы:</b> пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00
                             </span>
-                        </div>
-                    </FooterInfoItem>
-                    <FooterInfoItem>
-                        <a href="tel:+7(812)3181983">
-                            <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
-                            <span>+7 (812) 318-19-83</span>
-                        </a>
-                    </FooterInfoItem>
-                    <FooterInfoItem>
-                        <a href="mailto:info@e-tim.ru">
-                            <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
-                            <span>info@e-tim.ru</span>
-                        </a>
-                    </FooterInfoItem></div>
-
-
+                        </FooterInfoItem>
+                    </div>
+                    <div>
+                        {' '}
+                        <FooterInfoItem>
+                            <span>
+                                <b>ООО</b> "E-ТИМ"
+                            </span>
+                        </FooterInfoItem>
+                        <FooterInfoItem>
+                            <span>
+                                <b>ИНН:</b> 7806562061
+                            </span>
+                        </FooterInfoItem>
+                        <FooterInfoItem>
+                            <span>
+                                <b>ОГРН:</b> 1197847145825
+                            </span>
+                        </FooterInfoItem>
+                    </div>
+                    <div>
+                        {' '}
+                        <FooterInfoItem>
+                            <div>
+                                <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
+                                <span>
+                                    Санкт-Петербург,
+                                    <br />
+                                    муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1, помещ. 5-H,
+                                    комн. №16,17(оф.407)
+                                </span>
+                            </div>
+                        </FooterInfoItem>
+                        <FooterInfoItem>
+                            <a href="tel:+7(812)3181983">
+                                <img src="/static/icons/phone-icon.svg" alt="phone icon"></img>
+                                <span>+7 (812) 318-19-83</span>
+                            </a>
+                        </FooterInfoItem>
+                        <FooterInfoItem>
+                            <a href="mailto:info@e-tim.ru">
+                                <img src="/static/icons/email-icon.svg" alt="phone icon"></img>
+                                <span>info@e-tim.ru</span>
+                            </a>
+                        </FooterInfoItem>
+                    </div>
                 </FooterInfoWrapper>
 
                 <FooterLinksWrapper>

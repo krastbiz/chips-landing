@@ -2,23 +2,21 @@ import { useEffect, useRef } from 'react'
 import { MainLayout } from '../ui/layouts/MainLayout'
 import styled from 'styled-components'
 import { Container } from '../ui/layouts/Container'
-import Link from 'next/link'
-import { H1, H2, Text } from '../ui/Typography'
+import { H1, Text } from '../ui/Typography'
 import { PrimaryButton } from '../ui/buttons/PrimaryButton'
-import { BaseContentContainer, MainSection, SearchComponent } from '../Common'
+import { MainSection, SearchComponent } from '../Common'
 import { breakpoint } from '../../lib/theme'
-import { Service, ServiceWithIcon } from './components/Service'
-import { Advantage, AdvantageWithIcon } from './components/Advantage'
+import { Service } from './components/Service'
+import { Advantage } from './components/Advantage'
 import { RequestForm } from '../Common/RequestForm'
+import { AboutSection } from '../Common/AboutSection'
 
 export const Ved = () => {
     // const sectionsRef = useRef([])
     const formRef = useRef(null)
 
     const handleScrollToForm = () => {
-        console.log(formRef.current)
         if (formRef.current) {
-            console.log(formRef.current)
             formRef.current.scrollIntoView({ behavior: 'smooth' })
         }
     }
@@ -54,10 +52,10 @@ export const Ved = () => {
         <MainLayout>
             <Container>
                 <MainSection>
-                    <ServicesWrapper>
+                    <ServicesWrapper id="ved">
                         <DescriptionWrapper>
                             <AboutContainer>
-                                <SearchComponent id="search" isHomePage />
+                                <SearchComponent isHomePage />
                             </AboutContainer>
                             <ServicesContainer>
                                 <H1>КОМПЛЕКСНЫЕ ВЭД РЕШЕНИЯ</H1>
@@ -71,11 +69,9 @@ export const Ved = () => {
                                     санкций и ограничений. Е-ТИМ — ваш надежный партнер в международной торговле.
                                 </SupplyText>
                                 <ServicesContainer2>
-                                    <Link href="/#request">
-                                        <ContactButton as={'a'}>
-                                            Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
-                                        </ContactButton>
-                                    </Link>
+                                    <ContactButton as={'a'} onClick={handleScrollToForm}>
+                                        Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
+                                    </ContactButton>
                                     <Service
                                         title="1 год гарантии"
                                         content="Мы гарантирӯем возврат денег, если товар вам не подошёл или его качество вас не устроило."
@@ -98,32 +94,32 @@ export const Ved = () => {
                 <AdvantagesTitle>Преимущества</AdvantagesTitle>
                 <AdvantagesContainer>
                     <Advantage
-                        number="1."
                         title="Международное присутствие"
                         content="Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, предоставляя вам доступ к лучшим поставщикам и рынкам"
                     />
                     <Advantage
-                        number="2."
                         title="Надежная платежная инфраструктура"
                         content="Собственная система платежей гарантирует безопасность и эффективность финансовых операций, даже в условиях международных ограничений"
                     />
                     <Advantage
-                        number="3."
                         title="Экспертиза в сложных условиях"
                         content="Наш опыт работы в санкционных условиях и использование схем прокси-стран обеспечивают бесперебойную доставку и логистику"
                     />
                     <Advantage
-                        number="4."
                         title="Прозрачность и доверие"
                         content="Мы предлагаем понятные сроки и ценообразование, а также полное юридическое и финансовое сопровождение, что делает сотрудничество с нами предсказуемым и надежным"
                     />
                     <Advantage
-                        number="5."
                         title="Адаптивная логистика"
                         content="В условиях постоянных изменений мы оперативно находим альтернативные маршруты, чтобы гарантировать своевременную доставку вашей продукции"
                     />
+                    <Advantage
+                        title="Экспертиза в таможенном оформлении"
+                        content="Наша команда таможенных брокеров может решить вопросы по растаможке даже самых сложных видов грузов"
+                    />
                 </AdvantagesContainer>
             </AdvantagesSection>
+            <AboutSection />
             <RequestForm ref={formRef} />
         </MainLayout>
     )
@@ -136,7 +132,7 @@ const DescriptionWrapper = styled.div`
     margin-top: 30px;
 `
 
-const ServicesWrapper = styled.div`
+const ServicesWrapper = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
     padding: 120px 32px;
@@ -196,15 +192,7 @@ const ArrowIcon = styled.img`
     margin-left: 20px;
 `
 
-const PurchasesContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 80px;
-    justify-content: space-between;
-    position: relative;
-`
-
-const AdvantagesSection = styled.div`
+const AdvantagesSection = styled.section`
     position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -217,4 +205,5 @@ const AdvantagesContainer = styled.div``
 const AdvantagesTitle = styled(H1)`
     align-items: flex-start;
     padding: 20px 0 40px 150px;
+    margin-bottom: 30px;
 `

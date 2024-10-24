@@ -5,7 +5,7 @@ import { MapComponent } from '../Common/MapComponent'
 import { AsideLayout } from '../ui/layouts/AsideLayout'
 import { Container } from '../ui/layouts/Container'
 import { MainLayout } from '../ui/layouts/MainLayout'
-import { H1, H2 } from '../ui/Typography'
+import { H1 } from '../ui/Typography'
 
 const Contacts = () => {
     return (

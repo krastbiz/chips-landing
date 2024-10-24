@@ -89,10 +89,10 @@ export const RequestForm = forwardRef((props, ref) => {
     return (
         <FormSection id="#request" ref={ref}>
             <RequestFormWrapper>
-                <H2>
+                <StyledH2>
                     <ColoredSpan>Свяжитесь с нами сегодня,</ColoredSpan> чтобы обсудить, как мы можем помочь вашему
                     бизнесу, расти и развиваться!
-                </H2>
+                </StyledH2>
                 <FormWrapper>
                     {emailWasSent ? (
                         <ContactFormSuccessMessage>
@@ -192,7 +192,7 @@ export const RequestForm = forwardRef((props, ref) => {
     )
 })
 
-const FormSection = styled.div`
+const FormSection = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
     padding-top: 100px;
@@ -322,6 +322,10 @@ const FileUploadText = styled.span`
         width: 16px;
         height: 16px;
     }
+`
+
+const StyledH2 = styled(H2)`
+    margin-bottom: 20px;
 `
 
 const AttachedFilesList = styled.ul`

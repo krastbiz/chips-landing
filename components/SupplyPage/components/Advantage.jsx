@@ -24,62 +24,28 @@ const AdvantageWrapper = styled.div`
     max-width: 85%;
     margin: 0 auto;
     margin-bottom: 40px;
-    /* border-top: 1px solid ${({ theme }) => theme.colors.grayed}; */
-`
-
-const Number = styled.div`
-    font-size: 80px;
-    font-weight: bold;
-    margin-right: 30px;
-    color: ${({ theme }) => theme.colors.active};
 `
 
 const AdvantageBaseContainer1 = styled(BaseContentContainer)`
-    width: 33%;
+    width: 32%;
     margin-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const AdvantageBaseContainer = styled(BaseContentContainer)`
     width: 65%;
-`
-
-const AdvantageContainer = styled.div`
-    width: 100%;
-    height: 210px;
     display: flex;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
-    border-top: 1px solid ${({ theme }) => theme.colors.grayed};
-    background-color: ${({ theme }) => theme.colors.altBackground};
-
-    ${breakpoint.desktop`
-        width: 273px;
-        height: 150px;
-    `}
-
-    ${breakpoint.tablet`
-        width: 207px;
-        height: 139px;
-    `}
-
-    ${breakpoint.mobile`
-        width: 173px;
-        height: 136px;
-    `}
 `
 
 const Title = styled(H2)`
-    margin-bottom: 16px;
     color: ${({ theme }) => theme.colors.active};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+    text-align: center;
 `
 
 const Content = styled(Text)`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     padding: 10px;
 `

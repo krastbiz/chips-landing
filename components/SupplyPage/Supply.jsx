@@ -2,23 +2,21 @@ import { useEffect, useRef } from 'react'
 import { MainLayout } from '../ui/layouts/MainLayout'
 import styled from 'styled-components'
 import { Container } from '../ui/layouts/Container'
-import Link from 'next/link'
-import { H1, H2, Text } from '../ui/Typography'
+import { H1, Text } from '../ui/Typography'
 import { PrimaryButton } from '../ui/buttons/PrimaryButton'
-import { BaseContentContainer, MainSection, SearchComponent } from '../Common'
+import { MainSection, SearchComponent } from '../Common'
 import { breakpoint } from '../../lib/theme'
 import { Service, ServiceWithIcon } from './components/Service'
-import { Advantage, AdvantageWithIcon } from './components/Advantage'
+import { Advantage } from './components/Advantage'
 import { RequestForm } from '../Common/RequestForm'
+import { AboutSection } from '../Common/AboutSection'
 
 export const Supply = () => {
     // const sectionsRef = useRef([])
     const formRef = useRef(null)
 
     const handleScrollToForm = () => {
-        console.log(formRef.current)
         if (formRef.current) {
-            console.log(formRef.current)
             formRef.current.scrollIntoView({ behavior: 'smooth' })
         }
     }
@@ -54,11 +52,11 @@ export const Supply = () => {
         <MainLayout>
             <Container>
                 <MainSection>
-                    <ServicesWrapper>
+                    <ServicesWrapper id="purchases">
                         <DescriptionWrapper>
                             <AboutContainer>
-                                <SearchComponent id="search" isHomePage />
-                                <PurchasesContainer id="purchases">
+                                <SearchComponent isHomePage />
+                                <PurchasesContainer>
                                     <ServiceWithIcon
                                         title="Осуществляем закупки на платформах"
                                         content="Mouser, Digi-key, Avnet, Arrow, Hkin.com, Lcsc и других"
@@ -86,11 +84,10 @@ export const Supply = () => {
                                     каждом этапе!
                                 </SupplyText>
                                 <ServicesContainer2>
-                                    <Link href="/#request" onClick={handleScrollToForm}>
-                                        <ContactButton as={'a'} onClick={handleScrollToForm}>
-                                            Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
-                                        </ContactButton>
-                                    </Link>
+                                    <ContactButton as={'a'} onClick={handleScrollToForm}>
+                                        Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="Поиск" />
+                                    </ContactButton>
+
                                     <Service
                                         title="1 год гарантии"
                                         content="Мы гарантирӯем возврат денег, если товар вам не подошёл или его качество вас не
@@ -115,37 +112,32 @@ export const Supply = () => {
                 <AdvantagesTitle>Преимущества</AdvantagesTitle>
                 <AdvantagesContainer>
                     <Advantage
-                        number="1."
                         title="Гарантия подлинности компонентов"
                         content="Обеспечиваем аутентичность продукции на этапе квотирования, гарантируя качество и надежность"
                     />
                     <Advantage
-                        number="2."
                         title="Проверка соответствия"
                         content="Предоставляем фотографии товаров, маркировки и упаковки для предварительной оценки покупателем перед ввозом в РФ"
                     />
                     <Advantage
-                        number="3."
                         title="Самостоятельное декларирование"
                         content="Осуществляем декларирование импортных комплектующих без привлечения таможенных брокеров, что ускоряет процесс"
                     />
                     <Advantage
-                        number="2."
                         title="Соблюдение условий транспортировки"
                         content="Гарантируем правильные условия транспортировки для сохранения качества компонентов"
                     />
                     <Advantage
-                        number="4."
                         title="Поставки для государственных заказов"
                         content="Имеем все необходимые лицензии и сертификаты, а также опыт работы с государственными заказами"
                     />
                     <Advantage
-                        number="5."
                         title="Техническая поддержка"
                         content="Предоставляем консультации по использованию компонентов, аналогам и новинкам, обеспечивая поддержку на всех этапах работы"
                     />
                 </AdvantagesContainer>
             </AdvantagesSection>
+            <AboutSection />
             <RequestForm ref={formRef} />
         </MainLayout>
     )
@@ -158,7 +150,7 @@ const DescriptionWrapper = styled.div`
     margin-top: 30px;
 `
 
-const ServicesWrapper = styled.div`
+const ServicesWrapper = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
     padding: 120px 32px;
@@ -226,7 +218,7 @@ const PurchasesContainer = styled.div`
     position: relative;
 `
 
-const AdvantagesSection = styled.div`
+const AdvantagesSection = styled.section`
     position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -239,4 +231,5 @@ const AdvantagesContainer = styled.div``
 const AdvantagesTitle = styled(H1)`
     align-items: flex-start;
     padding: 20px 0 40px 150px;
+    margin-bottom: 30px;
 `
