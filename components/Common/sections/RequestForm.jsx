@@ -1,19 +1,21 @@
 import styled from 'styled-components'
 
-import { breakpoint } from '../../lib/theme'
-import { Button } from '../ui/buttons/Button'
-import { PrimaryButton } from '../ui/buttons/PrimaryButton'
-import { BaseContentContainer } from '../ui/layouts'
-import { H2 } from '../ui/Typography'
-import { StyledLink } from '../ui/Link'
-import { useRequestForm } from '../hooks/useRequestForm'
-import { AppFooter } from './AppFooter'
+import { breakpoint } from '../../../lib/theme'
+import { Button } from '../../ui/buttons/Button'
+import { PrimaryButton } from '../../ui/buttons/PrimaryButton'
+import { BaseContentContainer } from '../../ui/layouts'
+import { H2 } from '../../ui/Typography'
+import { StyledLink } from '../../ui/Link'
+import { useRequestForm } from '../../hooks/useRequestForm'
+import { AppFooter } from '../AppFooter'
 
 export const RequestForm = ({ defaultValue = '' }) => {
     const {
         formData = {},
         emailWasSent,
         requestNumber,
+        selectedFiles,
+        deleteFile,
         onFormSubmit,
         handleBlur,
         handleFileChange,
@@ -94,7 +96,7 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                             onBlur={handleBlur}
                                         />
                                         <ControlContainer>
-                                            <BaseContentContainer>
+                                            <UploadContainer>
                                                 <FileUploadLabel>
                                                     <input
                                                         type="file"
@@ -107,21 +109,20 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                                         Прикрепите файл
                                                     </FileUploadText>
                                                 </FileUploadLabel>
-                                            </BaseContentContainer>
+                                                {selectedFiles.length > 0 && (
+                                                    <AttachedFilesList>
+                                                        {selectedFiles.map((file, index) => (
+                                                            <AttachedFileItem key={index} onClick={() => deleteFile(file.name)}>{file.name}</AttachedFileItem>
+                                                        ))}
+                                                    </AttachedFilesList>
+                                                )}
+                                            </UploadContainer>
                                             <PrimaryButton primary type="submit">
                                                 Отправить
                                             </PrimaryButton>
                                         </ControlContainer>
                                     </InputsContainer>
                                 </ControlsContainer>
-
-                                {/* {selectedFiles.length > 0 && (
-                    <AttachedFilesList>
-                        {selectedFiles.map((file, index) => (
-                            <AttachedFileItem key={index}>{file.name}</AttachedFileItem>
-                        ))}
-                    </AttachedFilesList>
-                )} */}
                             </StyledContactForm>
                         )}
                     </FormWrapper>
@@ -135,7 +136,7 @@ export const RequestForm = ({ defaultValue = '' }) => {
 const FormSection = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
-    padding-top: 20px;
+    padding-top: 18px;
     padding-bottom: 10px;
 `
 const RequestFormWrapper = styled(BaseContentContainer)`
@@ -143,7 +144,7 @@ const RequestFormWrapper = styled(BaseContentContainer)`
     flex-direction: column;
     max-width: 90%;
     margin: 0 auto;
-    padding: 50px 40px;
+    padding: 50px 40px 20px;
     opacity: 0.9;
 
     ${breakpoint.desktop`
@@ -162,7 +163,7 @@ const ColoredSpan = styled.span`
 `
 
 const FormWrapper = styled.div`
-    margin-top: 50px;
+    margin-top: 30px;
 `
 
 const InputsContainer = styled.div`
@@ -178,6 +179,10 @@ const ControlsContainer = styled.div`
 
 const ControlContainer = styled(ControlsContainer)`
     justify-content: space-between;
+`
+
+const UploadContainer = styled(BaseContentContainer)`
+    align-items: flex-start;
 `
 
 const StyledContactForm = styled.form`
@@ -212,11 +217,16 @@ const StyledTextarea = styled.textarea`
     border-radius: 30px;
     border: 1px solid ${({ theme }) => theme.colors.grayed};
     width: 800px;
-    height: 335px;
+    height: 345px;
     padding: 10px 20px 0;
     box-sizing: border-box;
     margin-left: 15px;
     margin-bottom: 20px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 const ContactFormSuccessMessage = styled.p`
@@ -244,7 +254,7 @@ const ContactFormDescription = styled.p`
 
 const FileUploadLabel = styled.label`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     cursor: pointer;
     margin-bottom: 20px;
 
@@ -272,11 +282,34 @@ const StyledH2 = styled(H2)`
 const AttachedFilesList = styled.ul`
     list-style: none;
     padding: 0;
-    margin-bottom: 20px;
-`
+    max-height: 50px;
+    width: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme.colors.grayed} transparent;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.colors.grayed};
+        border-radius: 4px;
+    }
+`;
 
 const AttachedFileItem = styled.li`
     font-size: 14px;
-    color: #555;
+    color: ${({ theme }) => theme.colors.base};
     margin-bottom: 5px;
+    width: 100%;
+
+    &::after {
+        content: '✕';
+        color: ${({ theme }) => theme.colors.base};
+        margin-left: 8px;
+        cursor: pointer;
+    }
+    &:hover::after {
+        color: ${({ theme }) => theme.colors.active};
+    }
 `

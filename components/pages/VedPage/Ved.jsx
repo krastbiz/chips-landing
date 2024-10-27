@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { MainLayout } from '../../ui/layouts'
-import { RequestForm } from '../../Common/RequestForm'
-import { AboutSection, AdvantagesSection, ServiceSection } from '../../Common/sections'
+import { AboutSection, AdvantagesSection, ServiceSection, RequestForm } from '../../Common/sections'
 import { VerticalSlider } from '../../Common/VerticalSlider'
 
 export const Ved = () => {

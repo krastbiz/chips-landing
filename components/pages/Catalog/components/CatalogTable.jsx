@@ -6,11 +6,9 @@ import { Button } from '../../../ui/buttons/Button'
 import { Text } from '../../../ui/Typography'
 
 export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder, handleScroll }) => {
-    const router = useRouter()
     const [localSortBy, setLocalSortBy] = useState(sortBy)
     const [localSortOrder, setLocalSortOrder] = useState(sortOrder)
 
-    // Set default sorting on initial render if not provided
     useEffect(() => {
         if (!sortBy) {
             setLocalSortBy('brand')

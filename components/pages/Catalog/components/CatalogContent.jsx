@@ -3,7 +3,7 @@ import { SearchComponent } from '../../../Common/Search'
 import { Container } from '../../../ui/layouts'
 import { Separator } from '../../../ui/Separator'
 import { useCatalogSearch } from '../../../hooks/useCatalogSearch'
-import { RequestForm } from '../../../Common/RequestForm'
+import { RequestForm } from '../../../Common/sections'
 
 export const CatalogContent = () => {
     const {

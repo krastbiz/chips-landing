@@ -28,7 +28,9 @@ export const ServiceSection = ({ title, description, services, servicesWithIcon,
                     <SupplyText>{description}</SupplyText>
                     <ServicesContainerRow>
                         <ContactButton as="a" onClick={onClick}>
-                            <div>Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="arrow" /></div>
+                            <div>
+                                Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="arrow" />
+                            </div>
                         </ContactButton>
                         {services.map((service, index) => (
                             <Service key={index} title={service.title} content={service.content} />

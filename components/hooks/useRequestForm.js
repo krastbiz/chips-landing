@@ -92,10 +92,16 @@ export const useRequestForm = (defaultValue) => {
         initialText.includes(formData.components) && setFormData({ ...formData, components: '' })
     }
 
+    const deleteFile = (fileName) => {
+        setSelectedFiles((prevFiles) => prevFiles.filter((file) => file.name !== fileName));
+    };
+
     return {
         formData,
         emailWasSent,
         requestNumber,
+        selectedFiles,
+        deleteFile,
         onFormSubmit,
         handleBlur,
         handleFileChange,

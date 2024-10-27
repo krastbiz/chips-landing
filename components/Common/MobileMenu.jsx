@@ -4,7 +4,7 @@ import { BurgerMenu } from '../ui/buttons/BurgerMenu'
 import { ContactInfoWrapper, ContactItem } from '../pages/ContactsPage/ContactItem'
 import { Delimeter } from '../ui/Delimeter'
 import { Container } from '../ui/layouts'
-import { renderNavLink } from './AppHeader'
+import { RenderNavLink } from './AppHeader'
 
 export const MobileMenu = (props) => {
     const { isActive, onClose, links, contacts } = props
@@ -26,7 +26,9 @@ export const MobileMenu = (props) => {
                 <BurgerMenu isActive={true} onClick={() => onClose()} />
             </MobileBurgerContainer>
             <Container>
-                {links.map((link) => renderNavLink({ text: link.text, url: link.url, onClick: onClose }))}
+                {links.map(({ text, url }) => (
+                    <RenderNavLink key={text} text={text} url={url} onClose={onClose} />
+                ))}
             </Container>
             <Delimeter right width={'80%'} />
             <MobileContactsContainer>
