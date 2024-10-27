@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { H1 } from '../../ui/Typography'
 import { Advantage } from './components/Advantage'
 
-export const AdvantagesSection = ({ title, advantages }) => {
+export const AdvantagesSection = ({advantages }) => {
     return (
         <Section id="advantages">
-            <Title>{title}</Title>
+            <Title>Преимущества</Title>
             <AdvantagesContainer>
                 {advantages.map((advantage, index) => (
                     <Advantage key={index} title={advantage.title} content={advantage.content} />
@@ -20,8 +20,6 @@ const Section = styled.section`
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    margin-top: 30px;
-    overflow-y: hidden;
 `
 
 const Title = styled(H1)`

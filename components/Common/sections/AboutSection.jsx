@@ -73,13 +73,12 @@ export const ValuesItem = ({ title, content }) => {
 }
 
 const AboutSectionContainer = styled.section`
-    overflow-y: hidden;
     max-width: 90%;
     margin: 0 auto;
 `
 
 const AboutContainer = styled(BaseContentContainer)`
-    padding: 20px 30px;
+    padding: 15px 25px;
 `
 const ValueContainer = styled.div`
     display: flex;

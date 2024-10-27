@@ -7,8 +7,9 @@ import { BaseContentContainer } from '../ui/layouts'
 import { H2 } from '../ui/Typography'
 import { StyledLink } from '../ui/Link'
 import { useRequestForm } from '../hooks/useRequestForm'
+import { AppFooter } from './AppFooter'
 
-export const RequestForm = (props) => {
+export const RequestForm = () => {
     const {
         formData = {},
         emailWasSent,
@@ -21,112 +22,121 @@ export const RequestForm = (props) => {
         setEmailWasSent,
     } = useRequestForm
     return (
-        <FormSection id="request" ref={ref}>
-            <RequestFormWrapper>
-                <StyledH2>
-                    <ColoredSpan>Свяжитесь с нами сегодня,</ColoredSpan> чтобы обсудить, как мы можем помочь вашему
-                    бизнесу, расти и развиваться!
-                </StyledH2>
-                <FormWrapper>
-                    {emailWasSent ? (
-                        <ContactFormSuccessMessage>
-                            <div>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</div>
-                            <div>Спасибо, что связались с нами!</div>
-                            <ContactFormSuccessMessageButton
-                                primary
-                                type="reset"
-                                onClick={() => setEmailWasSent(false)}
-                            >
-                                Новая заявка
-                            </ContactFormSuccessMessageButton>
-                        </ContactFormSuccessMessage>
-                    ) : (
-                        <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
-                            <ControlsContainer>
-                                <InputsContainer>
-                                    <StyledInput
-                                        name="name"
-                                        type="text"
-                                        placeholder="Ваше имя"
-                                        required
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                    />
-                                    <StyledInput
-                                        name="company"
-                                        type="text"
-                                        placeholder="Ваша компания"
-                                        required
-                                        value={formData.company}
-                                        onChange={handleChange}
-                                    />
-                                    <StyledInput
-                                        name="email"
-                                        required
-                                        type="email"
-                                        placeholder="mail@example.com"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                    />
-                                    <StyledInput
-                                        name="tel"
-                                        type="tel"
-                                        placeholder="+79999999"
-                                        required
-                                        value={formData.tel}
-                                        onChange={handleChange}
-                                    />
-                                    <ContactFormDescription>
-                                        Нажимая кнопку "Отправить", Вы даете согласие на
-                                        <StyledLink href={'/policy#personalData'}>
-                                            обработку персональных данных
-                                        </StyledLink>
-                                    </ContactFormDescription>
-                                </InputsContainer>
-                                <InputsContainer>
-                                    <StyledTextarea
-                                        value={formData.components}
-                                        name="components"
-                                        onChange={handleChange}
-                                        onFocus={handleFocus}
-                                        onBlur={handleBlur}
-                                    />
-                                    <ControlContainer>
-                                        <BaseContentContainer>
-                                            <FileUploadLabel>
-                                                <input type="file" name="file" onChange={handleFileChange} multiple />
-                                                <FileUploadText>
-                                                    <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
-                                                    Прикрепите файл
-                                                </FileUploadText>
-                                            </FileUploadLabel>
-                                        </BaseContentContainer>
-                                        <PrimaryButton primary type="submit">
-                                            Отправить
-                                        </PrimaryButton>
-                                    </ControlContainer>
-                                </InputsContainer>
-                            </ControlsContainer>
+        <>
+            <FormSection id="request">
+                <RequestFormWrapper>
+                    <StyledH2>
+                        <ColoredSpan>Свяжитесь с нами сегодня,</ColoredSpan> чтобы обсудить, как мы можем помочь вашему
+                        бизнесу, расти и развиваться!
+                    </StyledH2>
+                    <FormWrapper>
+                        {emailWasSent ? (
+                            <ContactFormSuccessMessage>
+                                <div>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</div>
+                                <div>Спасибо, что связались с нами!</div>
+                                <ContactFormSuccessMessageButton
+                                    primary
+                                    type="reset"
+                                    onClick={() => setEmailWasSent(false)}
+                                >
+                                    Новая заявка
+                                </ContactFormSuccessMessageButton>
+                            </ContactFormSuccessMessage>
+                        ) : (
+                            <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
+                                <ControlsContainer>
+                                    <InputsContainer>
+                                        <StyledInput
+                                            name="name"
+                                            type="text"
+                                            placeholder="Ваше имя"
+                                            required
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                        />
+                                        <StyledInput
+                                            name="company"
+                                            type="text"
+                                            placeholder="Ваша компания"
+                                            required
+                                            value={formData.company}
+                                            onChange={handleChange}
+                                        />
+                                        <StyledInput
+                                            name="email"
+                                            required
+                                            type="email"
+                                            placeholder="mail@example.com"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                        />
+                                        <StyledInput
+                                            name="tel"
+                                            type="tel"
+                                            placeholder="+79999999"
+                                            required
+                                            value={formData.tel}
+                                            onChange={handleChange}
+                                        />
+                                        <ContactFormDescription>
+                                            Нажимая кнопку "Отправить", Вы даете согласие на
+                                            <StyledLink href={'/policy#personalData'}>
+                                                обработку персональных данных
+                                            </StyledLink>
+                                        </ContactFormDescription>
+                                    </InputsContainer>
+                                    <InputsContainer>
+                                        <StyledTextarea
+                                            value={formData.components}
+                                            name="components"
+                                            onChange={handleChange}
+                                            onFocus={handleFocus}
+                                            onBlur={handleBlur}
+                                        />
+                                        <ControlContainer>
+                                            <BaseContentContainer>
+                                                <FileUploadLabel>
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        onChange={handleFileChange}
+                                                        multiple
+                                                    />
+                                                    <FileUploadText>
+                                                        <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
+                                                        Прикрепите файл
+                                                    </FileUploadText>
+                                                </FileUploadLabel>
+                                            </BaseContentContainer>
+                                            <PrimaryButton primary type="submit">
+                                                Отправить
+                                            </PrimaryButton>
+                                        </ControlContainer>
+                                    </InputsContainer>
+                                </ControlsContainer>
 
-                            {/* {selectedFiles.length > 0 && (
-                                    <AttachedFilesList>
-                                        {selectedFiles.map((file, index) => (
-                                            <AttachedFileItem key={index}>{file.name}</AttachedFileItem>
-                                        ))}
-                                    </AttachedFilesList>
-                                )} */}
-                        </StyledContactForm>
-                    )}
-                </FormWrapper>
-            </RequestFormWrapper>
-        </FormSection>
+                                {/* {selectedFiles.length > 0 && (
+                    <AttachedFilesList>
+                        {selectedFiles.map((file, index) => (
+                            <AttachedFileItem key={index}>{file.name}</AttachedFileItem>
+                        ))}
+                    </AttachedFilesList>
+                )} */}
+                            </StyledContactForm>
+                        )}
+                    </FormWrapper>
+                </RequestFormWrapper>
+            </FormSection>
+            <AppFooter />
+        </>
     )
 }
 
 const FormSection = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
-    padding-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 `
 const RequestFormWrapper = styled(BaseContentContainer)`
     display: flex;
@@ -202,7 +212,7 @@ const StyledTextarea = styled.textarea`
     border-radius: 30px;
     border: 1px solid ${({ theme }) => theme.colors.grayed};
     width: 800px;
-    height: 435px;
+    height: 335px;
     padding: 10px 20px 0;
     box-sizing: border-box;
     margin-left: 15px;

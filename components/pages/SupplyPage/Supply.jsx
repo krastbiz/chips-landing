@@ -1,8 +1,16 @@
-import { Container, MainLayout } from '../../ui/layouts'
+import { useRef } from 'react'
+import { MainLayout } from '../../ui/layouts'
 import { RequestForm } from '../../Common/RequestForm'
 import { AboutSection, AdvantagesSection, ServiceSection } from '../../Common/sections'
+import { VerticalSlider } from '../../Common/VerticalSlider'
 
 export const Supply = () => {
+    const swiperRef = useRef()
+    const handleClick = () => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slideTo(3)
+        }
+    }
     const servicesWithIcon = [
         {
             title: 'Осуществляем закупки на платформах',
@@ -65,20 +73,23 @@ export const Supply = () => {
         },
     ]
 
+    const sections = [
+        <ServiceSection
+        title="ПОСТАВКИ ЭКБ"
+        description="Мы предлагаем комплексные решения по закупке, таможенному оформлению и доставке электронных компонентов, модулей, печатных плат и промышленного оборудования из Китая в Россию. Наша команда обеспечивает быструю и надежную доставку, минимизируя ваши затраты и риски. Доверьтесь нашему опыту и получите качественный сервис на каждом этапе!"
+        services={services}
+        servicesWithIcon={servicesWithIcon}
+        handleClick={handleClick}
+    />,
+        <AdvantagesSection advantages={advantages} />,
+        <AboutSection />,
+        <RequestForm />,
+    ]
+
+
     return (
         <MainLayout>
-            <Container>
-                <ServiceSection
-                    title="ПОСТАВКИ ЭКБ"
-                    description="Мы предлагаем комплексные решения по закупке, таможенному оформлению и доставке электронных компонентов, модулей, печатных плат и промышленного оборудования из Китая в Россию. Наша команда обеспечивает быструю и надежную доставку, минимизируя ваши затраты и риски. Доверьтесь нашему опыту и получите качественный сервис на каждом этапе!"
-                    services={services}
-                    servicesWithIcon={servicesWithIcon}
-                    onRequest="/request"
-                />
-            </Container>
-            <AdvantagesSection title="Преимущества" advantages={advantages} />
-            <AboutSection />
-            <RequestForm />
+            <VerticalSlider sections={sections} ref={swiperRef}/>
         </MainLayout>
     )
 }

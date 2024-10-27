@@ -50,10 +50,12 @@ const DescriptionWrapper = styled.div`
 const ServicesWrapper = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
-    padding: 120px 32px;
+    padding: 110px 32px;
     border-radius: 35px;
     display: flex;
     flex-direction: row;
+    max-width: 98%;
+    margin: 0 auto;
 `
 
 const SectionTitle = styled(H1)`

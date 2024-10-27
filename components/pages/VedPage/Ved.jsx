@@ -1,19 +1,14 @@
-import { useRef } from 'react';
-import { Container, MainLayout } from '../../ui/layouts';
-import { RequestForm } from '../../Common/RequestForm';
-import { AboutSection, AdvantagesSection, ServiceSection } from '../../Common/sections';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { useRef } from 'react'
+import { Container, MainLayout } from '../../ui/layouts'
+import { RequestForm } from '../../Common/RequestForm'
+import { AboutSection, AdvantagesSection, ServiceSection } from '../../Common/sections'
+import { VerticalSlider } from '../../Common/VerticalSlider'
 
 export const Ved = () => {
-    const swiperRef = useRef();
-    const handleClick = () =>{
-        if (formRef.current) {
-            console.log(123123123)
-            swiperRef.current.swiper.slideTo(3);
+    const swiperRef = useRef()
+    const handleClick = () => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slideTo(3)
         }
     }
     const services = [
@@ -23,69 +18,55 @@ export const Ved = () => {
         },
         {
             title: 'Гибкий график оплаты',
-            content: 'Мы готовы предложить гибкие условия оплаты, включая отсрочку, в зависимости от суммы и сроков заказа.',
+            content:
+                'Мы готовы предложить гибкие условия оплаты, включая отсрочку, в зависимости от суммы и сроков заказа.',
         },
         { title: 'Таможенное оформление', content: 'Имеется свидетельство таможенного представителя' },
-    ];
+    ]
 
     const advantages = [
         {
             title: 'Международное присутствие',
-            content: 'Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, предоставляя вам доступ к лучшим поставщикам и рынкам',
+            content:
+                'Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, предоставляя вам доступ к лучшим поставщикам и рынкам',
         },
         {
             title: 'Надежная платежная инфраструктура',
-            content: 'Собственная система платежей гарантирует безопасность и эффективность финансовых операций, даже в условиях международных ограничений',
+            content:
+                'Собственная система платежей гарантирует безопасность и эффективность финансовых операций, даже в условиях международных ограничений',
         },
         {
             title: 'Экспертиза в сложных условиях',
-            content: 'Наш опыт работы в санкционных условиях и использование схем прокси-стран обеспечивают бесперебойную доставку и логистику',
+            content:
+                'Наш опыт работы в санкционных условиях и использование схем прокси-стран обеспечивают бесперебойную доставку и логистику',
         },
         {
             title: 'Прозрачность и доверие',
-            content: 'Мы предлагаем понятные сроки и ценообразование, а также полное юридическое и финансовое сопровождение, что делает сотрудничество с нами предсказуемым и надежным',
+            content:
+                'Мы предлагаем понятные сроки и ценообразование, а также полное юридическое и финансовое сопровождение, что делает сотрудничество с нами предсказуемым и надежным',
         },
         {
             title: 'Адаптивная логистика',
-            content: 'В условиях постоянных изменений мы оперативно находим альтернативные маршруты, чтобы гарантировать своевременную доставку вашей продукции',
+            content:
+                'В условиях постоянных изменений мы оперативно находим альтернативные маршруты, чтобы гарантировать своевременную доставку вашей продукции',
         },
-    ];
+    ]
+
+    const sections = [
+        <ServiceSection
+        title="КОМПЛЕКСНЫЕ ВЭД РЕШЕНИЯ"
+        description="Компания Е-ТИМ предлагает комплексные решения в области внешнеэкономической деятельности (ВЭД), обеспечивая полный цикл услуг от оплаты поставщику до доставки и таможенного оформления товара. Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, и гарантируем надежность и прозрачность на каждом этапе сотрудничества. Наша собственная платежная инфраструктура и опытные специалисты позволяют эффективно решать любые финансовые и логистические задачи, даже в условиях санкций и ограничений. Е-ТИМ — ваш надежный партнер в международной торговле."
+        services={services}
+        onClick={handleClick}
+    />,
+        <AdvantagesSection advantages={advantages} />,
+        <AboutSection />,
+        <RequestForm />,
+    ]
 
     return (
         <MainLayout>
-            <Swiper
-                direction="vertical"
-                slidesPerView={1}
-                spaceBetween={0}
-                mousewheel
-                pagination={{ clickable: true }}
-                navigation
-                keyboard={{ enabled: true }}
-                modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-                className="mySwiper"
-                ref={swiperRef}
-            >
-                <SwiperSlide>
-                    <Container>
-                        <ServiceSection
-                            title="КОМПЛЕКСНЫЕ ВЭД РЕШЕНИЯ"
-                            description="Компания Е-ТИМ предлагает комплексные решения в области внешнеэкономической деятельности (ВЭД), обеспечивая полный цикл услуг от оплаты поставщику до доставки и таможенного оформления товара. Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, и гарантируем надежность и прозрачность на каждом этапе сотрудничества. Наша собственная платежная инфраструктура и опытные специалисты позволяют эффективно решать любые финансовые и логистические задачи, даже в условиях санкций и ограничений. Е-ТИМ — ваш надежный партнер в международной торговле."
-                            services={services}
-                            onClick={handleClick}
-                        />
-                    </Container>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <AdvantagesSection title="Преимущества" advantages={advantages} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <AboutSection />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <RequestForm />
-                </SwiperSlide>
-            </Swiper>
+            <VerticalSlider sections={sections} ref={swiperRef}/>
         </MainLayout>
-    );
-};
-
+    )
+}

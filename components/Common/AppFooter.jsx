@@ -22,7 +22,7 @@ const LINKS = [
     },
 ]
 
-const AppFooter = () => {
+export const AppFooter = () => {
     return (
         <footer>
             <ContainerStyled>
@@ -34,7 +34,6 @@ const AppFooter = () => {
 
                 <FooterInfoWrapper>
                     <div>
-                        {' '}
                         <FooterInfoItem>
                             <span>
                                 <b>Режим работы:</b> пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00
@@ -42,7 +41,6 @@ const AppFooter = () => {
                         </FooterInfoItem>
                     </div>
                     <div>
-                        {' '}
                         <FooterInfoItem>
                             <span>
                                 <b>ООО</b> "E-ТИМ"
@@ -60,7 +58,6 @@ const AppFooter = () => {
                         </FooterInfoItem>
                     </div>
                     <div>
-                        {' '}
                         <FooterInfoItem>
                             <div>
                                 <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
@@ -100,11 +97,10 @@ const AppFooter = () => {
 }
 
 const ContainerStyled = styled(Container)`
-    overflow: hidden;
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 114px 100px;
+    padding: 30px 100px;
     background-color: ${({ theme }) => theme.colors.background};
     opacity: 0.9;
     color: ${({ theme }) => theme.colors.light};
@@ -130,6 +126,7 @@ const FooterInfoWrapper = styled.div`
     line-height: 16px;
     display: flex;
     flex-direction: row;
+    margin-left: 15px;
 
     ${breakpoint.tablet`
         margin-bottom: 20px;
@@ -199,5 +196,3 @@ const LogoWrapper = styled.div`
         top: -15px;
     `}
 `
-
-export default AppFooter
