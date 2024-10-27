@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Container } from '../../ui/layouts/Container'
+import { Container } from '../../ui/layouts'
 import { StyledLink } from '../../ui/Link'
 import { H2, H3 } from '../../ui/Typography'
 import { breakpoint } from '../../../lib/theme'

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { BaseContentContainer } from './BaseContentContainer'
-import { H2, Text } from '../ui/Typography'
+import { BaseContentContainer } from '../../ui/layouts'
+import { H2, Text } from '../../ui/Typography'
 
 export const AboutSection = () => {
     const valuesContent = [
@@ -18,7 +18,7 @@ export const AboutSection = () => {
         }
     ];
     return (
-        <AboutSectionContainer id="about">
+        <AboutSectionContainer>
                 <AboutContainer>
                     <AboutSectionItem
                         title="О компании"

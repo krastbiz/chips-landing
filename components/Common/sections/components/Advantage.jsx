@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { breakpoint } from '../../../lib/theme'
-import { H2, Text } from '../../ui/Typography'
-import { BaseContentContainer } from '../../Common'
+import { breakpoint } from '../../../../lib/theme'
+import { H2, Text } from '../../../ui/Typography'
+import { BaseContentContainer } from '../../../ui/layouts'
 
 export const Advantage = ({ title, content, number }) => {
     return (

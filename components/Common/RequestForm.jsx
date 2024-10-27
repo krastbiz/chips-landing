@@ -1,14 +1,14 @@
-import { useState, forwardRef } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { sendContactForm } from '../../lib/api'
 import { breakpoint } from '../../lib/theme'
 import { Button } from '../ui/buttons/Button'
 import { PrimaryButton } from '../ui/buttons/PrimaryButton'
-import { BaseContentContainer } from './BaseContentContainer'
+import { BaseContentContainer } from '../ui/layouts'
 import { H2 } from '../ui/Typography'
 import { StyledLink } from '../ui/Link'
 
-export const RequestForm = forwardRef((props, ref) => {
+export const RequestForm = () => {
     const initialText = `Заполняя форму "Запрос компонента", по возможности, просим указать:\n
     - Партномер\n
     - Корпус\n
@@ -87,7 +87,7 @@ export const RequestForm = forwardRef((props, ref) => {
     }
 
     return (
-        <FormSection id="#request" ref={ref}>
+        <FormSection>
             <RequestFormWrapper>
                 <StyledH2>
                     <ColoredSpan>Свяжитесь с нами сегодня,</ColoredSpan> чтобы обсудить, как мы можем помочь вашему
@@ -190,7 +190,7 @@ export const RequestForm = forwardRef((props, ref) => {
             </RequestFormWrapper>
         </FormSection>
     )
-})
+}
 
 const FormSection = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;

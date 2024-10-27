@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { BaseContentContainer } from '../../Common'
-import { H2, H3, Text } from '../../ui/Typography'
-import { breakpoint } from '../../../lib/theme'
+import { BaseContentContainer } from '../../../ui/layouts'
+import { H2, H3, Text } from '../../../ui/Typography'
+import { breakpoint } from '../../../../lib/theme'
 
 export const Service = ({ title, content }) => {
     return (

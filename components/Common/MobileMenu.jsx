@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { BurgerMenu } from '../ui/buttons/BurgerMenu'
 import { ContactInfoWrapper, ContactItem } from '../ui/ContactItem'
 import { Delimeter } from '../ui/Delimeter'
-import { Container } from '../ui/layouts/Container'
+import { Container } from '../ui/layouts'
 import { renderNavLink } from './AppHeader'
 
 export const MobileMenu = (props) => {

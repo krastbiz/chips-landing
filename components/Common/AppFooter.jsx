@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
-import { Container } from '../ui/layouts/Container'
+import { Container } from '../ui/layouts'
 
 const LINKS = [
     {

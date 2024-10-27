@@ -1,7 +1,5 @@
-import Link from 'next/link'
 import styled from 'styled-components'
 import { breakpoint } from '../../../lib/theme'
-import { Delimeter } from '../Delimeter'
 import { H3 } from '../Typography'
 import { Container } from './Container'
 

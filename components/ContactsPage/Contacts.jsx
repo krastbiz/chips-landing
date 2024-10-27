@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
-import { MainSection } from '../Common/MainSection'
+import { MainSection } from '../ui/layouts'
 import { MapComponent } from '../Common/MapComponent'
-import { AsideLayout } from '../ui/layouts/AsideLayout'
-import { Container } from '../ui/layouts/Container'
-import { MainLayout } from '../ui/layouts/MainLayout'
+import { AsideLayout } from '../ui/layouts'
+import { Container } from '../ui/layouts'
+import { MainLayout } from '../ui/layouts'
 import { H1 } from '../ui/Typography'
 
 const Contacts = () => {

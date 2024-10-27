@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { breakpoint, screenWidth } from '../../../lib/theme'
 
-const Container = styled.div`
+export const Container = styled.div`
     max-width: 98%;
     margin: 0 auto;
 
@@ -21,4 +21,3 @@ const Container = styled.div`
         width: 100%;
     `}
 `
-export { Container }

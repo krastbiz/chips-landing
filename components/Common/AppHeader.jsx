@@ -5,8 +5,7 @@ import { breakpoint } from '../../lib/theme'
 import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
 import { BurgerMenu, BurgerWrapper } from '../ui/buttons/BurgerMenu'
 import { ContactInfoWrapper, ContactItem } from '../ui/ContactItem'
-import { Container } from '../ui/layouts/Container'
-import { BaseContentContainer } from './BaseContentContainer'
+import { BaseContentContainer, Container } from '../ui/layouts'
 import { MobileMenu } from './MobileMenu'
 
 const NAV_LINKS = [

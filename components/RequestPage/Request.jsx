@@ -1,5 +1,5 @@
 import { RequestForm } from '../Common/RequestForm'
-import { MainLayout } from '../ui/layouts/MainLayout'
+import { MainLayout } from '../ui/layouts'
 
 export const Request = () => {
     return (

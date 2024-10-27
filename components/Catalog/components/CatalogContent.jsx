@@ -1,7 +1,7 @@
 import { useCatalogSearch } from '../hooks/useCatalogSearch'
 import { CatalogTable } from './CatalogTable'
 import { SearchComponent } from '../../Common/Search'
-import { Container } from '../../ui/layouts/Container'
+import { Container } from '../../ui/layouts'
 import { Separator } from '../../ui/Separator'
 
 export const CatalogContent = () => {
