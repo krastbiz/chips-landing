@@ -4,7 +4,7 @@ import { breakpoint } from '../../../lib/theme'
 import { Button } from '../../ui/buttons/Button'
 import { PrimaryButton } from '../../ui/buttons/PrimaryButton'
 import { BaseContentContainer } from '../../ui/layouts'
-import { H2 } from '../../ui/Typography'
+import { H2, H3 } from '../../ui/Typography'
 import { StyledLink } from '../../ui/Link'
 import { useRequestForm } from '../../hooks/useRequestForm'
 import { AppFooter } from '../AppFooter'
@@ -32,61 +32,57 @@ export const RequestForm = ({ defaultValue = '' }) => {
                         бизнесу, расти и развиваться!
                     </StyledH2>
                     <FormWrapper>
-                        {emailWasSent ? (
-                            <ContactFormSuccessMessage>
-                                <div>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</div>
-                                <div>Спасибо, что связались с нами!</div>
-                                <ContactFormSuccessMessageButton
-                                    primary
-                                    type="reset"
-                                    onClick={() => setEmailWasSent(false)}
-                                >
-                                    Новая заявка
-                                </ContactFormSuccessMessageButton>
-                            </ContactFormSuccessMessage>
-                        ) : (
-                            <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
-                                <ControlsContainer>
-                                    <InputsContainer>
-                                        <StyledInput
-                                            name="name"
-                                            type="text"
-                                            placeholder="Ваше имя"
-                                            required
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                        />
-                                        <StyledInput
-                                            name="company"
-                                            type="text"
-                                            placeholder="Ваша компания"
-                                            required
-                                            value={formData.company}
-                                            onChange={handleChange}
-                                        />
-                                        <StyledInput
-                                            name="email"
-                                            required
-                                            type="email"
-                                            placeholder="mail@example.com"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                        />
-                                        <StyledInput
-                                            name="tel"
-                                            type="tel"
-                                            placeholder="+79999999"
-                                            required
-                                            value={formData.tel}
-                                            onChange={handleChange}
-                                        />
-                                        <ContactFormDescription>
-                                            Нажимая кнопку "Отправить", Вы даете согласие на
-                                            <StyledLink href={'/policy#personalData'}>
-                                                обработку персональных данных
-                                            </StyledLink>
-                                        </ContactFormDescription>
-                                    </InputsContainer>
+                        <StyledContactForm onSubmit={onFormSubmit} encType="multipart/form-data">
+                            <ControlsContainer>
+                                <InputsContainer>
+                                    <StyledInput
+                                        name="name"
+                                        type="text"
+                                        placeholder="Ваше имя"
+                                        required
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                    />
+                                    <StyledInput
+                                        name="company"
+                                        type="text"
+                                        placeholder="Ваша компания"
+                                        required
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                    />
+                                    <StyledInput
+                                        name="email"
+                                        required
+                                        type="email"
+                                        placeholder="mail@example.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                    />
+                                    <StyledInput
+                                        name="tel"
+                                        type="tel"
+                                        placeholder="+79999999"
+                                        required
+                                        value={formData.tel}
+                                        onChange={handleChange}
+                                    />
+                                    <ContactFormDescription>
+                                        Нажимая кнопку "Отправить", Вы даете согласие на
+                                        <StyledLink href={'/policy#personalData'}>
+                                            обработку персональных данных
+                                        </StyledLink>
+                                    </ContactFormDescription>
+                                </InputsContainer>
+                                {emailWasSent ? (
+                                    <ContactFormSuccessMessage>
+                                        <H3>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</H3>
+                                        <H3>Спасибо, что связались с нами!</H3>
+                                        <PrimaryButton type="reset" onClick={() => setEmailWasSent(false)}>
+                                            Новая заявка
+                                        </PrimaryButton>
+                                    </ContactFormSuccessMessage>
+                                ) : (
                                     <InputsContainer>
                                         <StyledTextarea
                                             value={formData.components}
@@ -112,7 +108,12 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                                 {selectedFiles.length > 0 && (
                                                     <AttachedFilesList>
                                                         {selectedFiles.map((file, index) => (
-                                                            <AttachedFileItem key={index} onClick={() => deleteFile(file.name)}>{file.name}</AttachedFileItem>
+                                                            <AttachedFileItem
+                                                                key={index}
+                                                                onClick={() => deleteFile(file.name)}
+                                                            >
+                                                                {file.name}
+                                                            </AttachedFileItem>
                                                         ))}
                                                     </AttachedFilesList>
                                                 )}
@@ -122,9 +123,9 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                             </PrimaryButton>
                                         </ControlContainer>
                                     </InputsContainer>
-                                </ControlsContainer>
-                            </StyledContactForm>
-                        )}
+                                )}
+                            </ControlsContainer>
+                        </StyledContactForm>
                     </FormWrapper>
                 </RequestFormWrapper>
             </FormSection>
@@ -295,7 +296,7 @@ const AttachedFilesList = styled.ul`
         background-color: ${({ theme }) => theme.colors.grayed};
         border-radius: 4px;
     }
-`;
+`
 
 const AttachedFileItem = styled.li`
     font-size: 14px;

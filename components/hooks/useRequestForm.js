@@ -93,8 +93,8 @@ export const useRequestForm = (defaultValue) => {
     }
 
     const deleteFile = (fileName) => {
-        setSelectedFiles((prevFiles) => prevFiles.filter((file) => file.name !== fileName));
-    };
+        setSelectedFiles((prevFiles) => prevFiles.filter((file) => file.name !== fileName))
+    }
 
     return {
         formData,
