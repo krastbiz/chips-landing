@@ -20,9 +20,9 @@ export const ServiceWithIcon = ({ title, content, icon }) => {
                 <Text>{title}</Text>
             </ServiceWrapper>
 
-            <ServiceWrapper1>
+            <ServiceWrapperLong>
                 <StyledText>{content}</StyledText>
-            </ServiceWrapper1>
+            </ServiceWrapperLong>
         </ServiceContainerHigh>
     )
 }
@@ -65,7 +65,7 @@ const ServiceWrapper = styled(BaseContentContainer)`
     margin-right: 30px;
 `
 
-const ServiceWrapper1 = styled(ServiceWrapper)`
+const ServiceWrapperLong = styled(ServiceWrapper)`
     width: 410px;
 `
 

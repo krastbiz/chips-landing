@@ -43,7 +43,7 @@ export const H2 = styled.h2`
 `
 
 export const H3 = styled.h3`
-    font-family: ${({ theme }) => theme.fonts.montserrat};
+    font-family: ${({ theme }) => theme.fonts.segoeUI};
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
