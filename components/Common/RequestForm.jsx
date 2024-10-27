@@ -9,7 +9,7 @@ import { StyledLink } from '../ui/Link'
 import { useRequestForm } from '../hooks/useRequestForm'
 import { AppFooter } from './AppFooter'
 
-export const RequestForm = () => {
+export const RequestForm = ({ defaultValue = '' }) => {
     const {
         formData = {},
         emailWasSent,
@@ -20,7 +20,7 @@ export const RequestForm = () => {
         handleChange,
         handleFocus,
         setEmailWasSent,
-    } = useRequestForm
+    } = useRequestForm(defaultValue)
     return (
         <>
             <FormSection id="request">

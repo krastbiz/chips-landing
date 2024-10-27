@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { sendContactForm } from '../../lib/api'
 
-export const useRequestForm = () => {
+export const useRequestForm = (defaultValue) => {
     const initialText = `Заполняя форму "Запрос компонента", по возможности, просим указать:\n
     - Партномер\n
     - Корпус\n
@@ -22,6 +22,15 @@ export const useRequestForm = () => {
     const [emailWasSent, setEmailWasSent] = useState(false)
     const [selectedFiles, setSelectedFiles] = useState([])
     const [requestNumber, setRequestNumber] = useState(null)
+
+    useEffect(() => {
+        if (defaultValue) {
+            setFormData((prevData) => ({
+                ...prevData,
+                components: defaultValue,
+            }))
+        }
+    }, [defaultValue])
 
     const resetForm = () => {
         setFormData({

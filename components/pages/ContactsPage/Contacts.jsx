@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 import { breakpoint } from '../../../lib/theme'
-import { MainSection } from '../../ui/layouts'
 import { MapComponent } from '../../Common/MapComponent'
-import { AsideLayout } from '../../ui/layouts'
-import { Container } from '../../ui/layouts'
-import { MainLayout } from '../../ui/layouts'
+import { AsideLayout, Container, MainLayout, MainSection } from '../../ui/layouts'
 import { H1 } from '../../ui/Typography'
+import { AppFooter } from '../../Common/AppFooter'
 
 const Contacts = () => {
     return (
@@ -60,6 +58,7 @@ const Contacts = () => {
                     <MapComponent />
                 </MapWrapper>
             </AsideLayout>
+            <AppFooter />
         </MainLayout>
     )
 }
@@ -98,7 +97,7 @@ const ContactContent = styled.p`
 `
 
 const MapWrapper = styled.div`
-    margin-bottom: 250px;
+    margin-bottom: 150px;
 `
 
 const Icon = styled.img`

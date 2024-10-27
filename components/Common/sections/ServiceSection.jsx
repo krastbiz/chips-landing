@@ -26,14 +26,14 @@ export const ServiceSection = ({ title, description, services, servicesWithIcon,
                 <ServicesContainer>
                     <SectionTitle>{title}</SectionTitle>
                     <SupplyText>{description}</SupplyText>
-                    <ServicesContainer2>
+                    <ServicesContainerRow>
                         <ContactButton as="a" onClick={onClick}>
-                            Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="arrow" />
+                            <div>Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="arrow" /></div>
                         </ContactButton>
                         {services.map((service, index) => (
                             <Service key={index} title={service.title} content={service.content} />
                         ))}
-                    </ServicesContainer2>
+                    </ServicesContainerRow>
                 </ServicesContainer>
             </DescriptionWrapper>
         </ServicesWrapper>
@@ -86,7 +86,7 @@ const ServicesContainer = styled.div`
     justify-content: space-around;
 `
 
-const ServicesContainer2 = styled(ServicesContainer)`
+const ServicesContainerRow = styled(ServicesContainer)`
     max-width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -97,12 +97,11 @@ const ContactButton = styled(PrimaryButton)`
     height: 160px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 25px;
-    padding-right: 20px;
+    align-items: center;
 `
 
 const ArrowIcon = styled.img`
     height: 20px;
     margin-left: 20px;
+    margin-top: 5px;
 `

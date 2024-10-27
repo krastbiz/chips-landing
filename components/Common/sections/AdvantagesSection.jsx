@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { H1 } from '../../ui/Typography'
 import { Advantage } from './components/Advantage'
 
-export const AdvantagesSection = ({advantages }) => {
+export const AdvantagesSection = ({ advantages }) => {
     return (
         <Section id="advantages">
             <Title>Преимущества</Title>

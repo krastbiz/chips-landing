@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+
 import { Button } from '../../../ui/buttons/Button'
 import { Text } from '../../../ui/Typography'
-import { useState, useEffect } from 'react'
 
-export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) => {
+export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder, handleScroll }) => {
     const router = useRouter()
     const [localSortBy, setLocalSortBy] = useState(sortBy)
     const [localSortOrder, setLocalSortOrder] = useState(sortOrder)
@@ -45,7 +46,7 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) 
                     </tr>
                 </TableHeader>
                 {!data.length && !loading ? (
-                    <Text>По вашему запросу ничего не найдено</Text>
+                    <EmptySearchText>По вашему запросу ничего не найдено</EmptySearchText>
                 ) : (
                     <tbody>
                         {data.map((item, index) => (
@@ -57,7 +58,7 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) 
                                 <td>
                                     <Button
                                         onClick={() =>
-                                            router.push(`/request?brand=${item.brand}&partnumber=${item.partnumber}`)
+                                            handleScroll(`Производитель ${item.brand}, партномер ${item.partnumber}`)
                                         }
                                         primary
                                     >
@@ -115,6 +116,11 @@ const TableRow = styled.tr`
         text-align: left;
         max-width: 288px;
     }
+`
+
+const EmptySearchText = styled(Text)`
+    margin-top: 20px;
+    width: 300px;
 `
 
 const LoadingText = styled.p`

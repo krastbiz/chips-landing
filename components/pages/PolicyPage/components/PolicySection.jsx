@@ -76,9 +76,9 @@ export const PolicySection = ({ ...extraProps }) => {
                                 <FeaturesListItem>
                                     Оператор обрабатывает персональные данные в соответствии с Политикой
                                     конфиденциальности, размещенной по адресу{` `}
-                                    <StyledLink href={'https://e-tim.ru/policy'}>
+                                    <StyledLinkPolicy href={'https://e-tim.ru/policy'}>
                                         https://e-tim.ru/policy
-                                    </StyledLink>{' '}
+                                    </StyledLinkPolicy>{' '}
                                 </FeaturesListItem>
                                 <FeaturesListItem>
                                     Согласие действует с момента его предоставления и до момента отзыва Согласия.{' '}
@@ -266,7 +266,8 @@ export const PolicySection = ({ ...extraProps }) => {
                                 <FeaturesListItemHeader>Как с нами связаться?</FeaturesListItemHeader>
                                 <FeaturesListItemWithoutCounter>
                                     По любым вопросам в отношении обработки персональных данных вы можете обратиться к
-                                    нам по электронной почте <a href="mailto:spb@dielcom.ru">spb@dielcom.ru</a>.
+                                    нам по электронной почте{' '}
+                                    <StyledLinkPolicy href="mailto:spb@dielcom.ru">spb@dielcom.ru</StyledLinkPolicy>.
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemWithoutCounter>
                                     При обращении укажите свое имя и контакты для обратной связи. Мы ответим на ваше
@@ -274,13 +275,13 @@ export const PolicySection = ({ ...extraProps }) => {
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemWithoutCounter>
                                     Реквизиты: <b>ООО «Е-ТИМ» (ИНН: 7806562061)</b>, адрес эл. почты:{' '}
-                                    <a href="mailto:spb@dielcom.ru">spb@dielcom.ru</a>.
+                                    <StyledLinkPolicy href="mailto:spb@dielcom.ru">spb@dielcom.ru</StyledLinkPolicy>.
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemWithoutCounter>
                                     Политика размещена по адресу:{' '}
-                                    <a href="https://e-tim.ru/policy#privacyPolicy">
+                                    <StyledLinkPolicy href="https://e-tim.ru/policy#privacyPolicy">
                                         https://e-tim.ru/policy#privacyPolicy
-                                    </a>
+                                    </StyledLinkPolicy>
                                     .
                                 </FeaturesListItemWithoutCounter>
                             </FeaturesList>
@@ -292,39 +293,43 @@ export const PolicySection = ({ ...extraProps }) => {
                             <FeaturesList>
                                 <FeaturesListItemHeader>Как мы используем файлы cookie?</FeaturesListItemHeader>
                                 <FeaturesListItemWithoutCounter>
-                                    На веб-сайте <a href="https://e-tim.ru/">https://e-tim.ru/</a> используются файлы
-                                    cookie и похожие технологии (в т.ч., пиксельные теги, веб-маяки, прозрачные файлы
-                                    GIF, JavaScript и локальное хранение данных) для вашего удобства, обеспечения и
-                                    повышения эффективности работы веб-сайта{' '}
-                                    <a href="https://e-tim.ru/">https://e-tim.ru/</a> а также для получения
-                                    аналитической информации. Далее в настоящем Уведомлении файлы cookie и похожие
-                                    технологии именуются как файлы cookie. Ниже представлена более подробная информация
-                                    о файлах cookie, их использовании и управлении ими. В случае несогласия с
-                                    положениями настоящего Уведомления, вам необходимо произвести соответствующие
-                                    настройки веб-браузера или прекратить пользование веб-сайтом{' '}
-                                    <a href="https://e-tim.ru/">https://e-tim.ru/</a>.
+                                    На веб-сайте{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>{' '}
+                                    используются файлы cookie и похожие технологии (в т.ч., пиксельные теги, веб-маяки,
+                                    прозрачные файлы GIF, JavaScript и локальное хранение данных) для вашего удобства,
+                                    обеспечения и повышения эффективности работы веб-сайта{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy> а
+                                    также для получения аналитической информации. Далее в настоящем Уведомлении файлы
+                                    cookie и похожие технологии именуются как файлы cookie. Ниже представлена более
+                                    подробная информация о файлах cookie, их использовании и управлении ими. В случае
+                                    несогласия с положениями настоящего Уведомления, вам необходимо произвести
+                                    соответствующие настройки веб-браузера или прекратить пользование веб-сайтом{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>.
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemHeader>Что такое файлы cookie?</FeaturesListItemHeader>
                                 <FeaturesListItemWithoutCounter>
                                     Файлы cookie представляют собой файлы, которые автоматически сохраняются на вашем
                                     устройстве (персональном компьютере, мобильном телефоне и т.п.) при посещении
-                                    веб-сайта <a href="https://e-tim.ru/">https://e-tim.ru/</a>. При каждом последующем
-                                    посещении файлы cookie отправляются на исходный веб-сайт{' '}
-                                    <a href="https://e-tim.ru/">https://e-tim.ru/</a>.
+                                    веб-сайта{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>. При
+                                    каждом последующем посещении файлы cookie отправляются на исходный веб-сайт{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>.
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemHeader>Как используются файлы cookie?</FeaturesListItemHeader>
                                 <FeaturesListItemWithoutCounter>
-                                    На веб-сайте <a href="https://e-tim.ru/">https://e-tim.ru/</a> могут использоваться
-                                    следующие типы файлов cookie:
+                                    На веб-сайте{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>{' '}
+                                    могут использоваться следующие типы файлов cookie:
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemWithPoint>
                                     необходимые файлы cookie. Данные файлы cookie необходимы для обеспечения работы
-                                    веб-сайта <a href="https://e-tim.ru/">https://e-tim.ru/</a> (в т.ч., для входа в
-                                    защищенные зоны веб-сайтов). Данные файлы cookie позволяют вам посещать веб-сайт и
-                                    использовать его функции. Отключение этих файлов cookie усложнит функционирование
-                                    веб-сайт
-                                    <a href="https://e-tim.ru/">https://e-tim.ru/</a> и может сделать недоступными
-                                    некоторые функции и сервисы;
+                                    веб-сайта{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy> (в
+                                    т.ч., для входа в защищенные зоны веб-сайтов). Данные файлы cookie позволяют вам
+                                    посещать веб-сайт и использовать его функции. Отключение этих файлов cookie усложнит
+                                    функционирование веб-сайт
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy> и
+                                    может сделать недоступными некоторые функции и сервисы;
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
                                     файлы cookie для аналитики и адаптации под пользователя. Данные файлы cookie
@@ -337,7 +342,8 @@ export const PolicySection = ({ ...extraProps }) => {
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
                                     функциональные файлы cookie. Данные файлы cookie служат для вашей идентификации при
-                                    повторном посещении веб-сайта <a href="https://e-tim.ru/">https://e-tim.ru/</a>. Они
+                                    повторном посещении веб-сайта{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>. Они
                                     позволяют нам индивидуально подбирать содержание веб-сайта для вас, запоминать ваши
                                     выбранные настройки (в т.ч. выбранный язык, настройки отображения контента
                                     веб-сайтов).
@@ -345,15 +351,16 @@ export const PolicySection = ({ ...extraProps }) => {
                                 <FeaturesListItemHeader>Что такое файлы cookie?</FeaturesListItemHeader>
                                 <FeaturesListItemWithoutCounter>
                                     Некоторые файлы cookie действуют с момента вашего входа на веб-сайт
-                                    <a href="https://e-tim.ru/">https://e-tim.ru/</a> до конца конкретной сессии работы
-                                    в веб-браузере. При закрытии веб-браузера срок действия этих файлов истекает, и они
-                                    автоматически удаляются. Такие файлы cookie называются «сеансовыми». Некоторые файлы
-                                    cookie не удаляются после прекращения работы вашего веб-браузера. Такие файлы cookie
-                                    называются «постоянными». Постоянные файлы cookie сохраняются на вашем устройстве,
-                                    пока не будут удалены или до указанной даты окончания срока действия. Постоянные
-                                    файлы cookie, сохраняемые на вашем устройстве в результате использования веб-сайта
-                                    <a href="https://e-tim.ru/">https://e-tim.ru/</a> не хранятся дольше 1 года с даты
-                                    последнего посещения.
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy> до
+                                    конца конкретной сессии работы в веб-браузере. При закрытии веб-браузера срок
+                                    действия этих файлов истекает, и они автоматически удаляются. Такие файлы cookie
+                                    называются «сеансовыми». Некоторые файлы cookie не удаляются после прекращения
+                                    работы вашего веб-браузера. Такие файлы cookie называются «постоянными». Постоянные
+                                    файлы cookie сохраняются на вашем устройстве, пока не будут удалены или до указанной
+                                    даты окончания срока действия. Постоянные файлы cookie, сохраняемые на вашем
+                                    устройстве в результате использования веб-сайта
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy> не
+                                    хранятся дольше 1 года с даты последнего посещения.
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemHeader>Как управлять файлами cookie?</FeaturesListItemHeader>
                                 <FeaturesListItemWithoutCounter>
@@ -362,33 +369,40 @@ export const PolicySection = ({ ...extraProps }) => {
                                     по настройке вам необходимо обратиться к справочной документации или официальному
                                     сайту разработчика веб-браузера. Вы должны учитывать, что при полном или частичном
                                     запрете использования файлов cookie в веб-браузере, определенная функциональность и
-                                    сервисы веб-сайта <a href="https://e-tim.ru/">https://e-tim.ru/</a> могут работать
-                                    некорректно. Дополнительную информацию об управлении файлами cookie вы можете
-                                    получить по следующим ссылкам:
+                                    сервисы веб-сайта{' '}
+                                    <StyledLinkPolicy href="https://e-tim.ru/">https://e-tim.ru/</StyledLinkPolicy>{' '}
+                                    могут работать некорректно. Дополнительную информацию об управлении файлами cookie
+                                    вы можете получить по следующим ссылкам:
                                 </FeaturesListItemWithoutCounter>
                                 <FeaturesListItemWithPoint>
-                                    <a href="https://support.google.com/chrome/answer/95647?hl=ru">Google Chrome</a>
+                                    <StyledLinkPolicy href="https://support.google.com/chrome/answer/95647?hl=ru">
+                                        Google Chrome
+                                    </StyledLinkPolicy>
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
-                                    <a href="https://support.microsoft.com/ru-ru/help/17442/windows-internet-explorer-delete-manage-cookies/">
+                                    <StyledLinkPolicy href="https://support.microsoft.com/ru-ru/help/17442/windows-internet-explorer-delete-manage-cookies/">
                                         Microsoft Internet Explorer
-                                    </a>
+                                    </StyledLinkPolicy>
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
-                                    <a href="https://support.microsoft.com/ru-ru/help/4468242/microsoft-edge-browsing-data-and-privacy-microsoft-privacy">
+                                    <StyledLinkPolicy href="https://support.microsoft.com/ru-ru/help/4468242/microsoft-edge-browsing-data-and-privacy-microsoft-privacy">
                                         Microsoft Edge
-                                    </a>
+                                    </StyledLinkPolicy>
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
-                                    <a href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas">
+                                    <StyledLinkPolicy href="https://support.mozilla.org/ru/kb/kuki-informaciya-kotoruyu-veb-sajty-hranyat-na-vas">
                                         Mozilla Firefox
-                                    </a>
+                                    </StyledLinkPolicy>
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
-                                    <a href="https://support.apple.com/ru-ru/HT201265">Apple Safari</a>
+                                    <StyledLinkPolicy href="https://support.apple.com/ru-ru/HT201265">
+                                        Apple Safari
+                                    </StyledLinkPolicy>
                                 </FeaturesListItemWithPoint>
                                 <FeaturesListItemWithPoint>
-                                    <a href="https://help.opera.com/ru/latest/security-and-privacy/">Opera</a>
+                                    <StyledLinkPolicy href="https://help.opera.com/ru/latest/security-and-privacy/">
+                                        Opera
+                                    </StyledLinkPolicy>
                                 </FeaturesListItemWithPoint>
                             </FeaturesList>
                         </PolicyWrapper>
@@ -402,6 +416,7 @@ export const PolicySection = ({ ...extraProps }) => {
 const PolicySectionWrapper = styled.section`
     display: flex;
     position: relative;
+    background-color: ${({ theme }) => theme.colors.base};
 `
 
 const ContainerStyled = styled(Container)`
@@ -412,8 +427,8 @@ const ContainerStyled = styled(Container)`
 const Sidebar = styled.div`
     width: 250px;
     padding: 20px;
-    background: #f4f4f4;
-    border-right: 1px solid #ddd;
+    background: ${({ theme }) => theme.colors.border};
+    border-right: 1px solid ${({ theme }) => theme.colors.border};
     position: sticky;
     top: 100px;
 
@@ -489,7 +504,7 @@ const FeaturesListItem = styled.li`
         text-align: center;
         line-height: 20px;
         font-size: 14px;
-        color: white;
+        color: ${({ theme }) => theme.colors.base};
     }
 
     ${breakpoint.tablet`
@@ -559,14 +574,18 @@ const Table = styled.table`
 `
 
 const TableRow = styled.tr`
-    border: 1px solid #ddd;
+    border: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 const TableCell = styled.td`
-    border: 1px solid #ddd;
+    border: 1px solid ${({ theme }) => theme.colors.border};
     padding: 8px;
     text-align: left;
     ${breakpoint.mobile`
     padding: 1px;
     `}
+`
+
+const StyledLinkPolicy = styled(StyledLink)`
+    color: ${({ theme }) => theme.colors.grayed};
 `

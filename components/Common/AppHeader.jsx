@@ -68,6 +68,14 @@ const AppHeader = () => {
                             onClick={() => setIsMobileMenuActive((prev) => !prev)}
                         /> */}
                 </HeaderContainer>
+                <HeaderContainer>
+                    <IconLink href="https://t.me/GlebSh_SPB" target='_blank'>
+                            <img src="/static/icons/telegram.svg" alt="telegram" />
+                        </IconLink>
+                        <IconLink href="https://wa.me/79500362529" target='_blank'>
+                            <img src="/static/icons/whatsapp.svg" alt="whatsapp" />
+                        </IconLink>
+                </HeaderContainer>
 
                 <BaseContentContainer>
                     <Nav>{NAV_LINKS.map(({ text, url }) => renderNavLink({ text, url }))}</Nav>
@@ -140,6 +148,10 @@ const Nav = styled.nav`
 
 const Logo = styled.img`
     width: 100%;
+`
+
+const IconLink =styled.a`
+    margin-left: 10px;
 `
 
 const LogoWrapper = styled.div`

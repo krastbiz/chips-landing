@@ -12,8 +12,10 @@ export const useCatalogSearch = () => {
     const [loading, setLoading] = useState(false)
     const [sortBy, setSortBy] = useState('brand')
     const [sortOrder, setSortOrder] = useState('asc')
+    const [defaultFormValue, setFormValue] = useState('')
     const defaultSearchValue = query.q || ''
     const searchValueRef = useRef(defaultSearchValue)
+    const requestFormRef = useRef()
 
     const fetchData = useCallback(async (query, pageNum, sortBy, sortOrder) => {
         setLoading(true)
@@ -93,6 +95,13 @@ export const useCatalogSearch = () => {
         }
     }, [hasMore, loadMore])
 
+    const scrollToForm = (value) => {
+        if (requestFormRef.current) {
+            setFormValue(value)
+            requestFormRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     return {
         data,
         loadMoreRef,
@@ -104,5 +113,8 @@ export const useCatalogSearch = () => {
         handleSort,
         sortBy,
         sortOrder,
+        requestFormRef,
+        scrollToForm,
+        defaultFormValue,
     }
 }

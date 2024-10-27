@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Container, MainLayout } from '../../ui/layouts'
+import { MainLayout } from '../../ui/layouts'
 import { RequestForm } from '../../Common/RequestForm'
 import { AboutSection, AdvantagesSection, ServiceSection } from '../../Common/sections'
 import { VerticalSlider } from '../../Common/VerticalSlider'
@@ -54,11 +54,11 @@ export const Ved = () => {
 
     const sections = [
         <ServiceSection
-        title="КОМПЛЕКСНЫЕ ВЭД РЕШЕНИЯ"
-        description="Компания Е-ТИМ предлагает комплексные решения в области внешнеэкономической деятельности (ВЭД), обеспечивая полный цикл услуг от оплаты поставщику до доставки и таможенного оформления товара. Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, и гарантируем надежность и прозрачность на каждом этапе сотрудничества. Наша собственная платежная инфраструктура и опытные специалисты позволяют эффективно решать любые финансовые и логистические задачи, даже в условиях санкций и ограничений. Е-ТИМ — ваш надежный партнер в международной торговле."
-        services={services}
-        onClick={handleClick}
-    />,
+            title="КОМПЛЕКСНЫЕ ВЭД РЕШЕНИЯ"
+            description="Компания Е-ТИМ предлагает комплексные решения в области внешнеэкономической деятельности (ВЭД), обеспечивая полный цикл услуг от оплаты поставщику до доставки и таможенного оформления товара. Мы работаем с партнерами по всему миру, включая Китай, ЕС и США, и гарантируем надежность и прозрачность на каждом этапе сотрудничества. Наша собственная платежная инфраструктура и опытные специалисты позволяют эффективно решать любые финансовые и логистические задачи, даже в условиях санкций и ограничений. Е-ТИМ — ваш надежный партнер в международной торговле."
+            services={services}
+            onClick={handleClick}
+        />,
         <AdvantagesSection advantages={advantages} />,
         <AboutSection />,
         <RequestForm />,
@@ -66,7 +66,7 @@ export const Ved = () => {
 
     return (
         <MainLayout>
-            <VerticalSlider sections={sections} ref={swiperRef}/>
+            <VerticalSlider sections={sections} ref={swiperRef} />
         </MainLayout>
     )
 }

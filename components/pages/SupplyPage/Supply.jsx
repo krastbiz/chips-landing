@@ -75,21 +75,20 @@ export const Supply = () => {
 
     const sections = [
         <ServiceSection
-        title="ПОСТАВКИ ЭКБ"
-        description="Мы предлагаем комплексные решения по закупке, таможенному оформлению и доставке электронных компонентов, модулей, печатных плат и промышленного оборудования из Китая в Россию. Наша команда обеспечивает быструю и надежную доставку, минимизируя ваши затраты и риски. Доверьтесь нашему опыту и получите качественный сервис на каждом этапе!"
-        services={services}
-        servicesWithIcon={servicesWithIcon}
-        handleClick={handleClick}
-    />,
+            title="ПОСТАВКИ ЭКБ"
+            description="Мы предлагаем комплексные решения по закупке, таможенному оформлению и доставке электронных компонентов, модулей, печатных плат и промышленного оборудования из Китая в Россию. Наша команда обеспечивает быструю и надежную доставку, минимизируя ваши затраты и риски. Доверьтесь нашему опыту и получите качественный сервис на каждом этапе!"
+            services={services}
+            servicesWithIcon={servicesWithIcon}
+            onClick={handleClick}
+        />,
         <AdvantagesSection advantages={advantages} />,
         <AboutSection />,
         <RequestForm />,
     ]
 
-
     return (
         <MainLayout>
-            <VerticalSlider sections={sections} ref={swiperRef}/>
+            <VerticalSlider sections={sections} ref={swiperRef} />
         </MainLayout>
     )
 }

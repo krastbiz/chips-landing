@@ -95,7 +95,7 @@ const ItemContainer = styled.div`
 const Title = styled(H2)`
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     color: ${({ theme }) => theme.colors.active};
 `
 const HighlightedWord = styled.span`

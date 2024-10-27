@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const PrimaryButton = styled.button`
     display: block;
@@ -8,18 +8,18 @@ const PrimaryButton = styled.button`
     width: 252px;
     height: 55px;
     text-align: center;
-    line-height: 25px;
+    font-size: 24px;
+    line-height: 29px;
     font-family: ${({ theme }) => theme.fonts.montserrat};
     font-weight: bold;
-    font-size: 18px;
-    color: white;
+    color: ${({ theme }) => theme.colors.base};
     cursor: pointer;
     transition: 0.3s;
     background: ${({ theme }) => theme.colors.greenBackground};
 
     :hover {
         background: ${({ theme }) => theme.colors.lightGreenBackground};
-        color: ${({ theme }) => theme.colors.active};
+        color: ${({ theme }) => theme.colors.base};
     }
 `
 

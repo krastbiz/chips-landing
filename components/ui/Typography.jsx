@@ -30,7 +30,6 @@ export const H2 = styled.h2`
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
-    text-transform: uppercase;
     color: ${({ theme }) => theme.colors.base};
     opacity: 0.65;
     ${breakpoint.desktop`
