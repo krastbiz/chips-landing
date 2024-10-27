@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
 import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
 import { BurgerMenu, BurgerWrapper } from '../ui/buttons/BurgerMenu'
-import { ContactInfoWrapper, ContactItem } from '../ui/ContactItem'
+import { ContactInfoWrapper, ContactItem } from '../pages/ContactsPage/ContactItem'
 import { BaseContentContainer, Container } from '../ui/layouts'
 import { MobileMenu } from './MobileMenu'
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoint } from '../../lib/theme'
+import { breakpoint } from '../../../lib/theme'
 
 export const ContactItem = (props) => {
     const { title, href } = props

@@ -1,5 +1,5 @@
 import { PolicySection } from './components/PolicySection'
-import { MainLayout } from '../ui/layouts'
+import { MainLayout } from '../../ui/layouts'
 
 export const Policy = () => {
     return (

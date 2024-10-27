@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
-import { Catalog } from '../components/Catalog/Catalog'
+import { Catalog } from '../components/pages/Catalog/Catalog'
 
 const CatalogPage = () => {
     const pageTitle = 'Электронные компоненты Е-ТИМ'

@@ -39,6 +39,7 @@
         "react-dom": "^18.2.0",
         "react-responsive": "^9.0.2",
         "styled-components": "^5.3.8",
+        "swiper": "^11.1.14",
         "xlsx": "^0.18.5"
     },
     "devDependencies": {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
-import { Button } from '../../ui/buttons/Button'
-import { Text } from '../../ui/Typography'
+import { Button } from '../../../ui/buttons/Button'
+import { Text } from '../../../ui/Typography'
 import { useState, useEffect } from 'react'
 
 export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder }) => {

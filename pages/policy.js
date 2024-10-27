@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
-import { Policy } from '../components/PolicyPage/Policy'
+import { Policy } from '../components/pages/PolicyPage/Policy'
 
 const PolicyPage = () => {
     const pageTitle = 'Электронные компоненты'

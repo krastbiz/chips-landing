@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { breakpoint } from '../../lib/theme'
-import { MainSection } from '../ui/layouts'
-import { MapComponent } from '../Common/MapComponent'
-import { AsideLayout } from '../ui/layouts'
-import { Container } from '../ui/layouts'
-import { MainLayout } from '../ui/layouts'
-import { H1 } from '../ui/Typography'
+import { breakpoint } from '../../../lib/theme'
+import { MainSection } from '../../ui/layouts'
+import { MapComponent } from '../../Common/MapComponent'
+import { AsideLayout } from '../../ui/layouts'
+import { Container } from '../../ui/layouts'
+import { MainLayout } from '../../ui/layouts'
+import { H1 } from '../../ui/Typography'
 
 const Contacts = () => {
     return (

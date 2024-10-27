@@ -1,28 +1,33 @@
+import styled from 'styled-components'
+import { H1, Text } from '../../ui/Typography'
+import { PrimaryButton } from '../../ui/buttons/PrimaryButton'
+import { Service, ServiceWithIcon } from './components/Service'
+import { SearchComponent } from '../Search'
 
-import styled from 'styled-components';
-import { H1, Text } from '../../ui/Typography';
-import { PrimaryButton } from '../../ui/buttons/PrimaryButton';
-import { Service, ServiceWithIcon } from './components/Service';
-import { SearchComponent } from '../Search';
-
-export const ServiceSection = ({ title, description, services, servicesWithIcon, onRequest }) => {
+export const ServiceSection = ({ title, description, services, servicesWithIcon, onClick }) => {
     return (
-        <ServicesWrapper>
+        <ServicesWrapper id="services">
             <DescriptionWrapper>
                 <AboutContainer>
                     <SearchComponent isHomePage />
-                    {servicesWithIcon &&<PurchasesContainer>
-                        {servicesWithIcon.map((service, index) => (
-                            <ServiceWithIcon key={index} title={service.title} content={service.content} icon={service.icon}/>
-                        ))}
-                    </PurchasesContainer>
-}
+                    {servicesWithIcon && (
+                        <PurchasesContainer>
+                            {servicesWithIcon.map((service, index) => (
+                                <ServiceWithIcon
+                                    key={index}
+                                    title={service.title}
+                                    content={service.content}
+                                    icon={service.icon}
+                                />
+                            ))}
+                        </PurchasesContainer>
+                    )}
                 </AboutContainer>
                 <ServicesContainer>
                     <SectionTitle>{title}</SectionTitle>
                     <SupplyText>{description}</SupplyText>
                     <ServicesContainer2>
-                        <ContactButton as="a" href={onRequest}>
+                        <ContactButton as="a" onClick={onClick}>
                             Оставить заявку <ArrowIcon src="/static/icons/arrow.svg" alt="arrow" />
                         </ContactButton>
                         {services.map((service, index) => (
@@ -32,15 +37,15 @@ export const ServiceSection = ({ title, description, services, servicesWithIcon,
                 </ServicesContainer>
             </DescriptionWrapper>
         </ServicesWrapper>
-    );
-};
+    )
+}
 
 const DescriptionWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 30px;
-`;
+`
 
 const ServicesWrapper = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
@@ -49,7 +54,7 @@ const ServicesWrapper = styled.section`
     border-radius: 35px;
     display: flex;
     flex-direction: row;
-`;
+`
 
 const SectionTitle = styled(H1)`
     text-align: center;
@@ -58,11 +63,11 @@ const SectionTitle = styled(H1)`
 const AboutContainer = styled.div`
     max-width: 52%;
     padding-right: 30px;
-`;
+`
 
 const SupplyText = styled(Text)`
     margin-bottom: 40px;
-`;
+`
 
 const PurchasesContainer = styled.div`
     display: flex;
@@ -77,13 +82,13 @@ const ServicesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-`;
+`
 
 const ServicesContainer2 = styled(ServicesContainer)`
     max-width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-`;
+`
 
 const ContactButton = styled(PrimaryButton)`
     width: 325px;
@@ -93,9 +98,9 @@ const ContactButton = styled(PrimaryButton)`
     align-items: flex-end;
     padding-bottom: 25px;
     padding-right: 20px;
-`;
+`
 
 const ArrowIcon = styled.img`
     height: 20px;
     margin-left: 20px;
-`;
+`

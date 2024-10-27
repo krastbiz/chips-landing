@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Contacts from '../components/ContactsPage/Contacts'
+import Contacts from '../components/pages/ContactsPage/Contacts'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const ContactsPage = () => {

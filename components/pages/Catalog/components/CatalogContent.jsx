@@ -1,8 +1,8 @@
-import { useCatalogSearch } from '../hooks/useCatalogSearch'
 import { CatalogTable } from './CatalogTable'
-import { SearchComponent } from '../../Common/Search'
-import { Container } from '../../ui/layouts'
-import { Separator } from '../../ui/Separator'
+import { SearchComponent } from '../../../Common/Search'
+import { Container } from '../../../ui/layouts'
+import { Separator } from '../../../ui/Separator'
+import { useCatalogSearch } from '../../../hooks/useCatalogSearch'
 
 export const CatalogContent = () => {
     const { data, defaultSearchValue, loadMoreRef, loading, handleSearch, handleSort, sortBy, sortOrder } =

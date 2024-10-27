@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Ved } from '../components/VedPage/Ved'
+import { Ved } from '../components/pages/VedPage/Ved'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
 const VedPage = () => {

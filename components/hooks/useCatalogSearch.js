@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { search } from '../../../lib/api'
+import { search } from '../../lib/api'
 import debounce from 'lodash/debounce'
 
 export const useCatalogSearch = () => {

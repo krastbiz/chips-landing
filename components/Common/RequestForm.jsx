@@ -1,93 +1,27 @@
-import { useState } from 'react'
 import styled from 'styled-components'
-import { sendContactForm } from '../../lib/api'
+
 import { breakpoint } from '../../lib/theme'
 import { Button } from '../ui/buttons/Button'
 import { PrimaryButton } from '../ui/buttons/PrimaryButton'
 import { BaseContentContainer } from '../ui/layouts'
 import { H2 } from '../ui/Typography'
 import { StyledLink } from '../ui/Link'
+import { useRequestForm } from '../hooks/useRequestForm'
 
-export const RequestForm = () => {
-    const initialText = `Заполняя форму "Запрос компонента", по возможности, просим указать:\n
-    - Партномер\n
-    - Корпус\n
-    - Производителя\n
-    - Пожелания по году производства\n
-    - Сроки поставки\n
-    - Любые другие дополнительные требования к запрашиваемым компонентам\n\n
-    Эта информация позволит нам оперативно сформировать для Вас коммерческое предложение, что ускорит процесс обработки Вашего запроса.\n\n
-    Ограничения по заказу: только юридические лица и ИП.\n
-    Минимальный заказ для новых партнеров от 10000 рублей.`
-    const [formData, setFormData] = useState({
-        components: initialText,
-        name: '',
-        company: '',
-        email: '',
-        tel: '',
-    })
-    const [emailWasSent, setEmailWasSent] = useState(false)
-    const [selectedFiles, setSelectedFiles] = useState([])
-    const [requestNumber, setRequestNumber] = useState(null)
-
-    const resetForm = () => {
-        setFormData({
-            components: '',
-            name: '',
-            company: '',
-            email: '',
-            tel: '',
-        })
-        setSelectedFiles([])
-    }
-
-    const onFormSubmit = (e) => {
-        e.preventDefault()
-
-        const formDataToSend = new FormData()
-
-        formDataToSend.append('components', initialText.includes(formData.components) ? '' : formData.components)
-        formDataToSend.append('name', formData.name)
-        formDataToSend.append('company', formData.company)
-        formDataToSend.append('email', formData.email)
-        formDataToSend.append('tel', formData.tel)
-
-        selectedFiles.forEach((file) => {
-            formDataToSend.append('file', file)
-        })
-
-        sendContactForm(formDataToSend)
-            .then((response) => {
-                setEmailWasSent(true)
-                setRequestNumber(response.data.requestNumber)
-                resetForm()
-            })
-            .catch((error) => {
-                console.error('Error sending form: ', error)
-            })
-    }
-
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }))
-    }
-
-    const handleBlur = () => {
-        if (!formData.components.trim()) {
-            setFormData({ ...formData, components: initialText })
-        }
-    }
-
-    const handleFileChange = (e) => {
-        const files = Array.from(e.target.files)
-        setSelectedFiles((prevFiles) => [...prevFiles, ...files])
-    }
-
+export const RequestForm = (props) => {
+    const {
+        formData = {},
+        emailWasSent,
+        requestNumber,
+        onFormSubmit,
+        handleBlur,
+        handleFileChange,
+        handleChange,
+        handleFocus,
+        setEmailWasSent,
+    } = useRequestForm
     return (
-        <FormSection>
+        <FormSection id="request" ref={ref}>
             <RequestFormWrapper>
                 <StyledH2>
                     <ColoredSpan>Свяжитесь с нами сегодня,</ColoredSpan> чтобы обсудить, как мы можем помочь вашему
@@ -154,10 +88,7 @@ export const RequestForm = () => {
                                         value={formData.components}
                                         name="components"
                                         onChange={handleChange}
-                                        onFocus={() =>
-                                            initialText.includes(formData.components) &&
-                                            setFormData({ ...formData, components: '' })
-                                        }
+                                        onFocus={handleFocus}
                                         onBlur={handleBlur}
                                     />
                                     <ControlContainer>

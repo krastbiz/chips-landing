@@ -1,5 +1,5 @@
 import { CatalogContent } from './components/CatalogContent'
-import { MainLayout } from '../ui/layouts'
+import { MainLayout } from '../../ui/layouts'
 
 export const Catalog = () => {
     return (

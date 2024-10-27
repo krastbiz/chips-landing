@@ -1,4 +1,4 @@
-import { Supply } from '../components/SupplyPage/Supply'
+import { Supply } from '../components/pages/SupplyPage/Supply'
 import Head from 'next/head'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 

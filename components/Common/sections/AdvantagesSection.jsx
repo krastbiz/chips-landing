@@ -1,19 +1,19 @@
-import styled from 'styled-components';
-import { H1 } from '../../ui/Typography';
-import { Advantage } from './components/Advantage';
+import styled from 'styled-components'
+import { H1 } from '../../ui/Typography'
+import { Advantage } from './components/Advantage'
 
 export const AdvantagesSection = ({ title, advantages }) => {
     return (
-        <Section>
-                <Title>{title}</Title>
-                <AdvantagesContainer>
-                    {advantages.map((advantage, index) => (
-                        <Advantage key={index} title={advantage.title} content={advantage.content} />
-                    ))}
-                </AdvantagesContainer>
+        <Section id="advantages">
+            <Title>{title}</Title>
+            <AdvantagesContainer>
+                {advantages.map((advantage, index) => (
+                    <Advantage key={index} title={advantage.title} content={advantage.content} />
+                ))}
+            </AdvantagesContainer>
         </Section>
-    );
-};
+    )
+}
 
 const Section = styled.section`
     position: relative;
@@ -22,12 +22,12 @@ const Section = styled.section`
     margin-right: calc(50% - 50vw);
     margin-top: 30px;
     overflow-y: hidden;
-`;
+`
 
 const Title = styled(H1)`
     align-items: flex-start;
     padding: 20px 0 40px 150px;
     margin-bottom: 30px;
-`;
+`
 
-const AdvantagesContainer = styled.div``;
+const AdvantagesContainer = styled.div``
