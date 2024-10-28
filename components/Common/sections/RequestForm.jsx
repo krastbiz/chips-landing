@@ -237,8 +237,10 @@ const ContactFormSuccessMessage = styled.p`
     display: flex;
     padding-top: 20px;
     justify-content: space-between;
-    height: 300px;
     flex-direction: column;
+    width: 800px;
+    height: 300px;
+    padding: 10px 20px 0;
 `
 
 const ContactFormSuccessMessageButton = styled(Button)`
