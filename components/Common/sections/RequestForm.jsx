@@ -74,7 +74,8 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                         </StyledLink>
                                     </ContactFormDescription>
                                 </InputsContainer>
-                                {emailWasSent ? (
+                                    <InputsContainer>
+                                    {emailWasSent ? (
                                     <ContactFormSuccessMessage>
                                         <H3>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</H3>
                                         <H3>Спасибо, что связались с нами!</H3>
@@ -83,47 +84,43 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                         </PrimaryButton>
                                     </ContactFormSuccessMessage>
                                 ) : (
-                                    <InputsContainer>
-                                        <StyledTextarea
-                                            value={formData.components}
-                                            name="components"
-                                            onChange={handleChange}
-                                            onFocus={handleFocus}
-                                            onBlur={handleBlur}
-                                        />
-                                        <ControlContainer>
-                                            <UploadContainer>
-                                                <FileUploadLabel>
-                                                    <input
-                                                        type="file"
-                                                        name="file"
-                                                        onChange={handleFileChange}
-                                                        multiple
-                                                    />
-                                                    <FileUploadText>
-                                                        <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
-                                                        Прикрепите файл
-                                                    </FileUploadText>
-                                                </FileUploadLabel>
-                                                {selectedFiles.length > 0 && (
-                                                    <AttachedFilesList>
-                                                        {selectedFiles.map((file, index) => (
-                                                            <AttachedFileItem
-                                                                key={index}
-                                                                onClick={() => deleteFile(file.name)}
-                                                            >
-                                                                {file.name}
-                                                            </AttachedFileItem>
-                                                        ))}
-                                                    </AttachedFilesList>
-                                                )}
-                                            </UploadContainer>
-                                            <PrimaryButton primary type="submit">
-                                                Отправить
-                                            </PrimaryButton>
-                                        </ControlContainer>
+                                        <><StyledTextarea
+                                                value={formData.components}
+                                                name="components"
+                                                onChange={handleChange}
+                                                onFocus={handleFocus}
+                                                onBlur={handleBlur} /><ControlContainer>
+                                                    <UploadContainer>
+                                                        <FileUploadLabel>
+                                                            <input
+                                                                type="file"
+                                                                name="file"
+                                                                onChange={handleFileChange}
+                                                                multiple />
+                                                            <FileUploadText>
+                                                                <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
+                                                                Прикрепите файл
+                                                            </FileUploadText>
+                                                        </FileUploadLabel>
+                                                        {selectedFiles.length > 0 && (
+                                                            <AttachedFilesList>
+                                                                {selectedFiles.map((file, index) => (
+                                                                    <AttachedFileItem
+                                                                        key={index}
+                                                                        onClick={() => deleteFile(file.name)}
+                                                                    >
+                                                                        {file.name}
+                                                                    </AttachedFileItem>
+                                                                ))}
+                                                            </AttachedFilesList>
+                                                        )}
+                                                    </UploadContainer>
+                                                    <PrimaryButton primary type="submit">
+                                                        Отправить
+                                                    </PrimaryButton>
+                                                </ControlContainer></>                                )}
                                     </InputsContainer>
-                                )}
+
                             </ControlsContainer>
                         </StyledContactForm>
                     </FormWrapper>
@@ -233,8 +230,8 @@ const StyledTextarea = styled.textarea`
 const ContactFormSuccessMessage = styled.p`
     display: flex;
     padding-top: 20px;
-    justify-content: center;
-    height: 180px;
+    justify-content: space-between;
+    height: 300px;
     flex-direction: column;
 `
 
