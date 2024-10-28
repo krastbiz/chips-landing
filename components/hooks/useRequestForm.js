@@ -27,7 +27,9 @@ export const useRequestForm = (defaultValue) => {
         if (defaultValue) {
             setFormData((prevData) => ({
                 ...prevData,
-                components: defaultValue,
+                components: initialText.includes(formData.components)
+                    ? defaultValue
+                    : `${prevData.components}\n${defaultValue}`,
             }))
         }
     }, [defaultValue])
