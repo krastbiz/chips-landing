@@ -74,53 +74,59 @@ export const RequestForm = ({ defaultValue = '' }) => {
                                         </StyledLink>
                                     </ContactFormDescription>
                                 </InputsContainer>
-                                    <InputsContainer>
+                                <InputsContainer>
                                     {emailWasSent ? (
-                                    <ContactFormSuccessMessage>
-                                        <H3>Мы приняли Вашу заявку!Номер Вашей заявки: {requestNumber}.</H3>
-                                        <H3>Спасибо, что связались с нами!</H3>
-                                        <PrimaryButton type="reset" onClick={() => setEmailWasSent(false)}>
-                                            Новая заявка
-                                        </PrimaryButton>
-                                    </ContactFormSuccessMessage>
-                                ) : (
-                                        <><StyledTextarea
+                                        <ContactFormSuccessMessage>
+                                            <H3>Мы приняли Вашу заявку!</H3>
+                                            <H3>Номер Вашей заявки: {requestNumber}.</H3>
+                                            <H3>Спасибо, что связались с нами!</H3>
+                                            <PrimaryButton type="reset" onClick={() => setEmailWasSent(false)}>
+                                                Новая заявка
+                                            </PrimaryButton>
+                                        </ContactFormSuccessMessage>
+                                    ) : (
+                                        <>
+                                            <StyledTextarea
                                                 value={formData.components}
                                                 name="components"
                                                 onChange={handleChange}
                                                 onFocus={handleFocus}
-                                                onBlur={handleBlur} /><ControlContainer>
-                                                    <UploadContainer>
-                                                        <FileUploadLabel>
-                                                            <input
-                                                                type="file"
-                                                                name="file"
-                                                                onChange={handleFileChange}
-                                                                multiple />
-                                                            <FileUploadText>
-                                                                <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
-                                                                Прикрепите файл
-                                                            </FileUploadText>
-                                                        </FileUploadLabel>
-                                                        {selectedFiles.length > 0 && (
-                                                            <AttachedFilesList>
-                                                                {selectedFiles.map((file, index) => (
-                                                                    <AttachedFileItem
-                                                                        key={index}
-                                                                        onClick={() => deleteFile(file.name)}
-                                                                    >
-                                                                        {file.name}
-                                                                    </AttachedFileItem>
-                                                                ))}
-                                                            </AttachedFilesList>
-                                                        )}
-                                                    </UploadContainer>
-                                                    <PrimaryButton primary type="submit">
-                                                        Отправить
-                                                    </PrimaryButton>
-                                                </ControlContainer></>                                )}
-                                    </InputsContainer>
-
+                                                onBlur={handleBlur}
+                                            />
+                                            <ControlContainer>
+                                                <UploadContainer>
+                                                    <FileUploadLabel>
+                                                        <input
+                                                            type="file"
+                                                            name="file"
+                                                            onChange={handleFileChange}
+                                                            multiple
+                                                        />
+                                                        <FileUploadText>
+                                                            <img src={'/static/icons/paperclip.svg'} alt="Скрепка" />
+                                                            Прикрепите файл
+                                                        </FileUploadText>
+                                                    </FileUploadLabel>
+                                                    {selectedFiles.length > 0 && (
+                                                        <AttachedFilesList>
+                                                            {selectedFiles.map((file, index) => (
+                                                                <AttachedFileItem
+                                                                    key={index}
+                                                                    onClick={() => deleteFile(file.name)}
+                                                                >
+                                                                    {file.name}
+                                                                </AttachedFileItem>
+                                                            ))}
+                                                        </AttachedFilesList>
+                                                    )}
+                                                </UploadContainer>
+                                                <PrimaryButton primary type="submit">
+                                                    Отправить
+                                                </PrimaryButton>
+                                            </ControlContainer>
+                                        </>
+                                    )}
+                                </InputsContainer>
                             </ControlsContainer>
                         </StyledContactForm>
                     </FormWrapper>
