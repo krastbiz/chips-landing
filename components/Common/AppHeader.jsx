@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { breakpoint } from '../../lib/theme'
 import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
 import { BurgerMenu, BurgerWrapper } from '../ui/buttons/BurgerMenu'
-import { ContactInfoWrapper, ContactItem } from '../pages/ContactsPage/ContactItem'
+import { ContactItem } from '../pages/ContactsPage/ContactItem'
 import { BaseContentContainer, Container } from '../ui/layouts'
 import { MobileMenu } from './MobileMenu'
 
@@ -40,6 +40,7 @@ const AppHeader = () => {
 
     const { isMobile, isTablet } = useDeviceCheck()
     const isMobileOrTablet = isMobile || isTablet
+    console.log(isMobileOrTablet)
     const { pathname } = useRouter()
 
     return (
@@ -51,25 +52,33 @@ const AppHeader = () => {
                             <Logo src="/static/icons/logo.svg" alt="Логотип" />
                         </a>
                     </LogoWrapper>
-                    <ContactItem title={CONTACTS.email.title} href={CONTACTS.email.href} />
-                    <ContactItem title={CONTACTS.phone.title} href={CONTACTS.phone.href} />
+                    {!isMobileOrTablet && (
+                        <>
+                            <ContactItem title={CONTACTS.email.title} href={CONTACTS.email.href} />
+                            <ContactItem title={CONTACTS.phone.title} href={CONTACTS.phone.href} />
+                        </>
+                    )}
                 </HeaderContainer>
-                <HeaderContainer>
-                    <IconLink href="https://t.me/GlebSh_SPB" target="_blank">
-                        <img src="/static/icons/telegram.svg" alt="telegram" />
-                    </IconLink>
-                    <IconLink href="https://wa.me/79500362529" target="_blank">
-                        <img src="/static/icons/whatsapp.svg" alt="whatsapp" />
-                    </IconLink>
-                </HeaderContainer>
-
-                <BaseContentContainer>
-                    <Nav>
-                        {NAV_LINKS.map(({ text, url }) => (
-                            <RenderNavLink key={url} text={text} url={url} isActive={pathname === url} />
-                        ))}
-                    </Nav>
-                </BaseContentContainer>
+                {!isMobileOrTablet && (
+                    <>
+                        <HeaderContainer>
+                            <IconLink href="https://t.me/GlebSh_SPB" target="_blank">
+                                <img src="/static/icons/telegram.svg" alt="telegram" />
+                            </IconLink>
+                            <IconLink href="https://wa.me/79500362529" target="_blank">
+                                <img src="/static/icons/whatsapp.svg" alt="whatsapp" />
+                            </IconLink>
+                        </HeaderContainer>
+                        <BaseContentContainer>
+                            <Nav>
+                                {NAV_LINKS.map(({ text, url }) => (
+                                    <RenderNavLink key={url} text={text} url={url} isActive={pathname === url} />
+                                ))}
+                            </Nav>
+                        </BaseContentContainer>
+                    </>
+                )}
+                {isMobileOrTablet && <BurgerMenu isActive={isMobileMenuActive}  onClick={() => setIsMobileMenuActive((prev) => !prev)} />}
             </ContainerStyled>
             {isMobileOrTablet && (
                 <MobileMenu
@@ -92,6 +101,9 @@ const Header = styled.header`
 
     ${breakpoint.desktop`
         margin: 0 20px;
+    `}
+        ${breakpoint.mobile`
+        margin: 0;
     `}
 `
 

@@ -21,6 +21,6 @@ export const ContactInfoWrapper = styled.div`
 
     ${breakpoint.laptop`
         margin-left: 24px;
-        font-size: 12px;
+        font-size: 16px;
     `}
 `

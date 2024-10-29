@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { BurgerMenu } from '../ui/buttons/BurgerMenu'
 import { ContactInfoWrapper, ContactItem } from '../pages/ContactsPage/ContactItem'
 import { Delimeter } from '../ui/Delimeter'
-import { Container } from '../ui/layouts'
+import { Container, BaseContentContainer } from '../ui/layouts'
 import { RenderNavLink } from './AppHeader'
 
 export const MobileMenu = (props) => {
@@ -34,21 +34,31 @@ export const MobileMenu = (props) => {
             <MobileContactsContainer>
                 <ContactItem title={contacts.phone.title} image={contacts.phone.image} href={contacts.phone.href} />
                 <ContactItem title={contacts.email.title} image={contacts.email.image} href={contacts.email.href} />
+                <HeaderContainer>
+                            <IconLink href="https://t.me/GlebSh_SPB" target="_blank">
+                                <Icon src="/static/icons/telegram-m.svg" alt="telegram" />
+                            </IconLink>
+                            <IconLink href="https://wa.me/79500362529" target="_blank">
+                                <Icon src="/static/icons/whatsapp-m.svg" alt="whatsapp" />
+                            </IconLink>
+                        </HeaderContainer>
             </MobileContactsContainer>
         </MobileMenuWrapper>
     )
 }
 
 const MobileMenuWrapper = styled.div`
-    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
-    padding-top: 40px;
-    padding-bottom: 30px;
-    background: white;
     position: fixed;
     top: 0;
+    right: 0;
     height: 100vh;
     width: 100vw;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background: ${({ theme }) => theme.colors.base};
     z-index: 1000;
+    transform: ${({ isActive }) => (isActive ? 'translateX(0)' : 'translateX(100%)')};
+    transition: transform 0.3s ease-in-out;
 
     a {
         display: block;
@@ -60,6 +70,12 @@ const MobileMenuWrapper = styled.div`
         color: ${({ theme }) => theme.colors.primary};
         margin-bottom: 50px;
     }
+`;
+
+const HeaderContainer = styled(BaseContentContainer)`
+    flex-direction: row;
+    background-color: ${({ theme }) => theme.colors.base};
+    margin-top: 10px;
 `
 
 const MobileBurgerContainer = styled(Container)`
@@ -68,8 +84,9 @@ const MobileBurgerContainer = styled(Container)`
 `
 
 const MobileContactsContainer = styled(Container)`
-    margin-top: 50px;
     display: flex;
+    flex-direction: column;
+    margin-top: 15px;
 
     ${ContactInfoWrapper} {
         margin-left: 0;
@@ -78,10 +95,18 @@ const MobileContactsContainer = styled(Container)`
         a {
             display: flex;
             align-items: center;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: 500;
-            margin-bottom: 0;
+            margin-bottom: 15px;
             text-transform: unset;
+            margin-left: 30px;
         }
     }
+`
+const IconLink = styled.a`
+`
+
+const Icon = styled.img`
+    height: 45px;
+    width: 45px;
 `
