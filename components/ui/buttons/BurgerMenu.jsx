@@ -18,15 +18,15 @@ const BurgerLine = styled.div`
     background: #545d49;
 `
 
-export const BurgerWrapper = styled.div`
+const BurgerWrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 10px;
 
-    width: 20px;
-    height: 15px;
-
+    width: 25px;
+    height: 20px;
     ${({ isActive }) =>
         isActive &&
         `

@@ -19,8 +19,8 @@ export const H1 = styled.h1`
     `}
 
     ${breakpoint.mobile`
-        font-size: 20px;
-        line-height: 41px;
+        font-size: 25px;
+        line-height: 36px;
     `}
 `
 
@@ -51,6 +51,10 @@ export const H3 = styled.h3`
     text-transform: uppercase;
     opacity: 0.65;
     color: ${({ theme }) => theme.colors.base};
+    ${breakpoint.mobile`
+        font-size: 14px;
+        line-height: 18px;
+    `}
 `
 
 export const Text = styled.p`
@@ -64,5 +68,9 @@ export const Text = styled.p`
     ${breakpoint.desktop`
    font-size: 16px;
     line-height: 22px;
+    `}
+    ${breakpoint.mobile`
+   font-size: 12px;
+    line-height: 18px;
     `}
 `

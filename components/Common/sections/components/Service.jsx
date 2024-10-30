@@ -44,8 +44,9 @@ const ServiceContainer = styled(BaseContentContainer)`
     `}
 
     ${breakpoint.mobile`
-    width: 173px;
-    height: 136px;
+    width: 148px;
+    height: 129px;
+    margin-bottom: 6px;
     `}
 `
 
@@ -55,6 +56,10 @@ const ServiceContainerHigh = styled.div`
     justify-content: space-between;
     flex-direction: row;
     margin-bottom: 20px;
+    ${breakpoint.mobile`
+    height: 140px;
+    margin-bottom: 10px;
+    `}
 `
 
 const ServiceWrapper = styled(BaseContentContainer)`
@@ -63,15 +68,29 @@ const ServiceWrapper = styled(BaseContentContainer)`
     align-items: center;
     width: 280px;
     margin-right: 30px;
+    ${breakpoint.mobile`
+    min-width: 130px;
+    margin-right: 10px;
+    flex-direction: column;
+    `}
 `
 
 const ServiceWrapperLong = styled(ServiceWrapper)`
     width: 410px;
+    ${breakpoint.mobile`
+    margin-right: 0px;
+    justify-content: center;
+    min-width: 160px;
+    `}
 `
 
 const ServiceIcon = styled.img`
     height: 64px;
     margin-right: 16px;
+    ${breakpoint.mobile`
+    height: 40px;
+    margin-bottom: 15px;
+    `}
 `
 
 const Title = styled(H3)`
@@ -79,8 +98,14 @@ const Title = styled(H3)`
     color: ${({ theme }) => theme.colors.active};
     font-weight: 600;
     font-family: ${({ theme }) => theme.fonts.velasans};
+    ${breakpoint.mobile`
+    margin-bottom: 10px;
+    `}
 `
 
 const StyledText = styled(H3)`
     color: ${({ theme }) => theme.colors.base};
+    ${breakpoint.mobile`
+    width: 140px;
+    `}
 `

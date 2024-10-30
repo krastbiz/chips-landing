@@ -3,7 +3,6 @@ import { breakpoint } from '../../../lib/theme'
 
 export const BaseContentContainer = styled.div`
     color: ${({ theme }) => theme.colors.base};
-    font-family: ${({ theme }) => theme.fonts.velasansmed};
     display: flex;
     flex-direction: column;
     align-items: center;

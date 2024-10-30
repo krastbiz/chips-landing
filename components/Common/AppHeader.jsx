@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { breakpoint } from '../../lib/theme'
 import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
-import { BurgerMenu, BurgerWrapper } from '../ui/buttons/BurgerMenu'
+import { BurgerMenu } from '../ui/buttons/BurgerMenu'
 import { ContactItem } from '../pages/ContactsPage/ContactItem'
 import { BaseContentContainer, Container } from '../ui/layouts'
 import { MobileMenu } from './MobileMenu'
@@ -40,7 +40,6 @@ const AppHeader = () => {
 
     const { isMobile, isTablet } = useDeviceCheck()
     const isMobileOrTablet = isMobile || isTablet
-    console.log(isMobileOrTablet)
     const { pathname } = useRouter()
 
     return (
@@ -78,7 +77,9 @@ const AppHeader = () => {
                         </BaseContentContainer>
                     </>
                 )}
-                {isMobileOrTablet && <BurgerMenu isActive={isMobileMenuActive}  onClick={() => setIsMobileMenuActive((prev) => !prev)} />}
+                {isMobileOrTablet && (
+                    <BurgerMenu isActive={isMobileMenuActive} onClick={() => setIsMobileMenuActive((prev) => !prev)} />
+                )}
             </ContainerStyled>
             {isMobileOrTablet && (
                 <MobileMenu
@@ -102,7 +103,7 @@ const Header = styled.header`
     ${breakpoint.desktop`
         margin: 0 20px;
     `}
-        ${breakpoint.mobile`
+    ${breakpoint.mobile`
         margin: 0;
     `}
 `

@@ -73,7 +73,8 @@ const SearchInput = styled.input`
     box-sizing: border-box;
     margin: 20px 0;
     ${breakpoint.mobile`
-    width: 260px;
+    width: 240px;
+    margin-top: 0;
 `}
 `
 
@@ -93,6 +94,9 @@ const SearchButton = styled.button`
 
 const SearchIcon = styled.img`
     height: 20px;
+    ${breakpoint.mobile`
+    margin-top: -20px;
+`}
 `
 
 const ErrorText = styled.p`

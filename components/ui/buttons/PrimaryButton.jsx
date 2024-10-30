@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoint } from '../../../lib/theme'
 
 const PrimaryButton = styled.button`
     display: block;
@@ -21,6 +22,10 @@ const PrimaryButton = styled.button`
         background: ${({ theme }) => theme.colors.lightGreenBackground};
         color: ${({ theme }) => theme.colors.base};
     }
+    ${breakpoint.mobile`
+        font-size: 14px;
+    line-height: 20px;
+    `}
 `
 
 export { PrimaryButton }

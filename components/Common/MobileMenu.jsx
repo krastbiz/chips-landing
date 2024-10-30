@@ -35,13 +35,13 @@ export const MobileMenu = (props) => {
                 <ContactItem title={contacts.phone.title} image={contacts.phone.image} href={contacts.phone.href} />
                 <ContactItem title={contacts.email.title} image={contacts.email.image} href={contacts.email.href} />
                 <HeaderContainer>
-                            <IconLink href="https://t.me/GlebSh_SPB" target="_blank">
-                                <Icon src="/static/icons/telegram-m.svg" alt="telegram" />
-                            </IconLink>
-                            <IconLink href="https://wa.me/79500362529" target="_blank">
-                                <Icon src="/static/icons/whatsapp-m.svg" alt="whatsapp" />
-                            </IconLink>
-                        </HeaderContainer>
+                    <IconLink href="https://t.me/GlebSh_SPB" target="_blank">
+                        <Icon src="/static/icons/telegram-m.svg" alt="telegram" />
+                    </IconLink>
+                    <IconLink href="https://wa.me/79500362529" target="_blank">
+                        <Icon src="/static/icons/whatsapp-m.svg" alt="whatsapp" />
+                    </IconLink>
+                </HeaderContainer>
             </MobileContactsContainer>
         </MobileMenuWrapper>
     )
@@ -70,7 +70,7 @@ const MobileMenuWrapper = styled.div`
         color: ${({ theme }) => theme.colors.primary};
         margin-bottom: 50px;
     }
-`;
+`
 
 const HeaderContainer = styled(BaseContentContainer)`
     flex-direction: row;
@@ -103,8 +103,7 @@ const MobileContactsContainer = styled(Container)`
         }
     }
 `
-const IconLink = styled.a`
-`
+const IconLink = styled.a``
 
 const Icon = styled.img`
     height: 45px;
