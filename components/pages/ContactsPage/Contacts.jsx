@@ -16,12 +16,7 @@ const Contacts = () => {
             <AsideLayout>
                 <ContactsWrapper>
                     <ContactBox>
-                        <ContactTitle>Адрес:</ContactTitle>
-                        <ContactContent>
-                            Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1,
-                            помещ. 5-H, комн. №16,17(оф.407)
-                        </ContactContent>
-                        <ContactTitle>Телефон:</ContactTitle>
+                    <ContactTitle>Телефон:</ContactTitle>
                         <ContactContent as="a" href="tel:+7(812)3181983">
                             +7 (812) 318-19-83
                         </ContactContent>
@@ -29,26 +24,23 @@ const Contacts = () => {
                         <ContactContent as="a" href="mailto:info@e-tim.ru">
                             info@e-tim.ru
                         </ContactContent>
-                        <ContactContent>Режим работы: пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00</ContactContent>
+                        <ContactTitleAddress>Адрес:</ContactTitleAddress>
+                        <ContactContent>
+                            Санкт-Петербург, муниципальный округ Малая Охта вн.тер.г., Рижская ул., д. 5, корпус 1,
+                            помещ. 5-H, комн. №16,17(оф.407)
+                        </ContactContent>
                     </ContactBox>
                     <ContactBox>
-                        <ContactTitle>Реквизиты:</ContactTitle>
+                        <ContactContent>Режим работы: пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00</ContactContent>
                         <ContactContent>
-                            <div>
-                                <b>Получатель:</b> ООО "Е-ТИМ"
-                            </div>
+                            <ContactTitleAddress>
+                                <b>ООО "Е-ТИМ"</b> 
+                            </ContactTitleAddress>
                             <div>
                                 <b>ИНН:</b> 7806562061
                             </div>
                             <div>
-                                <b>Номер счета:</b> 40702810300000295721
-                            </div>
-                            <div>ПАО Банк “АЛЕКСАНДРОВСКИЙ”</div>
-                            <div>
-                                <b>Корреспондентский счет:</b> 30101810000000000755 в Северо-Западном ГУ Банка России
-                            </div>
-                            <div>
-                                <b>БИК:</b> 044030755
+                                <b>ОГРН:</b> 1197847145825
                             </div>
                         </ContactContent>
                     </ContactBox>
@@ -74,8 +66,7 @@ const ContactsWrapper = styled.div`
 `
 const ContactBox = styled.div`
     width: 50%;
-    margin-bottom: 10px;
-    margin-right: 20px;
+    margin: 20px 20px 10px 0px;
 
     ${breakpoint.laptop`
         width: unset;
@@ -88,6 +79,9 @@ const ContactTitle = styled.p`
     font-weight: 500;
     font-size: 18px;
     line-height: 30px;
+`
+const ContactTitleAddress = styled(ContactTitle)`
+    margin-top: 30px;
 `
 const ContactContent = styled.p`
     font-family: ${({ theme }) => theme.fonts.velasansmed};
