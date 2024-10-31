@@ -31,17 +31,17 @@ const Contacts = () => {
                         </ContactContent>
                     </ContactBox>
                     <ContactBox>
-                        <ContactContent>Режим работы: пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00</ContactContent>
                         <ContactContent>
-                            <ContactTitleAddress>
+                            <div>
                                 <b>ООО "Е-ТИМ"</b> 
-                            </ContactTitleAddress>
+                            </div>
                             <div>
                                 <b>ИНН:</b> 7806562061
                             </div>
                             <div>
                                 <b>ОГРН:</b> 1197847145825
                             </div>
+                            <ContactTitleWork>Режим работы: пн-пт, с 9:00 до 17:00, обед с 12:00 до 13:00</ContactTitleWork>
                         </ContactContent>
                     </ContactBox>
                 </ContactsWrapper>
@@ -82,6 +82,12 @@ const ContactTitle = styled.p`
 `
 const ContactTitleAddress = styled(ContactTitle)`
     margin-top: 30px;
+`
+const ContactTitleWork = styled(ContactTitle)`
+    margin-top: 60px;
+    ${breakpoint.mobile`
+    margin-top: 30px;
+    `}
 `
 const ContactContent = styled.p`
     font-family: ${({ theme }) => theme.fonts.velasansmed};
