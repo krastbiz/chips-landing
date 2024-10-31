@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import { sendContactForm } from '../../lib/api'
+import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
+
+const initialText = `Заполняя форму "Запрос компонента", по возможности, просим указать:\n
+- Партномер\n
+- Корпус\n
+- Производителя\n
+- Пожелания по году производства\n
+- Сроки поставки\n
+- Любые другие дополнительные требования к запрашиваемым компонентам\n\n
+Эта информация позволит нам оперативно сформировать для Вас коммерческое предложение, что ускорит процесс обработки Вашего запроса.\n\n
+Ограничения по заказу: только юридические лица и ИП.\n
+Минимальный заказ для новых партнеров от 10000 рублей.`
 
 export const useRequestForm = (defaultValue) => {
-    const initialText = `Заполняя форму "Запрос компонента", по возможности, просим указать:\n
-    - Партномер\n
-    - Корпус\n
-    - Производителя\n
-    - Пожелания по году производства\n
-    - Сроки поставки\n
-    - Любые другие дополнительные требования к запрашиваемым компонентам\n\n
-    Эта информация позволит нам оперативно сформировать для Вас коммерческое предложение, что ускорит процесс обработки Вашего запроса.\n\n
-    Ограничения по заказу: только юридические лица и ИП.\n
-    Минимальный заказ для новых партнеров от 10000 рублей.`
+
     const [formData, setFormData] = useState({
         components: initialText,
         name: '',
@@ -22,6 +25,8 @@ export const useRequestForm = (defaultValue) => {
     const [emailWasSent, setEmailWasSent] = useState(false)
     const [selectedFiles, setSelectedFiles] = useState([])
     const [requestNumber, setRequestNumber] = useState(null)
+    const { isMobile, isTablet } = useDeviceCheck()
+    const isMobileOrTablet = isMobile || isTablet
 
     useEffect(() => {
         if (defaultValue) {
@@ -103,6 +108,7 @@ export const useRequestForm = (defaultValue) => {
         emailWasSent,
         requestNumber,
         selectedFiles,
+        isMobileOrTablet,
         deleteFile,
         onFormSubmit,
         handleBlur,

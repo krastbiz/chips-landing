@@ -19,11 +19,15 @@ export const Advantage = ({ title, content, number }) => {
 const AdvantageWrapper = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
     height: 80px;
     max-width: 85%;
     margin: 0 auto;
     margin-bottom: 40px;
+    ${breakpoint.mobile`
+    height: 130px;
+    margin: 0px 10px 20px;
+    max-width: 100%;
+    `}
 `
 
 const AdvantageBaseContainer1 = styled(BaseContentContainer)`
@@ -32,6 +36,12 @@ const AdvantageBaseContainer1 = styled(BaseContentContainer)`
     display: flex;
     align-items: center;
     justify-content: center;
+    ${breakpoint.mobile`
+    margin-right: 15px;
+    min-width: 135px;
+    width: 45%;
+    padding: 5px;
+    `}
 `
 
 const AdvantageBaseContainer = styled(BaseContentContainer)`
@@ -39,6 +49,11 @@ const AdvantageBaseContainer = styled(BaseContentContainer)`
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    ${breakpoint.mobile`
+    margin-right: 10px;
+    width: 55%;
+    padding: 5px;
+    `}
 `
 
 const Title = styled(H2)`

@@ -126,7 +126,12 @@ const HeaderContainer = styled(BaseContentContainer)`
     flex-direction: row;
 `
 
-const Nav = styled.nav``
+const Nav = styled.nav`
+        ${breakpoint.desktop`
+        display: flex;
+        flex-wrap: wrap;
+    `}
+`
 
 const StyledNavLink = styled(Link)`
     transition: all 0.2s;

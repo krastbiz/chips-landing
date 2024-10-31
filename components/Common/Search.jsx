@@ -3,11 +3,14 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { breakpoint } from '../../lib/theme'
+import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
 
 export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) => {
     const [searchValue, setSearchValue] = useState(defaultValue || '')
     const [error, setError] = useState('')
     const router = useRouter()
+    const {isMobile, isTablet} = useDeviceCheck()
+    const isMobileOrTablet = isMobile | isTablet;
 
     const handleSearch = useCallback(
         (searchValue) => {
@@ -40,7 +43,7 @@ export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) 
     return (
         <SearchContainer isHomePage={isHomePage}>
             <SearchInput
-                placeholder="Введите название компонента, например, INA818IDR"
+                placeholder={isMobileOrTablet ? "Введите название компонента" : "Введите название компонента, например, INA818IDR"}
                 value={searchValue}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
@@ -72,8 +75,11 @@ const SearchInput = styled.input`
     width: 750px;
     box-sizing: border-box;
     margin: 20px 0;
+    ${breakpoint.desktop`
+    width: 550px;
+`}
     ${breakpoint.mobile`
-    width: 240px;
+    width: 280px;
     margin-top: 0;
 `}
 `

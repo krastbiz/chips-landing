@@ -34,19 +34,18 @@ const ServiceContainer = styled(BaseContentContainer)`
     margin-bottom: 16px;
 
     ${breakpoint.desktop`
-        width: 273px;
-        height: 150px;
+        width: 230px;
+        height: 190px;
     `}
 
     ${breakpoint.tablet`
-    width: 207px;
-    height: 139px;
+    width: 230px;
+    height: 190px;
     `}
 
     ${breakpoint.mobile`
     width: 148px;
-    height: 129px;
-    margin-bottom: 6px;
+    height: 135px;
     `}
 `
 
@@ -56,6 +55,10 @@ const ServiceContainerHigh = styled.div`
     justify-content: space-between;
     flex-direction: row;
     margin-bottom: 20px;
+        ${breakpoint.desktop`
+    height: 160px;
+    margin-bottom: 10px;
+    `}
     ${breakpoint.mobile`
     height: 140px;
     margin-bottom: 10px;
@@ -68,6 +71,9 @@ const ServiceWrapper = styled(BaseContentContainer)`
     align-items: center;
     width: 280px;
     margin-right: 30px;
+        ${breakpoint.desktop`
+    min-width: 250px;
+    `}
     ${breakpoint.mobile`
     min-width: 130px;
     margin-right: 10px;

@@ -25,6 +25,8 @@ const PrimaryButton = styled.button`
     ${breakpoint.mobile`
         font-size: 14px;
     line-height: 20px;
+    width: 152px;
+    height: 35px;
     `}
 `
 

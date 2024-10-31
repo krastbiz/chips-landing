@@ -7,9 +7,14 @@ import {
     RequestForm,
     ServiceSectionTop,
     ServiceSectionBottom,
+    AdvantagesSectionTop,
+    AdvantagesSectionBottom,
+    AboutSectionTop,
+    AboutSectionBottom
 } from '../../Common/sections'
 import { VerticalSlider } from '../../Common/VerticalSlider'
 import { useDeviceCheck } from '../../../lib/utils/hooks/useDeviceCheck'
+import { AppFooter } from '../../Common/AppFooter'
 
 const servicesWithIcon = [
     {
@@ -43,8 +48,7 @@ const servicesWithIconMobile = [
     },
     {
         title: 'Приобретаем оборудование брендов',
-        content:
-            'Harting, Nichia, Fujitsu, Samtec, Wago, Digital View, Fischer, ODU, Lemo, GSI и др',
+        content: 'Harting, Nichia, Fujitsu, Samtec, Wago, Digital View, Fischer, ODU, Lemo, GSI и др',
         icon: 'purchase',
     },
 ]
@@ -104,13 +108,41 @@ const advantages = [
     },
 ]
 
+const advantagesMobile = [
+    {
+        title: 'Гарантия подлинности компонентов',
+        content: 'Обеспечиваем аутентичность продукции на этапе квотирования',
+    },
+    {
+        title: 'Проверка соответствия',
+        content: 'Предоставляем фотографии товаров, маркировки и упаковки перед ввозом в РФ',
+    },
+    {
+        title: 'Самостоятельное декларирование',
+        content: 'Осуществляем декларирование комплектующих без привлечения таможенных брокеров',
+    },
+    {
+        title: 'Соблюдение условий транспортировки',
+        content: 'Гарантируем правильные условия транспортировки для сохранения качества компонентов',
+    },
+    {
+        title: 'Поставки для государственных заказов',
+        content: 'Имеем все необходимые лицензии, сертификаты опыт и работы с государственными заказами',
+    },
+    {
+        title: 'Техническая поддержка',
+        content: 'Предоставляем консультации по использованию компонентов, обеспечивая поддержку на всех этапах работы',
+    },
+]
+
 export const Supply = () => {
     const swiperRef = useRef()
     const { isMobile, isTablet } = useDeviceCheck()
     const isMobileOrTablet = isMobile || isTablet
     const handleClick = () => {
         if (swiperRef.current) {
-            swiperRef.current.swiper.slideTo(3)
+            const formSlide = isMobileOrTablet ? 6 : 3
+            swiperRef.current.swiper.slideTo(formSlide)
         }
     }
 
@@ -135,9 +167,12 @@ export const Supply = () => {
             onClick={handleClick}
         />,
         <ServiceSectionBottom servicesWithIcon={servicesWithIconMobile} />,
-        <AdvantagesSection advantages={advantages} />,
-        <AboutSection />,
+        <AdvantagesSectionTop advantages={advantagesMobile.slice(0, 3)} />,
+        <AdvantagesSectionBottom advantages={advantagesMobile.slice(3)} />,
+        <AboutSectionTop />,
+        <AboutSectionBottom />,
         <RequestForm />,
+        <AppFooter />
     ]
 
     const sections = isMobileOrTablet ? mobileSections : laptopSections

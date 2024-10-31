@@ -3,6 +3,7 @@ import { H1, Text } from '../../ui/Typography'
 import { PrimaryButton } from '../../ui/buttons/PrimaryButton'
 import { Service, ServiceWithIcon } from './components/Service'
 import { SearchComponent } from '../Search'
+import { breakpoint } from '../../../lib/theme'
 
 export const ServiceSection = ({ title, description, services, servicesWithIcon, onClick }) => {
     return (
@@ -100,6 +101,20 @@ const ContactButton = styled(PrimaryButton)`
     display: flex;
     justify-content: center;
     align-items: center;
+    ${breakpoint.desktop`
+        width: 230px;
+        height: 190px;
+    `}
+
+    ${breakpoint.tablet`
+        width: 230px;
+        height: 190px;
+    `}
+
+    ${breakpoint.mobile`
+    width: 148px;
+    height: 135px;
+    `}
 `
 
 const ArrowIcon = styled.img`

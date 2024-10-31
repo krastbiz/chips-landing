@@ -1,4 +1,4 @@
-import { Supply } from '../components/pages/SupplyPage/Supply'
+import Contacts from '../components/pages/ContactsPage/Contacts'
 import Head from 'next/head'
 import { getPageCanonical, getPageMetadata } from '../lib/utils/pageHelper'
 
@@ -13,7 +13,7 @@ const ContractPage = () => {
                 {getPageMetadata(pageTitle, pageDescription)}
                 {getPageCanonical(pageRelativeUrl)}
             </Head>
-            <Supply />
+            <Contacts />
         </>
     )
 }

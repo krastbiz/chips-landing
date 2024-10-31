@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { breakpoint } from '../../../lib/theme'
-import { Button } from '../../ui/buttons/Button'
 import { PrimaryButton } from '../../ui/buttons/PrimaryButton'
 import { BaseContentContainer } from '../../ui/layouts'
 import { H2, H3 } from '../../ui/Typography'
@@ -15,6 +14,7 @@ export const RequestForm = ({ defaultValue = '' }) => {
         emailWasSent,
         requestNumber,
         selectedFiles,
+        isMobileOrTablet,
         deleteFile,
         onFormSubmit,
         handleBlur,
@@ -132,7 +132,7 @@ export const RequestForm = ({ defaultValue = '' }) => {
                     </FormWrapper>
                 </RequestFormWrapper>
             </FormSection>
-            <AppFooter />
+            {!isMobileOrTablet && <AppFooter />}
         </>
     )
 }
@@ -142,6 +142,9 @@ const FormSection = styled.section`
     background-size: cover;
     padding-top: 18px;
     padding-bottom: 10px;
+    ${breakpoint.tablet`
+        padding-top: 5px;
+    `}
 `
 const RequestFormWrapper = styled(BaseContentContainer)`
     display: flex;
@@ -156,8 +159,7 @@ const RequestFormWrapper = styled(BaseContentContainer)`
     `}
 
     ${breakpoint.tablet`
-        padding-right: 10px;
-        padding-left: 10px;
+        padding: 10px;
         width: 100%;
     `}
 `
@@ -168,6 +170,11 @@ const ColoredSpan = styled.span`
 
 const FormWrapper = styled.div`
     margin-top: 30px;
+
+    ${breakpoint.tablet`
+        margin-top: 0;
+        width: 100%;
+    `}
 `
 
 const InputsContainer = styled.div`
@@ -179,6 +186,9 @@ const InputsContainer = styled.div`
 const ControlsContainer = styled.div`
     display: flex;
     flex-direction: row;
+    ${breakpoint.tablet`
+flex-direction: column;
+    `}
 `
 
 const ControlContainer = styled(ControlsContainer)`
@@ -187,6 +197,9 @@ const ControlContainer = styled(ControlsContainer)`
 
 const UploadContainer = styled(BaseContentContainer)`
     align-items: flex-start;
+    ${breakpoint.tablet`
+flex-direction: row;
+    `}
 `
 
 const StyledContactForm = styled.form`
@@ -209,6 +222,15 @@ const StyledInput = styled.input`
     padding: 10px;
     opacity: 1;
     color: ${({ theme }) => theme.colors.base};
+    ${breakpoint.desktop`
+        width: 358px;
+    `}
+    ${breakpoint.tablet`
+        width: auto;
+        height: 30px;
+        font-size: 12px;
+    line-height: 16px;
+    `}
 `
 
 const StyledTextarea = styled.textarea`
@@ -231,6 +253,15 @@ const StyledTextarea = styled.textarea`
     &::-webkit-scrollbar {
         display: none;
     }
+    ${breakpoint.desktop`
+        width: 600px;
+    `}
+    ${breakpoint.tablet`
+        width: auto;
+        height: 200px;
+        margin: 0px;
+        margin-top: 10px;
+    `}
 `
 
 const ContactFormSuccessMessage = styled.p`
@@ -241,11 +272,10 @@ const ContactFormSuccessMessage = styled.p`
     width: 800px;
     height: 300px;
     padding: 10px 20px 0;
-`
-
-const ContactFormSuccessMessageButton = styled(Button)`
-    width: 30%;
-    margin-top: 20px;
+    ${breakpoint.tablet`
+        width: auto;
+        height: auto;
+    `}
 `
 
 const ContactFormDescription = styled.p`
@@ -256,6 +286,9 @@ const ContactFormDescription = styled.p`
     width: 428px;
     color: ${({ theme }) => theme.colors.base};
     text-align: start;
+    ${breakpoint.tablet`
+        width: auto;
+    `}
 `
 
 const FileUploadLabel = styled.label`
@@ -267,6 +300,9 @@ const FileUploadLabel = styled.label`
     input[type='file'] {
         display: none;
     }
+    ${breakpoint.tablet`
+        margin-bottom: 0px;
+    `}
 `
 
 const FileUploadText = styled.span`
@@ -283,6 +319,9 @@ const FileUploadText = styled.span`
 
 const StyledH2 = styled(H2)`
     margin-bottom: 20px;
+    ${breakpoint.mobile`
+         margin-bottom: 10px;
+    `}
 `
 
 const AttachedFilesList = styled.ul`
@@ -301,6 +340,9 @@ const AttachedFilesList = styled.ul`
         background-color: ${({ theme }) => theme.colors.grayed};
         border-radius: 4px;
     }
+    ${breakpoint.mobile`
+         width: 120px;
+    `}
 `
 
 const AttachedFileItem = styled.li`

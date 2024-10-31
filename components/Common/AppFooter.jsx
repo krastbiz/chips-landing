@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { breakpoint } from '../../lib/theme'
 import { Container } from '../ui/layouts'
+import { useDeviceCheck } from '../../lib/utils/hooks/useDeviceCheck'
 
 const LINKS = [
     {
@@ -23,14 +24,16 @@ const LINKS = [
 ]
 
 export const AppFooter = () => {
+    const { isMobile, isTablet } = useDeviceCheck()
+    const isMobileOrTablet = isMobile || isTablet
     return (
         <footer>
             <ContainerStyled>
-                <LogoWrapper>
+                {!isMobileOrTablet &&<LogoWrapper>
                     <a href="/">
                         <img src="/static/icons/logo-footer.svg" alt="Логотип подвала" />
                     </a>
-                </LogoWrapper>
+                </LogoWrapper>}
 
                 <FooterInfoWrapper>
                     <div>
@@ -57,7 +60,7 @@ export const AppFooter = () => {
                             </span>
                         </FooterInfoItem>
                     </div>
-                    <div>
+                    <ContactsWrapper>
                         <FooterInfoItem>
                             <div>
                                 <img src="/static/icons/point-icon.svg" alt="phone icon"></img>
@@ -81,7 +84,7 @@ export const AppFooter = () => {
                                 <span>info@e-tim.ru</span>
                             </a>
                         </FooterInfoItem>
-                    </div>
+                    </ContactsWrapper>
                 </FooterInfoWrapper>
 
                 <FooterLinksWrapper>
@@ -117,6 +120,15 @@ const ContainerStyled = styled(Container)`
             display: none;
         }
     `}
+        ${breakpoint.mobile`
+        padding: 20px;
+    `}
+
+    
+`
+
+const ContactsWrapper = styled.div`
+    margin-left: 15px;
 `
 
 const FooterInfoWrapper = styled.div`
@@ -130,6 +142,7 @@ const FooterInfoWrapper = styled.div`
 
     ${breakpoint.tablet`
         margin-bottom: 20px;
+        flex-direction: column;
     `}
 `
 

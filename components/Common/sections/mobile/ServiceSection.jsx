@@ -3,6 +3,7 @@ import { H1, Text } from '../../../ui/Typography'
 import { PrimaryButton } from '../../../ui/buttons/PrimaryButton'
 import { Service, ServiceWithIcon } from '../components/Service'
 import { SearchComponent } from '../../Search'
+import { breakpoint } from '../../../../lib/theme'
 
 export const ServiceSectionTop = ({ title, description, services, onClick }) => {
     return (
@@ -60,6 +61,8 @@ const ServicesWrapper = styled.section`
     display: flex;
     flex-direction: row;
     margin: 0;
+    flex: 1;
+    height: 85%;
 `
 
 const SectionTitle = styled(H1)`
@@ -69,6 +72,11 @@ const SectionTitle = styled(H1)`
 const AboutContainer = styled.div`
     max-width: 52%;
     padding-right: 30px;
+    ${breakpoint.mobile`
+    max-width: 100%;
+    height: 100%;
+    padding-right: 10px;
+    `}
 `
 
 const SupplyText = styled(Text)`
@@ -81,6 +89,9 @@ const PurchasesContainer = styled.div`
     margin-top: 10px;
     justify-content: space-between;
     position: relative;
+        ${breakpoint.mobile`
+    height: 100%;
+    `}
 `
 
 const ServicesContainer = styled.div`
@@ -94,11 +105,12 @@ const ServicesContainerRow = styled(ServicesContainer)`
     max-width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 15px;
 `
 
 const ContactButton = styled(PrimaryButton)`
     width: 148px;
-    height: 129px;
+    height: 135px;
     display: flex;
     justify-content: center;
     align-items: center;
