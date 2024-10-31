@@ -62,7 +62,7 @@ const ServicesWrapper = styled.section`
     flex-direction: row;
     margin: 0;
     flex: 1;
-    height: 85%;
+    height: 80%;
 `
 
 const SectionTitle = styled(H1)`
