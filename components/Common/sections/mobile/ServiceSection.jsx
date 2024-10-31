@@ -87,7 +87,7 @@ const PurchasesContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
         ${breakpoint.mobile`
     height: 100%;
