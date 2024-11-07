@@ -96,7 +96,7 @@ const AppHeader = () => {
 const Header = styled.header`
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 5;
     background-color: ${({ theme }) => theme.colors.background};
     opacity: 0.92;
 

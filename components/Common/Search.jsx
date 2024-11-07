@@ -61,9 +61,15 @@ export const SearchComponent = ({ defaultValue, onSearch, isHomePage = false }) 
 }
 
 const SearchContainer = styled.div`
-    position: relative;
+    position: ${({ isHomePage }) =>  isHomePage ? 'relative' : 'sticky'};
     display: inline-block;
-    border-radius: 5px;
+    top: ${({ isHomePage }) =>  !isHomePage && '75px'};
+    width: 100%;
+    background-color: ${({ theme, isHomePage }) => isHomePage && theme.colors.background};
+    opacity: ${({ isHomePage }) => isHomePage && 0.92};
+    ${breakpoint.tablet`
+        top: ${({ isHomePage }) =>  !isHomePage && '64px'};
+    `}
 `
 
 const SearchInput = styled.input`
@@ -79,7 +85,7 @@ const SearchInput = styled.input`
     width: 550px;
 `}
     ${breakpoint.mobile`
-    width: 280px;
+    width: 100%;
     margin-top: 0;
 `}
 `

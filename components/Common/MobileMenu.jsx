@@ -56,7 +56,7 @@ const MobileMenuWrapper = styled.div`
     padding-top: 10px;
     padding-bottom: 30px;
     background: ${({ theme }) => theme.colors.base};
-    z-index: 1000;
+    z-index: 5;
     transform: ${({ isActive }) => (isActive ? 'translateX(0)' : 'translateX(100%)')};
     transition: transform 0.3s ease-in-out;
 

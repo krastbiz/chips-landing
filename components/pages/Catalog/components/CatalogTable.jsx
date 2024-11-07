@@ -70,6 +70,9 @@ const StyledTable = styled.table`
 const TableHeader = styled.thead`
     background: ${({ theme }) => theme.colors.active};
     color: ${({ theme }) => theme.colors.base};
+    position: sticky;
+    top: 160px;
+    z-index: 5;
 
     th {
         padding: 12px;
@@ -92,12 +95,11 @@ const TableHeader = styled.thead`
     ${breakpoint.tablet`
         display: flex;
         justify-content: space-around;
-        position: sticky;
-        top: 0;
-        z-index: 1;
         padding: 10px;
         background: ${({ theme }) => theme.colors.active};
         color: ${({ theme }) => theme.colors.base};
+        height: 200px;
+        top: 120px;
 
         th {
             display: inline-block;
