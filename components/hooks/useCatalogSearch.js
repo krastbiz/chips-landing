@@ -41,7 +41,8 @@ export const useCatalogSearch = () => {
 
     const handleSearch = useCallback(
         async (value) => {
-            debouncedFetchData(value, 1, sortBy, sortOrder)
+            debouncedFetchData(value || searchValueRef.current, 1, sortBy, sortOrder)
+            searchValueRef.current = value
         },
         [debouncedFetchData, sortBy, sortOrder],
     )

@@ -1,34 +1,16 @@
 import styled from 'styled-components'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-
 import { Button } from '../../../ui/buttons/Button'
 import { Text } from '../../../ui/Typography'
+import { breakpoint } from '../../../../lib/theme'
+import { useDeviceCheck } from '../../../../lib/utils/hooks/useDeviceCheck'
 
 export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder, handleScroll }) => {
-    const [localSortBy, setLocalSortBy] = useState(sortBy)
-    const [localSortOrder, setLocalSortOrder] = useState(sortOrder)
-
-    useEffect(() => {
-        if (!sortBy) {
-            setLocalSortBy('brand')
-            setLocalSortOrder('asc')
-        }
-    }, [sortBy])
-
-    const handleSort = (field) => {
-        let newOrder = 'asc'
-        if (localSortBy === field && localSortOrder === 'asc') {
-            newOrder = 'desc'
-        }
-        setLocalSortBy(field)
-        setLocalSortOrder(newOrder)
-        onSort(field, newOrder)
-    }
+    const { isMobile, isTablet } = useDeviceCheck()
+    const isMobileOrTablet = isMobile || isTablet
 
     const renderSortIcon = (field) => {
-        if (localSortBy !== field) return null
-        return localSortOrder === 'asc' ? '▼' : '▲'
+        if (sortBy !== field) return null
+        return sortOrder === 'asc' ? '▼' : '▲'
     }
 
     return (
@@ -36,11 +18,11 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder, ha
             <StyledTable>
                 <TableHeader>
                     <tr>
-                        <th onClick={() => handleSort('brand')}>Производитель {renderSortIcon('brand')}</th>
-                        <th onClick={() => handleSort('partnumber')}>Компонент {renderSortIcon('partnumber')}</th>
+                        <th onClick={() => onSort('brand')}>Производитель {renderSortIcon('brand')}</th>
+                        <th onClick={() => onSort('partnumber')}>Компонент {renderSortIcon('partnumber')}</th>
                         <th>Доступно</th>
                         <th>Срок</th>
-                        <th>Заказать</th>
+                        {!isMobileOrTablet && <th>Заказать</th>}
                     </tr>
                 </TableHeader>
                 {!data.length && !loading ? (
@@ -49,11 +31,11 @@ export const CatalogTable = ({ data = [], loading, onSort, sortBy, sortOrder, ha
                     <tbody>
                         {data.map((item, index) => (
                             <TableRow key={index}>
-                                <td>{item.brand}</td>
-                                <td>{item.partnumber}</td>
-                                <td>{item.available}</td>
-                                <td>{item.leadtime}</td>
-                                <td>
+                                <td data-label="Производитель">{item.brand}</td>
+                                <td data-label="Компонент">{item.partnumber}</td>
+                                <td data-label="Доступно">{item.available}</td>
+                                <td data-label="Срок">{item.leadtime}</td>
+                                <td data-label="Заказать">
                                     <Button
                                         onClick={() =>
                                             handleScroll(`Производитель ${item.brand}, партномер ${item.partnumber}`)
@@ -79,26 +61,51 @@ const StyledTable = styled.table`
     font-family: ${({ theme }) => theme.fonts.velasansmed};
     font-size: 16px;
     margin-top: 20px;
+
+    ${breakpoint.tablet`
+        display: block;
+    `}
 `
 
 const TableHeader = styled.thead`
     background: ${({ theme }) => theme.colors.active};
-    color: white;
+    color: ${({ theme }) => theme.colors.base};
 
     th {
         padding: 12px;
         text-align: left;
-        border-bottom: 2px solid #ddd;
+        border-bottom: 2px solid ${({ theme }) => theme.colors.border};
         cursor: pointer;
         user-select: none;
     }
-    th:first-child {
-        width: 250px;
+
+    @media (min-width: ${breakpoint.tablet}) {
+        th:first-child {
+            width: 250px;
+        }
+
+        th:nth-child(2) {
+            width: 300px;
+        }
     }
 
-    th:nth-child(2) {
-        width: 300px;
-    }
+    ${breakpoint.tablet`
+        display: flex;
+        justify-content: space-around;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 10px;
+        background: ${({ theme }) => theme.colors.active};
+        color: ${({ theme }) => theme.colors.base};
+
+        th {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+    `}
 `
 
 const TableRow = styled.tr`
@@ -110,10 +117,34 @@ const TableRow = styled.tr`
 
     td {
         padding: 12px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid ${({ theme }) => theme.colors.border};
         text-align: left;
         max-width: 288px;
     }
+
+    ${breakpoint.tablet`
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid ${({ theme }) => theme.colors.border};
+        border-radius: 5px;
+        background-color: ${({ theme }) => theme.colors.base};
+
+        td {
+            display: block;
+            text-align: right;
+            padding: 8px 0;
+            border: none;
+            max-width: none;
+
+            &:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: ${({ theme }) => theme.colors.textGray};
+            }
+        }
+    `}
 `
 
 const EmptySearchText = styled(Text)`
@@ -126,3 +157,4 @@ const LoadingText = styled.p`
     margin-top: 20px;
     font-size: 16px;
 `
+

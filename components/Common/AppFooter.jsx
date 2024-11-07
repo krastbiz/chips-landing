@@ -106,7 +106,7 @@ const ContainerStyled = styled(Container)`
     padding: 30px 100px;
     background-color: ${({ theme }) => theme.colors.background};
     opacity: 0.9;
-    color: ${({ theme }) => theme.colors.light};
+    color: ${({ theme }) => theme.colors.base};
 
     ${breakpoint.laptop`
         padding: 100px 60px;

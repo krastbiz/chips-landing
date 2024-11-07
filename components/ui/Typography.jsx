@@ -3,7 +3,7 @@ import { breakpoint } from '../../lib/theme'
 
 export const H1 = styled.h1`
     font-family: ${({ theme }) => theme.fonts.montserrat};
-    color: ${({ theme }) => theme.colors.light};
+    color: ${({ theme }) => theme.colors.base};
     font-weight: bold;
     font-size: 45px;
     line-height: 61px;
