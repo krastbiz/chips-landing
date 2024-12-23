@@ -140,7 +140,7 @@ export const RequestForm = ({ defaultValue = '' }) => {
 const FormSection = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
-    padding-top: 18px;
+    padding-top: 30px;
     padding-bottom: 10px;
     ${breakpoint.tablet`
         padding-top: 5px;
@@ -151,7 +151,7 @@ const RequestFormWrapper = styled(BaseContentContainer)`
     flex-direction: column;
     max-width: 90%;
     margin: 0 auto;
-    padding: 50px 40px 20px;
+    padding: 30px 40px 20px;
     opacity: 0.9;
 
     ${breakpoint.desktop`
@@ -243,7 +243,7 @@ const StyledTextarea = styled.textarea`
     border-radius: 30px;
     border: 1px solid ${({ theme }) => theme.colors.grayed};
     width: 800px;
-    height: 345px;
+    height: 40vh;
     padding: 10px 20px 0;
     box-sizing: border-box;
     margin-left: 15px;

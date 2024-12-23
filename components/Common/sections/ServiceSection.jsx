@@ -53,12 +53,14 @@ const DescriptionWrapper = styled.div`
 const ServicesWrapper = styled.section`
     background: url('/static/images/main-bg.jpeg') center no-repeat;
     background-size: cover;
-    padding: 110px 32px;
+    padding: 100px 32px 80px;
     border-radius: 35px;
     display: flex;
+    align-items: flex-end;
     flex-direction: row;
     max-width: 98%;
     margin: 0 auto;
+    height: 100vh;
 `
 
 const SectionTitle = styled(H1)`
@@ -67,6 +69,7 @@ const SectionTitle = styled(H1)`
 
 const AboutContainer = styled.div`
     max-width: 52%;
+    min-width: 48%;
     padding-right: 30px;
 `
 

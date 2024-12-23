@@ -20,12 +20,19 @@ const Section = styled.section`
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+    height: 100vh;
+    padding-top: 30px;
 `
 
 const Title = styled(H1)`
     align-items: flex-start;
-    padding: 20px 0 40px 150px;
-    margin-bottom: 30px;
+    padding-left: 150px;
+    margin-bottom: 40px;
 `
 
-const AdvantagesContainer = styled.div``
+const AdvantagesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70vh;
+`

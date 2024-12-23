@@ -78,7 +78,7 @@ const SearchInput = styled.input`
     padding-right: 40px;
     border: 1px solid ${({ theme }) => theme.colors.main};
     border-radius: 5px;
-    width: 750px;
+    width: 100%;
     box-sizing: border-box;
     margin: 20px 0;
     ${breakpoint.desktop`

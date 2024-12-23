@@ -75,10 +75,15 @@ export const ValuesItem = ({ title, content }) => {
 const AboutSectionContainer = styled.section`
     max-width: 90%;
     margin: 0 auto;
+    padding-top: 30px;
 `
 
 const AboutContainer = styled(BaseContentContainer)`
     padding: 15px 25px;
+        display: flex;
+    flex-direction: column;
+        justify-content: space-between;
+    height: 85vh;
 `
 const ValueContainer = styled.div`
     display: flex;
@@ -88,7 +93,6 @@ const ValueContainer = styled.div`
 const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
     width: 100%;
 `
 

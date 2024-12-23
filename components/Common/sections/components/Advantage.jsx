@@ -22,7 +22,6 @@ const AdvantageWrapper = styled.div`
     height: 80px;
     max-width: 85%;
     margin: 0 auto;
-    margin-bottom: 40px;
     ${breakpoint.mobile`
     height: 130px;
     margin: 0px 10px 20px;
