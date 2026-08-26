@@ -77,7 +77,6 @@ const Home = () => {
                 <Section
                     id="quality"
                     images={[
-                        { url: '/static/images/chip-7.jpeg', alt: 'Изображение чипа' },
                         { url: '/static/images/chip-8.jpeg', alt: 'Изображение чипа' },
                     ]}
                     title="КОНТРОЛЬ КАЧЕСТВА"
