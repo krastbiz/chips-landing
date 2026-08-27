@@ -6,8 +6,9 @@ export const MainSection = styled.section`
     margin-bottom: 64px;
     position: relative;
     padding: 80px 64px;
-    background: url('/static/images/main-bg.jpg') center no-repeat;
-    background-size: cover;
+    // background: url('/static/images/main-bg.jpg') center no-repeat;
+    // background-size: cover;
+    background: linear-gradient(135deg, #050403 0%, #1a0e07 35%, #5c350c 68%, #d6a91c 100%);
     overflow: hidden;
 
     ::before {
